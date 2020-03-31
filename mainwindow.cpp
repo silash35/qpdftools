@@ -8,15 +8,19 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->stackedWidget->setCurrentIndex(0);
+
     ui->tbtn_compress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    ui->tbtn_compress->setIcon(QIcon::fromTheme("document-save"));
+    ui->tbtn_compress->setIcon(QIcon::fromTheme("application-x-tarz"));
     ui->tbtn_compress->setText("Compress a PDF file");
     ui->tbtn_compress->setIconSize(QSize(50,50));
 
     ui->tbtn_split->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    ui->tbtn_split->setIcon(QIcon::fromTheme("document-save"));
+    ui->tbtn_split->setIcon(QIcon::fromTheme("edit-cut"));
     ui->tbtn_split->setText("Split a PDF file");
     ui->tbtn_split->setIconSize(QSize(50,50));
+
+    ui->tbnt_return->setIcon(QIcon::fromTheme("go-previous"));
 
 }
 
@@ -34,4 +38,14 @@ void MainWindow::on_tbtn_compress_clicked()
 void MainWindow::on_tbtn_split_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_tbnt_return_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_btn_selectFile_clicked()
+{
+
 }

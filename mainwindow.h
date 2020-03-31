@@ -20,6 +20,10 @@ private slots:
 
     void on_tbtn_split_clicked();
 
+    void on_tbnt_return_clicked();
+
+    void on_btn_selectFile_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

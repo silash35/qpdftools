@@ -93,9 +93,12 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
-           <widget class="QToolButton" name="toolButton">
+           <widget class="QToolButton" name="tbnt_return">
             <property name="text">
              <string>...</string>
+            </property>
+            <property name="shortcut">
+             <string>Esc</string>
             </property>
            </widget>
           </item>
@@ -117,55 +120,48 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="btn_selectFile">
             <property name="text">
              <string>Select PDF</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="ln_file"/>
           </item>
          </layout>
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox">
           <property name="title">
-           <string>GroupBox</string>
+           <string>Select the compression mode:</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
-            <widget class="QRadioButton" name="radioButton_3">
+            <widget class="QRadioButton" name="rbtn_screen">
              <property name="text">
-              <string>RadioButton</string>
+              <string>Super low resolution (Screen Optimized)</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_5">
+            <widget class="QRadioButton" name="rbtn_ebook">
              <property name="text">
-              <string>RadioButton</string>
+              <string>Low resolution (For Ebooks)</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_7">
+            <widget class="QRadioButton" name="rbtn_printer">
              <property name="text">
-              <string>RadioButton</string>
+              <string>Normal resolution (For printing)</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_6">
+            <widget class="QRadioButton" name="rbtn_prepress">
              <property name="text">
-              <string>RadioButton</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="radioButton_4">
-             <property name="text">
-              <string>RadioButton</string>
+              <string>High resolution</string>
              </property>
             </widget>
            </item>
@@ -188,7 +184,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QToolButton" name="toolButton_2">
+           <widget class="QToolButton" name="tbtn_compressPdf">
             <property name="text">
              <string>...</string>
             </property>
