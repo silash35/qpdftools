@@ -24,6 +24,8 @@ private slots:
 
     void on_btn_selectFile_clicked();
 
+    void on_tbtn_compressPdf_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
