@@ -43,6 +43,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->spinBox_fistPage->setMinimum(1);
     ui->rbtn_splitRange->setChecked(true);
 
+    ui->label_status_2->hide();
+    ui->label_status->hide();
+
 }
 
 MainWindow::~MainWindow()
@@ -77,6 +80,9 @@ void MainWindow::on_btn_selectFile_clicked()
 void MainWindow::on_tbtn_pdfCompress_clicked()
 {
 
+    ui->label_status_2->setText("Processing");
+    ui->label_status_2->show();
+
     command = "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/";
 
     if(ui->rbtn_screen->isChecked()){
@@ -95,6 +101,9 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
 
     qDebug() << command;
     QProcess::execute(command);
+
+    ui->label_status_2->setText("Success!");
+
 }
 
 void MainWindow::on_tbnt_return_2_clicked()
@@ -133,14 +142,24 @@ void MainWindow::on_spinBox_fistPage_valueChanged(int arg1)
 
 void MainWindow::on_tbtn_pdfSplit_clicked()
 {
-    if(ui->rbtn_extractAll->isChecked()){
-        command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o  -sOutputFile=";
-        command = command + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf ";
-        command = command + ui->ln_file_2->text();
-    }else{
 
+    ui->label_status_2->setText("Processing");
+    ui->label_status_2->show();
+
+    if(ui->rbtn_extractAll->isChecked()){
+        command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o "
+        + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf "
+        + ui->ln_file_2->text();
+    }else if(ui->rbtn_splitRange->isChecked()){
+        command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=" + ui->spinBox_fistPage->text()
+        + " -dLastPage=" + ui->spinBox_lastPage->text()
+        + " -sOutputFile=" + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
+        + " " + ui->ln_file_2->text();
     }
 
     qDebug() << command;
     QProcess::execute(command);
+
+    ui->label_status_2->setText("Success!");
+
 }
