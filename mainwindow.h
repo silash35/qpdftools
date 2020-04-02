@@ -15,6 +15,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    QString command = "";
+
 private slots:
     void on_tbtn_compress_clicked();
 
@@ -24,7 +26,19 @@ private slots:
 
     void on_btn_selectFile_clicked();
 
-    void on_tbtn_compressPdf_clicked();
+    void on_tbtn_pdfCompress_clicked();
+
+    void on_tbnt_return_2_clicked();
+
+    void on_btn_selectFile_2_clicked();
+
+    void on_rbtn_extractAll_clicked();
+
+    void on_rbtn_splitRange_clicked();
+
+    void on_spinBox_fistPage_valueChanged(int arg1);
+
+    void on_tbtn_pdfSplit_clicked();
 
 private:
     Ui::MainWindow *ui;
