@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_split->setIconSize(QSize(50,50));
 
     ui->tbnt_return->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbnt_return_2->setIcon(QIcon::fromTheme("go-previous"));
 
     ui->tbtn_compressPdf->setIcon(QIcon::fromTheme("zoom-out"));
     ui->tbtn_compressPdf->setIconSize(QSize(30,30));

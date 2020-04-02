@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_menu">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -211,8 +211,8 @@
        <widget class="QCheckBox" name="checkBox">
         <property name="geometry">
          <rect>
-          <x>130</x>
-          <y>160</y>
+          <x>9</x>
+          <y>233</y>
           <width>85</width>
           <height>24</height>
          </rect>
@@ -224,8 +224,8 @@
        <widget class="QRadioButton" name="radioButton">
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>220</y>
+          <x>9</x>
+          <y>263</y>
           <width>102</width>
           <height>24</height>
          </rect>
@@ -237,8 +237,8 @@
        <widget class="QRadioButton" name="radioButton_2">
         <property name="geometry">
          <rect>
-          <x>220</x>
-          <y>130</y>
+          <x>9</x>
+          <y>203</y>
           <width>102</width>
           <height>24</height>
          </rect>
@@ -246,6 +246,63 @@
         <property name="text">
          <string>RadioButton</string>
         </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>106</y>
+          <width>213</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QPushButton" name="btn_selectFile_2">
+           <property name="text">
+            <string>Select PDF</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ln_file_2"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>9</y>
+          <width>73</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QToolButton" name="tbnt_return_2">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="shortcut">
+            <string>Esc</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </widget>
       </widget>
      </widget>
