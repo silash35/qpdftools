@@ -15,20 +15,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QString command = "";
-
 private slots:
     void on_tbtn_compress_clicked();
 
     void on_tbtn_split_clicked();
 
-    void on_tbnt_return_clicked();
+    void on_tbnt_return1_clicked();
 
     void on_btn_selectFile_clicked();
 
     void on_tbtn_pdfCompress_clicked();
 
-    void on_tbnt_return_2_clicked();
+    void on_tbnt_return2_clicked();
 
     void on_btn_selectFile_2_clicked();
 
@@ -40,7 +38,24 @@ private slots:
 
     void on_tbtn_pdfSplit_clicked();
 
+    void on_tbtn_merge_clicked();
+
+    void on_tbtn_rotate_clicked();
+
+    void on_tbnt_return3_clicked();
+
+    void on_btn_Madd_clicked();
+
+    void on_btn_Mrm_clicked();
+
+    void on_btn_Mup_clicked();
+
+    void on_btn_Mdown_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    QString command = "";
+
 };
 #endif // MAINWINDOW_H

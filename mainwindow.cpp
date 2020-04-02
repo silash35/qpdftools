@@ -27,8 +27,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_split->setText("Split a PDF file");
     ui->tbtn_split->setIconSize(QSize(50,50));
 
-    ui->tbnt_return->setIcon(QIcon::fromTheme("go-previous"));
-    ui->tbnt_return_2->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbtn_merge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    ui->tbtn_merge->setIcon(QIcon::fromTheme("merge"));
+    ui->tbtn_merge->setText("Merge PDF files");
+    ui->tbtn_merge->setIconSize(QSize(50,50));
+
+    ui->tbtn_rotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    ui->tbtn_rotate->setIcon(QIcon::fromTheme("object-rotate-right"));
+    ui->tbtn_rotate->setText("Rotate a PDF file");
+    ui->tbtn_rotate->setIconSize(QSize(50,50));
+
+    ui->tbnt_return1->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbnt_return2->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbnt_return3->setIcon(QIcon::fromTheme("go-previous"));
 
     ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
     ui->tbtn_pdfCompress->setIconSize(QSize(30,30));
@@ -46,6 +57,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_status_2->hide();
     ui->label_status->hide();
 
+    ui->btn_Madd->setIcon(QIcon::fromTheme("list-add"));
+    ui->btn_Madd->setIconSize(QSize(30,30));
+    ui->btn_Madd->setToolTip("Click to add a PDF file");
+
+    ui->btn_Mrm->setIcon(QIcon::fromTheme("list-remove"));
+    ui->btn_Mrm->setIconSize(QSize(30,30));
+    ui->btn_Mrm->setToolTip("Click to remove a PDF file");
+
+    ui->btn_Mup->setIcon(QIcon::fromTheme("go-up"));
+    ui->btn_Mup->setIconSize(QSize(30,30));
+    ui->btn_Mup->setToolTip("Click to change the merge order");
+
+    ui->btn_Mdown->setIcon(QIcon::fromTheme("go-down"));
+    ui->btn_Mdown->setIconSize(QSize(30,30));
+    ui->btn_Mdown->setToolTip("Click to change the merge order");
+
 }
 
 MainWindow::~MainWindow()
@@ -53,7 +80,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+//Menu buttons
 void MainWindow::on_tbtn_compress_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -64,7 +91,17 @@ void MainWindow::on_tbtn_split_clicked()
     ui->stackedWidget->setCurrentIndex(2);
 }
 
-void MainWindow::on_tbnt_return_clicked()
+void MainWindow::on_tbtn_merge_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_tbtn_rotate_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_tbnt_return1_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -106,7 +143,7 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
 
 }
 
-void MainWindow::on_tbnt_return_2_clicked()
+void MainWindow::on_tbnt_return2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -162,4 +199,53 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
 
     ui->label_status_2->setText("Success!");
 
+}
+
+void MainWindow::on_tbnt_return3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_btn_Madd_clicked()
+{
+    ui->list_toMerge->addItem(QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+}
+
+void MainWindow::on_btn_Mrm_clicked()
+{
+    delete ui->list_toMerge->takeItem(ui->list_toMerge->row(ui->list_toMerge->currentItem()));
+}
+void MainWindow::on_btn_Mup_clicked()
+{
+    int currentRow = ui->list_toMerge->currentRow();
+    qDebug() << currentRow;
+
+    if(currentRow != 0){
+        QString aux = ui->list_toMerge->item(currentRow - 1)->text();
+
+        ui->list_toMerge->item(currentRow - 1)->setText(ui->list_toMerge->item(currentRow)->text());
+        ui->list_toMerge->item(currentRow)->setText(aux);
+
+        ui->list_toMerge->setCurrentRow(currentRow - 1);
+    }
+
+    ui->list_toMerge->update();
+}
+
+void MainWindow::on_btn_Mdown_clicked()
+{
+    int currentRow = ui->list_toMerge->currentRow();
+
+    qDebug() << currentRow;
+
+    if(currentRow != 0){
+        QString aux = ui->list_toMerge->item(currentRow - 1)->text();
+
+        ui->list_toMerge->item(currentRow - 1)->setText(ui->list_toMerge->item(currentRow)->text());
+        ui->list_toMerge->item(currentRow)->setText(aux);
+
+        ui->list_toMerge->setCurrentRow(currentRow - 1);
+    }
+
+    ui->list_toMerge->update();
 }
