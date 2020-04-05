@@ -136,14 +136,18 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
         command = command + "printer ";
     }else if(ui->rbtn_prepress->isChecked()){
         command = command + "prepress ";
+    }else{
+        QMessageBox::warning(this,"Warning","You need to select a compression mode");
+        command.clear();
+        return;
     }
 
-    command = command + "-dNOPAUSE -dQUIET -dBATCH -sOutputFile='";
+    command = command + "-dNOPAUSE -dBATCH -sOutputFile='";
     command = command + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
     command = command + ui->ln_file->text() + "'";
 
     qDebug() << command;
-    QProcess::execute(command);
+    system(qPrintable(command));
 
     ui->label_status_2->setText("Success!");
 
@@ -201,7 +205,7 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
     }
 
     qDebug() << command;
-    QProcess::execute(command);
+    system(qPrintable(command));
 
     ui->label_status_2->setText("Success!");
 
@@ -275,5 +279,5 @@ void MainWindow::on_tbtn_pdfMerge_clicked()
     }
 
     qDebug() << command;
-    QProcess::execute(command);
+    system(qPrintable(command));
 }
