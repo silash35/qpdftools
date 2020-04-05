@@ -52,6 +52,8 @@ private slots:
 
     void on_btn_Mdown_clicked();
 
+    void on_tbtn_pdfMerge_clicked();
+
 private:
     Ui::MainWindow *ui;
 

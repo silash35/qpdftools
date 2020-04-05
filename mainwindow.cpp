@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 #include <QFileDialog>
 #include <QProcess>
 #include <QDebug>
@@ -50,6 +51,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_pdfSplit->setIconSize(QSize(30,30));
     ui->tbtn_pdfSplit->setText("Split PDF");
     ui->tbtn_pdfSplit->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
+    ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
+    ui->tbtn_pdfMerge->setIconSize(QSize(30,30));
+    ui->tbtn_pdfMerge->setText("Merge PDF");
+    ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     ui->spinBox_fistPage->setMinimum(1);
     ui->rbtn_splitRange->setChecked(true);
@@ -132,9 +138,9 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
         command = command + "prepress ";
     }
 
-    command = command + "-dNOPAUSE -dQUIET -dBATCH -sOutputFile=";
-    command = command + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + " ";
-    command = command + ui->ln_file->text();
+    command = command + "-dNOPAUSE -dQUIET -dBATCH -sOutputFile='";
+    command = command + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
+    command = command + ui->ln_file->text() + "'";
 
     qDebug() << command;
     QProcess::execute(command);
@@ -184,14 +190,14 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
     ui->label_status_2->show();
 
     if(ui->rbtn_extractAll->isChecked()){
-        command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o "
-        + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf "
-        + ui->ln_file_2->text();
+        command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o '"
+        + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' '"
+        + ui->ln_file_2->text() + "'";
     }else if(ui->rbtn_splitRange->isChecked()){
         command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=" + ui->spinBox_fistPage->text()
         + " -dLastPage=" + ui->spinBox_lastPage->text()
-        + " -sOutputFile=" + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
-        + " " + ui->ln_file_2->text();
+        + " -sOutputFile='" + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
+        + "' '" + ui->ln_file_2->text() + "'";
     }
 
     qDebug() << command;
@@ -208,19 +214,24 @@ void MainWindow::on_tbnt_return3_clicked()
 
 void MainWindow::on_btn_Madd_clicked()
 {
-    ui->list_toMerge->addItem(QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    QString aux = QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)");
+    if(aux[0]=='/'){
+        ui->list_toMerge->addItem(aux);
+    }
 }
 
 void MainWindow::on_btn_Mrm_clicked()
 {
-    delete ui->list_toMerge->takeItem(ui->list_toMerge->row(ui->list_toMerge->currentItem()));
+    if( (ui->list_toMerge->currentRow()>=0) and (ui->list_toMerge->count()>0)){
+        delete ui->list_toMerge->takeItem(ui->list_toMerge->row(ui->list_toMerge->currentItem()));
+    }
 }
+
 void MainWindow::on_btn_Mup_clicked()
 {
     int currentRow = ui->list_toMerge->currentRow();
-    qDebug() << currentRow;
 
-    if(currentRow != 0){
+    if(currentRow > 0){
         QString aux = ui->list_toMerge->item(currentRow - 1)->text();
 
         ui->list_toMerge->item(currentRow - 1)->setText(ui->list_toMerge->item(currentRow)->text());
@@ -236,16 +247,33 @@ void MainWindow::on_btn_Mdown_clicked()
 {
     int currentRow = ui->list_toMerge->currentRow();
 
-    qDebug() << currentRow;
+    if( (currentRow>=0) and (ui->list_toMerge->count()>0) and (ui->list_toMerge->count()!=(currentRow+1)) ){
+        QString aux = ui->list_toMerge->item(currentRow + 1)->text();
 
-    if(currentRow != 0){
-        QString aux = ui->list_toMerge->item(currentRow - 1)->text();
-
-        ui->list_toMerge->item(currentRow - 1)->setText(ui->list_toMerge->item(currentRow)->text());
+        ui->list_toMerge->item(currentRow + 1)->setText(ui->list_toMerge->item(currentRow)->text());
         ui->list_toMerge->item(currentRow)->setText(aux);
 
-        ui->list_toMerge->setCurrentRow(currentRow - 1);
+        ui->list_toMerge->setCurrentRow(currentRow + 1);
     }
 
     ui->list_toMerge->update();
+}
+
+void MainWindow::on_tbtn_pdfMerge_clicked()
+{
+
+    if(ui->list_toMerge->count()>1){
+        command = "gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE='"
+        + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
+        + "' -dBATCH";
+        for(int i = 0; i < ui->list_toMerge->count(); i++){
+            command = command + " '" + ui->list_toMerge->item(i)->text() + "'";
+        }
+    }else{
+        QMessageBox::warning(this,"Warning","You need to add two or more files to be able to merge them");
+        command.clear();
+    }
+
+    qDebug() << command;
+    QProcess::execute(command);
 }
