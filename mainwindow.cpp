@@ -80,13 +80,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn_Mdown->setIconSize(QSize(30,30));
     ui->btn_Mdown->setToolTip("Click to change the merge order");
 
-    ui->btn_left->setIcon(QIcon::fromTheme("go-up"));
+    ui->btn_left->setIcon(QIcon::fromTheme("object-rotate-left"));
     ui->btn_left->setIconSize(QSize(30,30));
     ui->btn_left->setToolTip("click to rotate the PDF 90 degrees to the left");
 
-    ui->btn_righ->setIcon(QIcon::fromTheme("go-up"));
-    ui->btn_righ->setIconSize(QSize(30,30));
-    ui->btn_righ->setToolTip("click to rotate the PDF 90 degrees to the right");
+    ui->btn_right->setIcon(QIcon::fromTheme("object-rotate-right"));
+    ui->btn_right->setIconSize(QSize(30,30));
+    ui->btn_right->setToolTip("click to rotate the PDF 90 degrees to the right");
+
+    ui->btn_left->hide();
+    ui->btn_right->hide();
+    ui->label_pdfIcon->hide();
+
+    ui->tbtn_pdfRotate->setIcon(QIcon::fromTheme("object-rotate-right"));
+    ui->tbtn_pdfRotate->setIconSize(QSize(30,30));
+    ui->tbtn_pdfRotate->setText("Rotate PDF");
+    ui->tbtn_pdfRotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
 }
 
@@ -306,15 +315,25 @@ void MainWindow::on_btn_selectFile_4_clicked()
 
 void MainWindow::on_ln_file_4_textChanged(const QString &arg1)
 {
+    if(QFile::exists(arg1)){
+        ui->btn_left->show();
+        ui->btn_right->show();
+        ui->label_pdfIcon->show();
 
-    command = "gs -q -o '";
-    command += PDFCOVERPATH;
-    command += "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
-    qDebug() << command;
-    system(qPrintable(command));
+        command = "gs -q -o '";
+        command += PDFCOVERPATH;
+        command += "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
+        qDebug() << command;
+        system(qPrintable(command));
 
-    QPixmap pdfIcon(PDFCOVERPATH);
-    ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+        QPixmap pdfIcon(PDFCOVERPATH);
+        ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+    }else{
+        ui->btn_left->hide();
+        ui->btn_right->hide();
+        ui->label_pdfIcon->hide();
+        command.clear();
+    }
 
 }
 
@@ -333,7 +352,7 @@ void MainWindow::on_btn_left_clicked()
     ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
 }
 
-void MainWindow::on_btn_righ_clicked()
+void MainWindow::on_btn_right_clicked()
 {
     if(rotate >= 360){
         rotate = 0;
@@ -346,4 +365,22 @@ void MainWindow::on_btn_righ_clicked()
     QPixmap pdfIcon(PDFCOVERPATH);
     pdfIcon = QPixmap(pdfIcon.transformed(rote));
     ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+}
+
+void MainWindow::on_tbtn_pdfRotate_clicked()
+{
+    if(ui->list_toMerge->count()>1){
+        command = "gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE='"
+        + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
+        + "' -dBATCH";
+        for(int i = 0; i < ui->list_toMerge->count(); i++){
+            command = command + " '" + ui->list_toMerge->item(i)->text() + "'";
+        }
+    }else{
+        QMessageBox::warning(this,"Warning","You need to add two or more files to be able to merge them");
+        command.clear();
+    }
+
+    qDebug() << command;
+    system(qPrintable(command));
 }

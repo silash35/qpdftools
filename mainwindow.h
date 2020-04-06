@@ -64,7 +64,9 @@ private slots:
 
     void on_btn_left_clicked();
 
-    void on_btn_righ_clicked();
+    void on_btn_right_clicked();
+
+    void on_tbtn_pdfRotate_clicked();
 
 private:
     Ui::MainWindow *ui;
