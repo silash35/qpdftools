@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QMessageBox>
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QProcess>
 #include <QDebug>
 #include <QDir>
@@ -38,9 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_rotate->setText("Rotate a PDF file");
     ui->tbtn_rotate->setIconSize(QSize(50,50));
 
-    ui->tbnt_return1->setIcon(QIcon::fromTheme("go-previous"));
-    ui->tbnt_return2->setIcon(QIcon::fromTheme("go-previous"));
-    ui->tbnt_return3->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbtn_return2->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbtn_return3->setIcon(QIcon::fromTheme("go-previous"));
+    ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
 
     ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
     ui->tbtn_pdfCompress->setIconSize(QSize(30,30));
@@ -79,6 +80,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn_Mdown->setIconSize(QSize(30,30));
     ui->btn_Mdown->setToolTip("Click to change the merge order");
 
+    ui->btn_left->setIcon(QIcon::fromTheme("go-up"));
+    ui->btn_left->setIconSize(QSize(30,30));
+    ui->btn_left->setToolTip("click to rotate the PDF 90 degrees to the left");
+
+    ui->btn_righ->setIcon(QIcon::fromTheme("go-up"));
+    ui->btn_righ->setIconSize(QSize(30,30));
+    ui->btn_righ->setToolTip("click to rotate the PDF 90 degrees to the right");
+
 }
 
 MainWindow::~MainWindow()
@@ -107,7 +116,7 @@ void MainWindow::on_tbtn_rotate_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
-void MainWindow::on_tbnt_return1_clicked()
+void MainWindow::on_tbtn_return1_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -153,7 +162,7 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
 
 }
 
-void MainWindow::on_tbnt_return2_clicked()
+void MainWindow::on_tbtn_return2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -211,7 +220,7 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
 
 }
 
-void MainWindow::on_tbnt_return3_clicked()
+void MainWindow::on_tbtn_return3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -280,4 +289,61 @@ void MainWindow::on_tbtn_pdfMerge_clicked()
 
     qDebug() << command;
     system(qPrintable(command));
+}
+
+void MainWindow::on_tbtn_return4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_btn_selectFile_4_clicked()
+{
+    ui->ln_file_4->clear();
+    ui->ln_file_4->setText(
+    QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    ui->ln_file_4->setFocus();
+}
+
+void MainWindow::on_ln_file_4_textChanged(const QString &arg1)
+{
+
+    command = "gs -q -o '";
+    command += PDFCOVERPATH;
+    command += "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
+    qDebug() << command;
+    system(qPrintable(command));
+
+    QPixmap pdfIcon(PDFCOVERPATH);
+    ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+
+}
+
+void MainWindow::on_btn_left_clicked()
+{
+    if(rotate <= 0){
+        rotate = 360;
+    }
+
+    rotate -= 90;
+    QTransform rote;
+    rote = rote.rotate(rotate);
+
+    QPixmap pdfIcon(PDFCOVERPATH);
+    pdfIcon = QPixmap(pdfIcon.transformed(rote));
+    ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+}
+
+void MainWindow::on_btn_righ_clicked()
+{
+    if(rotate >= 360){
+        rotate = 0;
+    }
+
+    rotate += 90;
+    QTransform rote;
+    rote = rote.rotate(rotate);
+
+    QPixmap pdfIcon(PDFCOVERPATH);
+    pdfIcon = QPixmap(pdfIcon.transformed(rote));
+    ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
 }
