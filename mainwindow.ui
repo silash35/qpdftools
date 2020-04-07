@@ -146,14 +146,14 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="QPushButton" name="btn_selectFile">
+           <widget class="QPushButton" name="btn_selectFile1">
             <property name="text">
              <string>Select PDF</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="ln_file"/>
+           <widget class="QLineEdit" name="ln_file1"/>
           </item>
          </layout>
         </item>
@@ -195,7 +195,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_status">
+         <widget class="QLabel" name="label_status1">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -275,14 +275,14 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QPushButton" name="btn_selectFile_2">
+           <widget class="QPushButton" name="btn_selectFile2">
             <property name="text">
              <string>Select PDF</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="ln_file_2"/>
+           <widget class="QLineEdit" name="ln_file2"/>
           </item>
          </layout>
         </item>
@@ -399,7 +399,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_status_2">
+         <widget class="QLabel" name="label_status2">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -525,6 +525,16 @@
          </layout>
         </item>
         <item>
+         <widget class="QLabel" name="label_status3">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_12">
           <item>
            <spacer name="horizontalSpacer_12">
@@ -595,14 +605,14 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_16">
           <item>
-           <widget class="QPushButton" name="btn_selectFile_4">
+           <widget class="QPushButton" name="btn_selectFile4">
             <property name="text">
              <string>Select PDF</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="ln_file_4"/>
+           <widget class="QLineEdit" name="ln_file4"/>
           </item>
          </layout>
         </item>
@@ -735,6 +745,16 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_status4">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_14">

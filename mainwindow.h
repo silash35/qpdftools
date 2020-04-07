@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#define PDFCOVERPATH "/tmp/pdfIcon.png" //PDF Cover Path
+#define PDFCOVERPATH "/tmp/pdfCover.png" //PDF Cover Path
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,19 +18,27 @@ public:
     ~MainWindow();
 
 private slots:
+//page_menu (0)
+
     void on_tbtn_compress_clicked();
 
     void on_tbtn_split_clicked();
 
+    void on_tbtn_merge_clicked();
+
+    void on_tbtn_rotate_clicked();
+//page_compress (1)
+
     void on_tbtn_return1_clicked();
 
-    void on_btn_selectFile_clicked();
+    void on_btn_selectFile1_clicked();
 
     void on_tbtn_pdfCompress_clicked();
+//page_split (2)
 
     void on_tbtn_return2_clicked();
 
-    void on_btn_selectFile_2_clicked();
+    void on_btn_selectFile2_clicked();
 
     void on_rbtn_extractAll_clicked();
 
@@ -39,10 +47,7 @@ private slots:
     void on_spinBox_fistPage_valueChanged(int arg1);
 
     void on_tbtn_pdfSplit_clicked();
-
-    void on_tbtn_merge_clicked();
-
-    void on_tbtn_rotate_clicked();
+//page_merge (3)
 
     void on_tbtn_return3_clicked();
 
@@ -55,12 +60,13 @@ private slots:
     void on_btn_Mdown_clicked();
 
     void on_tbtn_pdfMerge_clicked();
+ //page_rotate (4)
 
     void on_tbtn_return4_clicked();
 
-    void on_btn_selectFile_4_clicked();
+    void on_btn_selectFile4_clicked();
 
-    void on_ln_file_4_textChanged(const QString &arg1);
+    void on_ln_file4_textChanged(const QString &arg1);
 
     void on_btn_left_clicked();
 

@@ -2,9 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QProcess>
 #include <QDebug>
-#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,11 +10,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+//Window
+
     this->setWindowIcon(QIcon::fromTheme("application-pdf"));
     this->setWindowTitle("Qpdf Tools");
-
     this->setCentralWidget(ui->stackedWidget);
+
     ui->stackedWidget->setCurrentIndex(0);
+//page_menu (0)
 
     ui->tbtn_compress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_compress->setIcon(QIcon::fromTheme("zoom-out"));
@@ -37,32 +38,32 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_rotate->setIcon(QIcon::fromTheme("object-rotate-right"));
     ui->tbtn_rotate->setText("Rotate a PDF file");
     ui->tbtn_rotate->setIconSize(QSize(50,50));
+//page_compress (1)
 
     ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
-    ui->tbtn_return2->setIcon(QIcon::fromTheme("go-previous"));
-    ui->tbtn_return3->setIcon(QIcon::fromTheme("go-previous"));
-    ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
+
+    ui->label_status1->hide();
 
     ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
     ui->tbtn_pdfCompress->setIconSize(QSize(30,30));
     ui->tbtn_pdfCompress->setText("Compress PDF");
     ui->tbtn_pdfCompress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+//page_split (2)
+
+    ui->tbtn_return2->setIcon(QIcon::fromTheme("go-previous"));
+
+    ui->spinBox_fistPage->setMinimum(1);
+    ui->rbtn_splitRange->setChecked(true);
+
+    ui->label_status2->hide();
 
     ui->tbtn_pdfSplit->setIcon(QIcon::fromTheme("edit-cut"));
     ui->tbtn_pdfSplit->setIconSize(QSize(30,30));
     ui->tbtn_pdfSplit->setText("Split PDF");
     ui->tbtn_pdfSplit->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+//page_merge (3)
 
-    ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
-    ui->tbtn_pdfMerge->setIconSize(QSize(30,30));
-    ui->tbtn_pdfMerge->setText("Merge PDF");
-    ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-
-    ui->spinBox_fistPage->setMinimum(1);
-    ui->rbtn_splitRange->setChecked(true);
-
-    ui->label_status_2->hide();
-    ui->label_status->hide();
+    ui->tbtn_return3->setIcon(QIcon::fromTheme("go-previous"));
 
     ui->btn_Madd->setIcon(QIcon::fromTheme("list-add"));
     ui->btn_Madd->setIconSize(QSize(30,30));
@@ -80,6 +81,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn_Mdown->setIconSize(QSize(30,30));
     ui->btn_Mdown->setToolTip("Click to change the merge order");
 
+    ui->label_status3->hide();
+
+    ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
+    ui->tbtn_pdfMerge->setIconSize(QSize(30,30));
+    ui->tbtn_pdfMerge->setText("Merge PDF");
+    ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+//page_rotate (4)
+
+    ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
+
     ui->btn_left->setIcon(QIcon::fromTheme("object-rotate-left"));
     ui->btn_left->setIconSize(QSize(30,30));
     ui->btn_left->setToolTip("click to rotate the PDF 90 degrees to the left");
@@ -92,11 +103,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn_right->hide();
     ui->label_pdfIcon->hide();
 
+    ui->label_status4->hide();
+
     ui->tbtn_pdfRotate->setIcon(QIcon::fromTheme("object-rotate-right"));
     ui->tbtn_pdfRotate->setIconSize(QSize(30,30));
     ui->tbtn_pdfRotate->setText("Rotate PDF");
     ui->tbtn_pdfRotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-
 }
 
 MainWindow::~MainWindow()
@@ -104,7 +116,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-//Menu buttons
+//page_menu (0)
+
 void MainWindow::on_tbtn_compress_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -124,64 +137,66 @@ void MainWindow::on_tbtn_rotate_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
 }
+//page_compress (1)
 
 void MainWindow::on_tbtn_return1_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_btn_selectFile_clicked()
+void MainWindow::on_btn_selectFile1_clicked()
 {
-    ui->ln_file->clear();
-    ui->ln_file->setText(
+    ui->ln_file1->clear();
+    ui->ln_file1->setText(
     QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
-    ui->ln_file->setFocus();
+    ui->ln_file1->setFocus();
 }
 
 void MainWindow::on_tbtn_pdfCompress_clicked()
 {
 
-    ui->label_status_2->setText("Processing");
-    ui->label_status_2->show();
+    ui->label_status2->setText("Processing");
+    ui->label_status2->show();
 
     command = "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/";
 
     if(ui->rbtn_screen->isChecked()){
-        command = command + "screen ";
+        command += "screen ";
     }else if(ui->rbtn_ebook->isChecked()){
-        command = command + "ebook ";
+        command += "ebook ";
     }else if(ui->rbtn_printer->isChecked()){
-        command = command + "printer ";
+        command += "printer ";
     }else if(ui->rbtn_prepress->isChecked()){
-        command = command + "prepress ";
+        command += "prepress ";
     }else{
         QMessageBox::warning(this,"Warning","You need to select a compression mode");
         command.clear();
         return;
     }
 
-    command = command + "-dNOPAUSE -dBATCH -sOutputFile='";
-    command = command + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
-    command = command + ui->ln_file->text() + "'";
+    command += "-dNOPAUSE -dBATCH -sOutputFile='";
+    command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
+    command += ui->ln_file1->text() + "'";
 
-    qDebug() << command;
+    qDebug() << "executing command: " << command;
     system(qPrintable(command));
 
-    ui->label_status_2->setText("Success!");
+    ui->label_status2->setText("Success!");
 
 }
+//page_split (2)
 
 void MainWindow::on_tbtn_return2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_btn_selectFile_2_clicked()
+void MainWindow::on_btn_selectFile2_clicked()
 {
-    ui->ln_file_2->clear();
-    ui->ln_file_2->setText(
+    ui->ln_file2->clear();
+    ui->ln_file2->setText(
     QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
-    ui->ln_file_2->setFocus();
+    ui->ln_file2->setFocus();
 }
 
 void MainWindow::on_rbtn_extractAll_clicked()
@@ -207,27 +222,27 @@ void MainWindow::on_spinBox_fistPage_valueChanged(int arg1)
 
 void MainWindow::on_tbtn_pdfSplit_clicked()
 {
-
-    ui->label_status_2->setText("Processing");
-    ui->label_status_2->show();
+    ui->label_status2->setText("Processing");
+    ui->label_status2->show();
 
     if(ui->rbtn_extractAll->isChecked()){
         command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o '"
         + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' '"
-        + ui->ln_file_2->text() + "'";
+        + ui->ln_file2->text() + "'";
     }else if(ui->rbtn_splitRange->isChecked()){
         command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=" + ui->spinBox_fistPage->text()
         + " -dLastPage=" + ui->spinBox_lastPage->text()
         + " -sOutputFile='" + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
-        + "' '" + ui->ln_file_2->text() + "'";
+        + "' '" + ui->ln_file2->text() + "'";
     }
 
-    qDebug() << command;
+    qDebug() << "executing command: " << command;
     system(qPrintable(command));
 
-    ui->label_status_2->setText("Success!");
+    ui->label_status2->setText("Success!");
 
 }
+//page_merge (3)
 
 void MainWindow::on_tbtn_return3_clicked()
 {
@@ -283,6 +298,8 @@ void MainWindow::on_btn_Mdown_clicked()
 
 void MainWindow::on_tbtn_pdfMerge_clicked()
 {
+    ui->label_status3->setText("Processing");
+    ui->label_status3->show();
 
     if(ui->list_toMerge->count()>1){
         command = "gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE='"
@@ -296,24 +313,27 @@ void MainWindow::on_tbtn_pdfMerge_clicked()
         command.clear();
     }
 
-    qDebug() << command;
+    qDebug() << "executing command: " << command;
     system(qPrintable(command));
+
+    ui->label_status3->setText("Success!");
 }
+//page_rotate (4)
 
 void MainWindow::on_tbtn_return4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_btn_selectFile_4_clicked()
+void MainWindow::on_btn_selectFile4_clicked()
 {
-    ui->ln_file_4->clear();
-    ui->ln_file_4->setText(
+    ui->ln_file4->clear();
+    ui->ln_file4->setText(
     QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
-    ui->ln_file_4->setFocus();
+    ui->ln_file4->setFocus();
 }
 
-void MainWindow::on_ln_file_4_textChanged(const QString &arg1)
+void MainWindow::on_ln_file4_textChanged(const QString &arg1)
 {
     if(QFile::exists(arg1)){
         ui->btn_left->show();
@@ -369,10 +389,10 @@ void MainWindow::on_btn_right_clicked()
 
 void MainWindow::on_tbtn_pdfRotate_clicked()
 {
+    ui->label_status4->setText("Processing");
+    ui->label_status4->show();
 
-    //stapler sel A=origin.pdf A1-endD cc.pdf
-
-    command = "stapler sel A='" + ui->ln_file_4->text() + "' A1-end";
+    command = "stapler sel A='" + ui->ln_file4->text() + "' A1-end";
 
     if( (rotate==0) or (rotate==360) ){
         command += " '";
@@ -386,6 +406,8 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
 
     command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
 
-    qDebug() << command;
+    qDebug() << "executing command: " << command;
     system(qPrintable(command));
+
+    ui->label_status4->setText("Success!");
 }
