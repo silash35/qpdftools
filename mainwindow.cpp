@@ -369,17 +369,22 @@ void MainWindow::on_btn_right_clicked()
 
 void MainWindow::on_tbtn_pdfRotate_clicked()
 {
-    if(ui->list_toMerge->count()>1){
-        command = "gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE='"
-        + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
-        + "' -dBATCH";
-        for(int i = 0; i < ui->list_toMerge->count(); i++){
-            command = command + " '" + ui->list_toMerge->item(i)->text() + "'";
-        }
-    }else{
-        QMessageBox::warning(this,"Warning","You need to add two or more files to be able to merge them");
-        command.clear();
+
+    //stapler sel A=origin.pdf A1-endD cc.pdf
+
+    command = "stapler sel A='" + ui->ln_file_4->text() + "' A1-end";
+
+    if( (rotate==0) or (rotate==360) ){
+        command += " '";
+    }else if(rotate == 90){
+        command += "R '";
+    }else if(rotate == 180){
+        command += "D '";
+    }else if(rotate == 270){
+        command += "L '";
     }
+
+    command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
 
     qDebug() << command;
     system(qPrintable(command));
