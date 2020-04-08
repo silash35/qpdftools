@@ -22,22 +22,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_compress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_compress->setIcon(QIcon::fromTheme("zoom-out"));
     ui->tbtn_compress->setText("Compress a PDF file");
-    ui->tbtn_compress->setIconSize(QSize(50,50));
+    ui->tbtn_compress->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 
     ui->tbtn_split->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_split->setIcon(QIcon::fromTheme("edit-cut"));
     ui->tbtn_split->setText("Split a PDF file");
-    ui->tbtn_split->setIconSize(QSize(50,50));
+    ui->tbtn_split->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 
     ui->tbtn_merge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_merge->setIcon(QIcon::fromTheme("merge"));
     ui->tbtn_merge->setText("Merge PDF files");
-    ui->tbtn_merge->setIconSize(QSize(50,50));
+    ui->tbtn_merge->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 
     ui->tbtn_rotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_rotate->setIcon(QIcon::fromTheme("object-rotate-right"));
     ui->tbtn_rotate->setText("Rotate a PDF file");
-    ui->tbtn_rotate->setIconSize(QSize(50,50));
+    ui->tbtn_rotate->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 //page_compress (1)
 
     ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_status1->hide();
 
     ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
-    ui->tbtn_pdfCompress->setIconSize(QSize(30,30));
+    ui->tbtn_pdfCompress->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->tbtn_pdfCompress->setText("Compress PDF");
     ui->tbtn_pdfCompress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 //page_split (2)
@@ -58,7 +58,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_status2->hide();
 
     ui->tbtn_pdfSplit->setIcon(QIcon::fromTheme("edit-cut"));
-    ui->tbtn_pdfSplit->setIconSize(QSize(30,30));
+    ui->tbtn_pdfSplit->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->tbtn_pdfSplit->setText("Split PDF");
     ui->tbtn_pdfSplit->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 //page_merge (3)
@@ -66,25 +66,25 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_return3->setIcon(QIcon::fromTheme("go-previous"));
 
     ui->btn_Madd->setIcon(QIcon::fromTheme("list-add"));
-    ui->btn_Madd->setIconSize(QSize(30,30));
+    ui->btn_Madd->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->btn_Madd->setToolTip("Click to add a PDF file");
 
     ui->btn_Mrm->setIcon(QIcon::fromTheme("list-remove"));
-    ui->btn_Mrm->setIconSize(QSize(30,30));
+    ui->btn_Mrm->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->btn_Mrm->setToolTip("Click to remove a PDF file");
 
     ui->btn_Mup->setIcon(QIcon::fromTheme("go-up"));
-    ui->btn_Mup->setIconSize(QSize(30,30));
+    ui->btn_Mup->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->btn_Mup->setToolTip("Click to change the merge order");
 
     ui->btn_Mdown->setIcon(QIcon::fromTheme("go-down"));
-    ui->btn_Mdown->setIconSize(QSize(30,30));
+    ui->btn_Mdown->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->btn_Mdown->setToolTip("Click to change the merge order");
 
     ui->label_status3->hide();
 
     ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
-    ui->tbtn_pdfMerge->setIconSize(QSize(30,30));
+    ui->tbtn_pdfMerge->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->tbtn_pdfMerge->setText("Merge PDF");
     ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 //page_rotate (4)
@@ -92,21 +92,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
 
     ui->btn_left->setIcon(QIcon::fromTheme("object-rotate-left"));
-    ui->btn_left->setIconSize(QSize(30,30));
+    ui->btn_left->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->btn_left->setToolTip("click to rotate the PDF 90 degrees to the left");
 
     ui->btn_right->setIcon(QIcon::fromTheme("object-rotate-right"));
-    ui->btn_right->setIconSize(QSize(30,30));
+    ui->btn_right->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->btn_right->setToolTip("click to rotate the PDF 90 degrees to the right");
 
     ui->btn_left->hide();
     ui->btn_right->hide();
-    ui->label_pdfIcon->hide();
+    ui->label_pdfCover->hide();
 
     ui->label_status4->hide();
 
     ui->tbtn_pdfRotate->setIcon(QIcon::fromTheme("object-rotate-right"));
-    ui->tbtn_pdfRotate->setIconSize(QSize(30,30));
+    ui->tbtn_pdfRotate->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->tbtn_pdfRotate->setText("Rotate PDF");
     ui->tbtn_pdfRotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
@@ -155,8 +155,15 @@ void MainWindow::on_btn_selectFile1_clicked()
 void MainWindow::on_tbtn_pdfCompress_clicked()
 {
 
-    ui->label_status2->setText("Processing");
-    ui->label_status2->show();
+    ui->label_status1->setText("Processing");
+    ui->label_status1->show();
+
+    isrunnable = true;
+
+    if(!QFile::exists(ui->ln_file1->text())){
+        QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
+        isrunnable = false;
+    }
 
     command = "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/";
 
@@ -170,18 +177,24 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
         command += "prepress ";
     }else{
         QMessageBox::warning(this,"Warning","You need to select a compression mode");
-        command.clear();
-        return;
+        isrunnable = false;
     }
 
-    command += "-dNOPAUSE -dBATCH -sOutputFile='";
-    command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
-    command += ui->ln_file1->text() + "'";
+    if(isrunnable){
 
-    qDebug() << "executing command: " << command;
-    system(qPrintable(command));
+        command += "-dNOPAUSE -dBATCH -sOutputFile='";
+        command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
+        command += ui->ln_file1->text() + "'";
 
-    ui->label_status2->setText("Success!");
+        qDebug() << "executing command: " << command;
+        system(qPrintable(command));
+        ui->label_status2->setText("Success!");
+    }else{
+        ui->label_status1->clear();
+        ui->label_status1->hide();
+        command.clear();
+        qDebug() << "command not executed";
+    }
 
 }
 //page_split (2)
@@ -225,22 +238,35 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
     ui->label_status2->setText("Processing");
     ui->label_status2->show();
 
-    if(ui->rbtn_extractAll->isChecked()){
-        command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o '"
-        + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' '"
-        + ui->ln_file2->text() + "'";
-    }else if(ui->rbtn_splitRange->isChecked()){
-        command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=" + ui->spinBox_fistPage->text()
-        + " -dLastPage=" + ui->spinBox_lastPage->text()
-        + " -sOutputFile='" + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
-        + "' '" + ui->ln_file2->text() + "'";
+    isrunnable = true;
+
+    if(!QFile::exists(ui->ln_file2->text())){
+        QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
+        isrunnable = false;
     }
 
-    qDebug() << "executing command: " << command;
-    system(qPrintable(command));
+    if(isrunnable){
 
-    ui->label_status2->setText("Success!");
+        if(ui->rbtn_extractAll->isChecked()){
+            command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o '"
+            + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' '"
+            + ui->ln_file2->text() + "'";
+        }else if(ui->rbtn_splitRange->isChecked()){
+            command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=" + ui->spinBox_fistPage->text()
+            + " -dLastPage=" + ui->spinBox_lastPage->text()
+            + " -sOutputFile='" + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' "
+            + "'" + ui->ln_file2->text() + "'";
+        }
 
+        qDebug() << "executing command: " << command;
+        system(qPrintable(command));
+        ui->label_status2->setText("Success!");
+    }else{
+        ui->label_status2->clear();
+        ui->label_status2->hide();
+        command.clear();
+        qDebug() << "command not executed";
+    }
 }
 //page_merge (3)
 
@@ -251,9 +277,13 @@ void MainWindow::on_tbtn_return3_clicked()
 
 void MainWindow::on_btn_Madd_clicked()
 {
-    QString aux = QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)");
-    if(aux[0]=='/'){
-        ui->list_toMerge->addItem(aux);
+    QStringList aux = QFileDialog::getOpenFileNames(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)");
+
+    for(int i=0; i < aux.count(); i++){
+        qDebug() << i << ": " << aux[i];
+        if(QFile::exists(aux[i])){
+            ui->list_toMerge->addItem(aux[i]);
+        }
     }
 }
 
@@ -338,7 +368,7 @@ void MainWindow::on_ln_file4_textChanged(const QString &arg1)
     if(QFile::exists(arg1)){
         ui->btn_left->show();
         ui->btn_right->show();
-        ui->label_pdfIcon->show();
+        ui->label_pdfCover->show();
 
         command = "gs -q -o '";
         command += PDFCOVERPATH;
@@ -346,12 +376,12 @@ void MainWindow::on_ln_file4_textChanged(const QString &arg1)
         qDebug() << command;
         system(qPrintable(command));
 
-        QPixmap pdfIcon(PDFCOVERPATH);
-        ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+        QPixmap pdfCover(PDFCOVERPATH);
+        ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
     }else{
         ui->btn_left->hide();
         ui->btn_right->hide();
-        ui->label_pdfIcon->hide();
+        ui->label_pdfCover->hide();
         command.clear();
     }
 
@@ -367,9 +397,9 @@ void MainWindow::on_btn_left_clicked()
     QTransform rote;
     rote = rote.rotate(rotate);
 
-    QPixmap pdfIcon(PDFCOVERPATH);
-    pdfIcon = QPixmap(pdfIcon.transformed(rote));
-    ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+    QPixmap pdfCover(PDFCOVERPATH);
+    pdfCover = QPixmap(pdfCover.transformed(rote));
+    ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
 }
 
 void MainWindow::on_btn_right_clicked()
@@ -382,15 +412,22 @@ void MainWindow::on_btn_right_clicked()
     QTransform rote;
     rote = rote.rotate(rotate);
 
-    QPixmap pdfIcon(PDFCOVERPATH);
-    pdfIcon = QPixmap(pdfIcon.transformed(rote));
-    ui->label_pdfIcon->setPixmap(pdfIcon.scaled(300,300,Qt::KeepAspectRatio));
+    QPixmap pdfCover(PDFCOVERPATH);
+    pdfCover = QPixmap(pdfCover.transformed(rote));
+    ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
 }
 
 void MainWindow::on_tbtn_pdfRotate_clicked()
 {
     ui->label_status4->setText("Processing");
     ui->label_status4->show();
+
+    isrunnable = true;
+
+    if(!QFile::exists(ui->ln_file4->text())){
+        QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
+        isrunnable = false;
+    }
 
     command = "stapler sel A='" + ui->ln_file4->text() + "' A1-end";
 
@@ -404,10 +441,16 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
         command += "L '";
     }
 
-    command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
+    if(isrunnable){
+        command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
 
-    qDebug() << "executing command: " << command;
-    system(qPrintable(command));
-
-    ui->label_status4->setText("Success!");
+        qDebug() << "executing command: " << command;
+        system(qPrintable(command));
+        ui->label_status2->setText("Success!");
+    }else{
+        ui->label_status4->clear();
+        ui->label_status4->hide();
+        command.clear();
+        qDebug() << "command not executed";
+    }
 }

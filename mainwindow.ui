@@ -649,7 +649,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QLabel" name="label_pdfIcon">
+               <widget class="QLabel" name="label_pdfCover">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
