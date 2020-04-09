@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-//Window
+//Main
 
     this->setWindowIcon(QIcon::fromTheme("application-pdf"));
     this->setWindowTitle("Qpdf Tools");
@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tbtn_merge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_merge->setIcon(QIcon::fromTheme("merge"));
+
     ui->tbtn_merge->setText("Merge PDF files");
     ui->tbtn_merge->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 
