@@ -26,9 +26,12 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    qpdftools_en_US.ts
+    qpdftools_pt_BR.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    qpdftools_pt_BR.ts

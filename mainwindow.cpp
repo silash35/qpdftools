@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 //Main
 
-    this->setWindowIcon(QIcon::fromTheme("application-pdf"));
+    this->setWindowIcon(QIcon("/home/silas/qpdftools/qpdftools.svg"));
     this->setWindowTitle("Qpdf Tools");
     this->setCentralWidget(ui->stackedWidget);
 
@@ -24,33 +24,25 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tbtn_compress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_compress->setIcon(QIcon::fromTheme("zoom-out"));
-    ui->tbtn_compress->setText("Compress a PDF file");
     ui->tbtn_compress->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 
     ui->tbtn_split->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_split->setIcon(QIcon::fromTheme("edit-cut"));
-    ui->tbtn_split->setText("Split a PDF file");
     ui->tbtn_split->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 
     ui->tbtn_merge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_merge->setIcon(QIcon::fromTheme("merge"));
-
-    ui->tbtn_merge->setText("Merge PDF files");
     ui->tbtn_merge->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 
     ui->tbtn_rotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->tbtn_rotate->setIcon(QIcon::fromTheme("object-rotate-right"));
-    ui->tbtn_rotate->setText("Rotate a PDF file");
     ui->tbtn_rotate->setIconSize(QSize(MENUICONSIZE,MENUICONSIZE));
 //page_compress (1)
 
     ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
 
-    ui->label_status1->hide();
-
     ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
     ui->tbtn_pdfCompress->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->tbtn_pdfCompress->setText("Compress PDF");
     ui->tbtn_pdfCompress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 //page_split (2)
 
@@ -59,11 +51,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->spinBox_fistPage->setMinimum(1);
     ui->rbtn_splitRange->setChecked(true);
 
-    ui->label_status2->hide();
-
     ui->tbtn_pdfSplit->setIcon(QIcon::fromTheme("edit-cut"));
     ui->tbtn_pdfSplit->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->tbtn_pdfSplit->setText("Split PDF");
     ui->tbtn_pdfSplit->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 //page_merge (3)
 
@@ -85,11 +74,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn_Mdown->setIconSize(QSize(ICONSIZE,ICONSIZE));
     ui->btn_Mdown->setToolTip("Click to change the merge order");
 
-    ui->label_status3->hide();
-
     ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
     ui->tbtn_pdfMerge->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->tbtn_pdfMerge->setText("Merge PDF");
     ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 //page_rotate (4)
 
@@ -107,11 +93,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn_right->hide();
     ui->label_pdfCover->hide();
 
-    ui->label_status4->hide();
-
     ui->tbtn_pdfRotate->setIcon(QIcon::fromTheme("object-rotate-right"));
     ui->tbtn_pdfRotate->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->tbtn_pdfRotate->setText("Rotate PDF");
     ui->tbtn_pdfRotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
@@ -158,10 +141,6 @@ void MainWindow::on_btn_selectFile1_clicked()
 
 void MainWindow::on_tbtn_pdfCompress_clicked()
 {
-
-    ui->label_status1->setText("Processing");
-    ui->label_status1->show();
-
     isrunnable = true;
 
     if(!QFile::exists(ui->ln_file1->text())){
@@ -192,10 +171,7 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
 
         qDebug() << "executing command: " << command;
         system(qPrintable(command));
-        ui->label_status2->setText("Success!");
     }else{
-        ui->label_status1->clear();
-        ui->label_status1->hide();
         command.clear();
         qDebug() << "command not executed";
     }
@@ -239,9 +215,6 @@ void MainWindow::on_spinBox_fistPage_valueChanged(int arg1)
 
 void MainWindow::on_tbtn_pdfSplit_clicked()
 {
-    ui->label_status2->setText("Processing");
-    ui->label_status2->show();
-
     isrunnable = true;
 
     if(!QFile::exists(ui->ln_file2->text())){
@@ -264,10 +237,7 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
 
         qDebug() << "executing command: " << command;
         system(qPrintable(command));
-        ui->label_status2->setText("Success!");
     }else{
-        ui->label_status2->clear();
-        ui->label_status2->hide();
         command.clear();
         qDebug() << "command not executed";
     }
@@ -332,9 +302,6 @@ void MainWindow::on_btn_Mdown_clicked()
 
 void MainWindow::on_tbtn_pdfMerge_clicked()
 {
-    ui->label_status3->setText("Processing");
-    ui->label_status3->show();
-
     if(ui->list_toMerge->count()>1){
         command = "gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE='"
         + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
@@ -349,8 +316,6 @@ void MainWindow::on_tbtn_pdfMerge_clicked()
 
     qDebug() << "executing command: " << command;
     system(qPrintable(command));
-
-    ui->label_status3->setText("Success!");
 }
 //page_rotate (4)
 
@@ -423,9 +388,6 @@ void MainWindow::on_btn_right_clicked()
 
 void MainWindow::on_tbtn_pdfRotate_clicked()
 {
-    ui->label_status4->setText("Processing");
-    ui->label_status4->show();
-
     isrunnable = true;
 
     if(!QFile::exists(ui->ln_file4->text())){
@@ -450,10 +412,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
 
         qDebug() << "executing command: " << command;
         system(qPrintable(command));
-        ui->label_status2->setText("Success!");
     }else{
-        ui->label_status4->clear();
-        ui->label_status4->hide();
         command.clear();
         qDebug() << "command not executed";
     }

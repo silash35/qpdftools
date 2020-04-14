@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page_menu">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -62,7 +62,7 @@
                <bool>false</bool>
               </property>
               <property name="text">
-               <string>...</string>
+               <string>Compress a PDF file</string>
               </property>
               <property name="autoRaise">
                <bool>false</bool>
@@ -78,7 +78,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>...</string>
+               <string>Split a PDF file</string>
               </property>
              </widget>
             </item>
@@ -91,7 +91,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>...</string>
+               <string>Rotate a PDF file</string>
               </property>
              </widget>
             </item>
@@ -104,7 +104,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>...</string>
+               <string>Merge PDF files</string>
               </property>
              </widget>
             </item>
@@ -195,16 +195,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_status1">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <spacer name="horizontalSpacer_3">
@@ -222,7 +212,7 @@
           <item>
            <widget class="QToolButton" name="tbtn_pdfCompress">
             <property name="text">
-             <string>...</string>
+             <string>Compress PDF</string>
             </property>
            </widget>
           </item>
@@ -399,16 +389,6 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_status2">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
            <spacer name="horizontalSpacer_5">
@@ -426,7 +406,7 @@
           <item>
            <widget class="QToolButton" name="tbtn_pdfSplit">
             <property name="text">
-             <string>...</string>
+             <string>Split PDF</string>
             </property>
            </widget>
           </item>
@@ -525,16 +505,6 @@
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="label_status3">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_12">
           <item>
            <spacer name="horizontalSpacer_12">
@@ -552,7 +522,7 @@
           <item>
            <widget class="QToolButton" name="tbtn_pdfMerge">
             <property name="text">
-             <string>...</string>
+             <string>Merge PDFs</string>
             </property>
            </widget>
           </item>
@@ -747,16 +717,6 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_status4">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_14">
           <item>
            <spacer name="horizontalSpacer_15">
@@ -774,7 +734,7 @@
           <item>
            <widget class="QToolButton" name="tbtn_pdfRotate">
             <property name="text">
-             <string>...</string>
+             <string>Rotate PDF</string>
             </property>
            </widget>
           </item>
