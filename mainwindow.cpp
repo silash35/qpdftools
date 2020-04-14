@@ -16,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Qpdf Tools");
     this->setCentralWidget(ui->stackedWidget);
 
+    QIcon::setThemeName("default");
+    QIcon::setFallbackThemeName("breeze");
+
     ui->stackedWidget->setCurrentIndex(0);
 //page_menu (0)
 
