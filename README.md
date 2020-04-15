@@ -5,8 +5,8 @@ Currently the program is under construction and some features are not working.
 
 ## License
 
-Feel free to do whatever you want with this code, including modifying, selling and redistributing. You don't even have to give credit, but I appreciate it if you do.
-But beware, this software is built in Qt, so maybe [The Qt company](https://www.qt.io/company) determines some limitations of what you can and cannot do.
+Officially the license is the LGPL because this software is built in Qt, so it is mandatory that it is either GPL or LGPL. But I personally believe that intellectual property does not exist. So feel free to do what you want with this code, including modification, sale and redistribution. You don't even have to give credit, but I appreciate that if you do. I give you the guarantee that I will not sue you unless you sue me first.
+Unfortunately, the Qt Company is not as good as I am, so maybe [The Qt company] (https://www.qt.io/company) determines some limitations of what you can and cannot do.
 
 ## How to contribute?
 As I said, this program is built in Qt, so you will need a computer with Qt creator installed to be able to run the code. Then just open the project in Qt creator and run. Remembering that as Qpdf Tools is just an interface for Ghostscript and Stapler, it is necessary to have these two packages installed.
