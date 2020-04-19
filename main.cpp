@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QTranslator t;
 
     if(QLocale::system().name() == QString("pt_BR")){
-        t.load("/home/silas/qpdftools/qpdftools_pt_BR.qm");
+        t.load("/usr/lib/qpdftools/qpdftools_pt_BR.qm");
         a.installTranslator(&t);
     }
 
