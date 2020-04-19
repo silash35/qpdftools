@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 //Main
 
-    this->setWindowIcon(QIcon("/home/silas/qpdftools/qpdftools.svg"));
+    this->setWindowIcon(QIcon("/usr/share/pixmaps/qpdftools.svg"));
     this->setWindowTitle("Qpdf Tools");
     this->setCentralWidget(ui->stackedWidget);
 
