@@ -2,6 +2,8 @@
 
 Qpdf Tools is an easy-to-use Qt interface for [Ghostscript](https://www.ghostscript.com/) and [Stapler](https://github.com/hellerbarde/stapler), which makes it possible for normal users to manage their PDFs.
 
+With Qpdf Tools, you can easily compress, split, merge and even rotate your pdf documents.
+
 ## How to contribute?
 As I said, this program is built in Qt, so you will need a computer with Qt creator installed to be able to run the code. Then just open the project in Qt creator and run. Remembering that as Qpdf Tools is just an interface for Ghostscript and Stapler, it is necessary to have these two packages installed.
 
