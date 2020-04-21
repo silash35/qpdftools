@@ -18,8 +18,10 @@ MainWindow::MainWindow(QWidget *parent)
         
     bool isThemeCompatible = true;
 
+    /*
     QIcon::setThemeName("default");
     QIcon::setFallbackThemeName("breeze");
+    */
 
     ui->stackedWidget->setCurrentIndex(0);
 //page_menu (0)
