@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowIcon(QIcon("/usr/share/pixmaps/qpdftools.svg"));
     this->setWindowTitle("Qpdf Tools");
     this->setCentralWidget(ui->stackedWidget);
+        
+    bool isThemeCompatible = true;
 
     QIcon::setThemeName("default");
     QIcon::setFallbackThemeName("breeze");
