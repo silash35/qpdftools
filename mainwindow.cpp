@@ -15,13 +15,15 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowIcon(QIcon("/usr/share/pixmaps/qpdftools.svg"));
     this->setWindowTitle("Qpdf Tools");
     this->setCentralWidget(ui->stackedWidget);
-        
-    bool isThemeCompatible = true;
+    
+    bool isThemeCompatible = //Test if the system theme is one of the themes that are compatible
+        (QIcon::themeName() == "breeze") or
+        (QIcon::themeName() == "breath") or
+        (QIcon::themeName() == "oxygen");
 
-    /*
-    QIcon::setThemeName("default");
-    QIcon::setFallbackThemeName("breeze");
-    */
+    if(!isThemeCompatible){ //If the theme is not compatible, the program will use breeze theme
+        QIcon::setThemeName("breeze");
+    }
 
     ui->stackedWidget->setCurrentIndex(0);
 //page_menu (0)
