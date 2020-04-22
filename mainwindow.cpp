@@ -16,12 +16,14 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Qpdf Tools");
     this->setCentralWidget(ui->stackedWidget);
     
-    bool isThemeCompatible = //Test if the system theme is one of the themes that are compatible
-        (QIcon::themeName() == "breeze") or
-        (QIcon::themeName() == "breath") or
-        (QIcon::themeName() == "oxygen");
+    //Check if the system theme has the necessary icons.
+    bool isThemeCompatible = (QIcon::hasThemeIcon("zoom-out") and
+        QIcon::hasThemeIcon("edit-cut") and
+	QIcon::hasThemeIcon("merge") and
+	QIcon::hasThemeIcon("object-rotate-righ"));
 
-    if(!isThemeCompatible){ //If the theme is not compatible, the program will use breeze theme
+    //If the theme is not compatible, the program will use breeze theme
+    if(!isThemeCompatible){ 
         QIcon::setThemeName("breeze");
     }
 
