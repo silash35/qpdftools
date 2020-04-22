@@ -11,7 +11,5 @@ This code was designed to run on a Linux computer, so if you want to run on Wind
 
 ## How to run?
 
-If you just want to use the program to manage your PDFs, soon we will have .deb packages available for download.
-Perhaps, in the future, snaps packages and a Windows software version (.exe) may be produced.
-
-Build packages is a hard thing, so we have a [repository](https://github.com/silash35/qpdftools-packages) only for that task.
+If you just want to use the program to manage your PDFs, We have .deb packages available for download in https://github.com/silash35/qpdftools/releases. Perhaps, in the future, snaps packages and a Windows software version (.exe) may be produced.
+Build packages and maintain them is a hard thing, so we have a [repository](https://github.com/silash35/qpdftools-packages) only for that task. Please, help us to keep Qpdf Tools available for users, whatever their operating system.
