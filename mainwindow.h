@@ -80,7 +80,7 @@ private:
     Ui::MainWindow *ui;
 
     QString command = ""; //Stores the command to be executed
-    bool isrunnable = true; // Stores if the command can be runned or not
+    bool isRunnable = true; // Stores if the command can be runned or not
     int rotate{0}; //Stores in degrees how much the pdf will be rotated in rotation mode
 
     void runCommand(QString command);

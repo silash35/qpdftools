@@ -20,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
     //Check if the system theme has the necessary icons.
     bool isThemeCompatible = (QIcon::hasThemeIcon("zoom-out") and
         QIcon::hasThemeIcon("edit-cut") and
-	QIcon::hasThemeIcon("merge") and
-	QIcon::hasThemeIcon("object-rotate-righ"));
+        QIcon::hasThemeIcon("merge") and
+        QIcon::hasThemeIcon("object-rotate-righ"));
 
     //If the theme is not compatible, the program will use breeze theme
     if(!isThemeCompatible){ 
@@ -150,11 +150,11 @@ void MainWindow::on_btn_selectFile1_clicked()
 
 void MainWindow::on_tbtn_pdfCompress_clicked()
 {
-    isrunnable = true;
+    isRunnable = true;
 
     if(!QFile::exists(ui->ln_file1->text())){
         QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
-        isrunnable = false;
+        isRunnable = false;
     }
 
     command = "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/";
@@ -169,17 +169,16 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
         command += "prepress ";
     }else{
         QMessageBox::warning(this,"Warning","You need to select a compression mode");
-        isrunnable = false;
+        isRunnable = false;
     }
 
-    if(isrunnable){
+    if(isRunnable){
 
         command += "-dNOPAUSE -dBATCH -sOutputFile='";
         command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
         command += ui->ln_file1->text() + "'";
 
-        qDebug() << "executing command: " << command;
-        system(qPrintable(command));
+        runCommand(command);
     }else{
         command.clear();
         qDebug() << "command not executed";
@@ -224,24 +223,23 @@ void MainWindow::on_spinBox_fistPage_valueChanged(int arg1)
 
 void MainWindow::on_tbtn_pdfSplit_clicked()
 {
-    isrunnable = true;
+    isRunnable = true;
 
     if(!QFile::exists(ui->ln_file2->text())){
         QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
-        isrunnable = false;
+        isRunnable = false;
     }
 
-    if(isrunnable){
+    if(isRunnable){
         if(ui->rbtn_extractAll->isChecked()){
             command = "cd '"
             + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "' && "
             + "stapler split " + "'" + ui->ln_file2->text() + "'";
         }else if(ui->rbtn_splitRange->isChecked()){
-            command = "stapler zip '"//stapler zip a.pdf b.pdf 1-endR c.pdf 1-3L output.pdf
-                    + ui->spinBox_fistPage->text()
-            + " -dLastPage=" + ui->spinBox_lastPage->text()
-            + " -sOutputFile='" + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' "
-            + "'" + ui->ln_file2->text() + "'";
+            command = "stapler zip '"
+            + ui->ln_file2->text() + "' "
+            + ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text() +
+            + " '" + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
         }
         runCommand(command);
     }else{
@@ -396,11 +394,11 @@ void MainWindow::on_btn_right_clicked()
 void MainWindow::on_tbtn_pdfRotate_clicked()
 {
 
-    isrunnable = true;
+    isRunnable = true;
 
     if(!QFile::exists(ui->ln_file4->text())){
         QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
-        isrunnable = false;
+        isRunnable = false;
     }
 
     command = "stapler sel A='" + ui->ln_file4->text() + "' A1-end";
@@ -415,7 +413,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
         command += "L '";
     }
 
-    if(isrunnable){
+    if(isRunnable){
         command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
 
         runCommand(command);
@@ -424,7 +422,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
     }
     command.clear();
 }
-//Others
+//Other functions
 
 void MainWindow::runCommand(QString command){
 
@@ -435,9 +433,14 @@ void MainWindow::runCommand(QString command){
 
     process.write(qPrintable(command));
     process.closeWriteChannel();
-
     process.waitForFinished();
-    qDebug() << process.readAllStandardOutput() << process.readAllStandardError() << endl;
+
+    qDebug() << process.readAllStandardOutput() << endl;
+    QString error = process.readAllStandardError();
+    if(!error.isEmpty()){
+        QMessageBox::warning(this,"ERROR",error);
+    }
+
     process.close();
 
     qDebug() << "finished to execute: " << command << endl;
