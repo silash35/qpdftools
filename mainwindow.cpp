@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QProcess>
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -396,6 +397,7 @@ void MainWindow::on_btn_right_clicked()
 
 void MainWindow::on_tbtn_pdfRotate_clicked()
 {
+
     isrunnable = true;
 
     if(!QFile::exists(ui->ln_file4->text())){
@@ -419,9 +421,24 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
         command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
 
         qDebug() << "executing command: " << command;
-        system(qPrintable(command));
+            runCommand(command);
+            qDebug() << "finished: " << command;
     }else{
         command.clear();
         qDebug() << "command not executed";
     }
+}
+//Others
+
+void MainWindow::runCommand(QString command){
+
+    QProcess process;
+    process.start("sh");
+
+    process.write(qPrintable(command));
+    process.closeWriteChannel();
+    process.waitForFinished();
+    qDebug() << process.readAllStandardOutput();
+    process.close();
+
 }
