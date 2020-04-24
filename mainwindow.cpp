@@ -232,20 +232,18 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
     }
 
     if(isrunnable){
-
         if(ui->rbtn_extractAll->isChecked()){
-            command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -o '"
-            + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' '"
-            + ui->ln_file2->text() + "'";
+            command = "cd '"
+            + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "' && "
+            + "stapler split " + "'" + ui->ln_file2->text() + "'";
         }else if(ui->rbtn_splitRange->isChecked()){
-            command = "gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=" + ui->spinBox_fistPage->text()
+            command = "stapler zip '"//stapler zip a.pdf b.pdf 1-endR c.pdf 1-3L output.pdf
+                    + ui->spinBox_fistPage->text()
             + " -dLastPage=" + ui->spinBox_lastPage->text()
             + " -sOutputFile='" + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "/page%d.pdf' "
             + "'" + ui->ln_file2->text() + "'";
         }
-
-        qDebug() << "executing command: " << command;
-        system(qPrintable(command));
+        runCommand(command);
     }else{
         command.clear();
         qDebug() << "command not executed";
@@ -312,19 +310,18 @@ void MainWindow::on_btn_Mdown_clicked()
 void MainWindow::on_tbtn_pdfMerge_clicked()
 {
     if(ui->list_toMerge->count()>1){
-        command = "gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE='"
-        + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)")
-        + "' -dBATCH";
+        command = "stapler sel ";
         for(int i = 0; i < ui->list_toMerge->count(); i++){
-            command = command + " '" + ui->list_toMerge->item(i)->text() + "'";
+            command = command + "'" + ui->list_toMerge->item(i)->text() + "' ";
         }
+        command = command + "'"
+        + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
     }else{
         QMessageBox::warning(this,"Warning","You need to add two or more files to be able to merge them");
         command.clear();
     }
 
-    qDebug() << "executing command: " << command;
-    system(qPrintable(command));
+    runCommand(command);
 }
 //page_rotate (4)
 
@@ -343,6 +340,8 @@ void MainWindow::on_btn_selectFile4_clicked()
 
 void MainWindow::on_ln_file4_textChanged(const QString &arg1)
 {
+    rotate = 0;
+
     if(QFile::exists(arg1)){
         ui->btn_left->show();
         ui->btn_right->show();
@@ -351,8 +350,7 @@ void MainWindow::on_ln_file4_textChanged(const QString &arg1)
         command = "gs -q -o '";
         command += PDFCOVERPATH;
         command += "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
-        qDebug() << command;
-        system(qPrintable(command));
+        runCommand(command);
 
         QPixmap pdfCover(PDFCOVERPATH);
         ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
@@ -420,25 +418,28 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
     if(isrunnable){
         command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
 
-        qDebug() << "executing command: " << command;
-            runCommand(command);
-            qDebug() << "finished: " << command;
+        runCommand(command);
     }else{
-        command.clear();
         qDebug() << "command not executed";
     }
+    command.clear();
 }
 //Others
 
 void MainWindow::runCommand(QString command){
+
+    qDebug() << "executing command: " << command << endl;
 
     QProcess process;
     process.start("sh");
 
     process.write(qPrintable(command));
     process.closeWriteChannel();
+
     process.waitForFinished();
-    qDebug() << process.readAllStandardOutput();
+    qDebug() << process.readAllStandardOutput() << process.readAllStandardError() << endl;
     process.close();
+
+    qDebug() << "finished to execute: " << command << endl;
 
 }
