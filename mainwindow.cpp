@@ -428,6 +428,8 @@ void MainWindow::runCommand(QString command){
 
     qDebug() << "executing command: " << command << endl;
 
+    ui->statusBar->showMessage("Processing...");
+
     QProcess process;
     process.start("sh");
 
@@ -439,8 +441,10 @@ void MainWindow::runCommand(QString command){
     QString error = process.readAllStandardError();
     if(!error.isEmpty()){
         QMessageBox::warning(this,"ERROR",error);
+        ui->statusBar->showMessage("Failed",10000);
+    }else{
+        ui->statusBar->showMessage("Success!",10000);
     }
-
     process.close();
 
     qDebug() << "finished to execute: " << command << endl;
