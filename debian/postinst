@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sudo pip uninstall -y stapler
+sudo pip3 install stapler
+
+exit 0
