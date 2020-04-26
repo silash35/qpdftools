@@ -1,4 +1,4 @@
-qpdftools (1.1-1) stable; urgency=low
+qpdftools (1.1-1) focal; urgency=low
 
   * Some of the functions made by Ghostscript have been replaced by Stapler
   * A StatusBar has been added
@@ -6,7 +6,7 @@ qpdftools (1.1-1) stable; urgency=low
 
  -- Silas Henrique <silash35@gmail.com>  Sat, 25 Apr 2020 13:06:06 -0300
 
-qpdftools (1.0-1) unstable; urgency=low
+qpdftools (1.0-1) focal; urgency=low
 
   * intial release.
 
