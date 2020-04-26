@@ -1,4 +1,4 @@
-bin/src usr/bin
+bin/qpdftools usr/bin
 qpdftools.desktop usr/share/applications
 src/qpdftools.svg usr/share/pixmaps
 src/qpdftools_pt_BR.qm usr/lib/qpdftools
