@@ -1,5 +1,0 @@
-#!/bin/sh
-
-sudo -H pip3 uninstall -y stapler
-
-exit 0
