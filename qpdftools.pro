@@ -35,7 +35,7 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    translations/qpdftools_pt_BR.ts
+    languages/qpdftools_pt_BR.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
