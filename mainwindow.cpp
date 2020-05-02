@@ -69,19 +69,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->btn_Madd->setIcon(QIcon::fromTheme("list-add"));
     ui->btn_Madd->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->btn_Madd->setToolTip("Click to add a PDF file");
+    ui->btn_Madd->setToolTip(tr("Click to add a PDF file"));
 
     ui->btn_Mrm->setIcon(QIcon::fromTheme("list-remove"));
     ui->btn_Mrm->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->btn_Mrm->setToolTip("Click to remove a PDF file");
+    ui->btn_Mrm->setToolTip(tr("Click to remove a PDF file"));
 
     ui->btn_Mup->setIcon(QIcon::fromTheme("go-up"));
     ui->btn_Mup->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->btn_Mup->setToolTip("Click to change the merge order");
+    ui->btn_Mup->setToolTip(tr("Click to change the merge order"));
 
     ui->btn_Mdown->setIcon(QIcon::fromTheme("go-down"));
     ui->btn_Mdown->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->btn_Mdown->setToolTip("Click to change the merge order");
+    ui->btn_Mdown->setToolTip(tr("Click to change the merge order"));
 
     ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
     ui->tbtn_pdfMerge->setIconSize(QSize(ICONSIZE,ICONSIZE));
@@ -92,11 +92,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->btn_left->setIcon(QIcon::fromTheme("object-rotate-left"));
     ui->btn_left->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->btn_left->setToolTip("click to rotate the PDF 90 degrees to the left");
+    ui->btn_left->setToolTip(tr("click to rotate the PDF 90 degrees to the left"));
 
     ui->btn_right->setIcon(QIcon::fromTheme("object-rotate-right"));
     ui->btn_right->setIconSize(QSize(ICONSIZE,ICONSIZE));
-    ui->btn_right->setToolTip("click to rotate the PDF 90 degrees to the right");
+    ui->btn_right->setToolTip(tr("click to rotate the PDF 90 degrees to the right"));
 
     ui->btn_left->hide();
     ui->btn_right->hide();
@@ -144,7 +144,7 @@ void MainWindow::on_btn_selectFile1_clicked()
 {
     ui->ln_file1->clear();
     ui->ln_file1->setText(
-    QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
     ui->ln_file1->setFocus();
 }
 
@@ -153,7 +153,7 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
     isRunnable = true;
 
     if(!QFile::exists(ui->ln_file1->text())){
-        QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
+        QMessageBox::warning(this,tr("Warning"),tr("You need to select a valide PDF file"));
         isRunnable = false;
     }
 
@@ -168,14 +168,14 @@ void MainWindow::on_tbtn_pdfCompress_clicked()
     }else if(ui->rbtn_prepress->isChecked()){
         command += "prepress ";
     }else{
-        QMessageBox::warning(this,"Warning","You need to select a compression mode");
+        QMessageBox::warning(this,tr("Warning"),tr("You need to select a compression mode"));
         isRunnable = false;
     }
 
     if(isRunnable){
 
         command += "-dNOPAUSE -dBATCH -sOutputFile='";
-        command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
+        command += QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
         command += ui->ln_file1->text() + "'";
 
         runCommand(command);
@@ -196,7 +196,7 @@ void MainWindow::on_btn_selectFile2_clicked()
 {
     ui->ln_file2->clear();
     ui->ln_file2->setText(
-    QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
     ui->ln_file2->setFocus();
 }
 
@@ -226,20 +226,20 @@ void MainWindow::on_tbtn_pdfSplit_clicked()
     isRunnable = true;
 
     if(!QFile::exists(ui->ln_file2->text())){
-        QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
+        QMessageBox::warning(this,tr("Warning"),tr("You need to select a valide PDF file"));
         isRunnable = false;
     }
 
     if(isRunnable){
         if(ui->rbtn_extractAll->isChecked()){
             command = "cd '"
-            + QFileDialog::getExistingDirectory(this,"Select Output Folder", QDir::homePath()) + "' && "
+            + QFileDialog::getExistingDirectory(this,tr("Select Output Folder"), QDir::homePath()) + "' && "
             + "stapler split " + "'" + ui->ln_file2->text() + "'";
         }else if(ui->rbtn_splitRange->isChecked()){
             command = "stapler zip '"
             + ui->ln_file2->text() + "' "
             + ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text() +
-            + " '" + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
+            + " '" + QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
         }
         runCommand(command);
     }else{
@@ -256,7 +256,7 @@ void MainWindow::on_tbtn_return3_clicked()
 
 void MainWindow::on_btn_Madd_clicked()
 {
-    QStringList aux = QFileDialog::getOpenFileNames(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)");
+    QStringList aux = QFileDialog::getOpenFileNames(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)");
 
     for(int i=0; i < aux.count(); i++){
         qDebug() << i << ": " << aux[i];
@@ -313,9 +313,9 @@ void MainWindow::on_tbtn_pdfMerge_clicked()
             command = command + "'" + ui->list_toMerge->item(i)->text() + "' ";
         }
         command = command + "'"
-        + QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
+        + QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
     }else{
-        QMessageBox::warning(this,"Warning","You need to add two or more files to be able to merge them");
+        QMessageBox::warning(this,tr("Warning"),tr("You need to add two or more files to be able to merge them"));
         command.clear();
     }
 
@@ -332,7 +332,7 @@ void MainWindow::on_btn_selectFile4_clicked()
 {
     ui->ln_file4->clear();
     ui->ln_file4->setText(
-    QFileDialog::getOpenFileName(this,"Select the PDF file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
     ui->ln_file4->setFocus();
 }
 
@@ -397,7 +397,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
     isRunnable = true;
 
     if(!QFile::exists(ui->ln_file4->text())){
-        QMessageBox::warning(this,"Warning","You need to select a valide PDF file");
+        QMessageBox::warning(this,tr("Warning"),tr("You need to select a valide PDF file"));
         isRunnable = false;
     }
 
@@ -414,7 +414,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked()
     }
 
     if(isRunnable){
-        command += QFileDialog::getSaveFileName(this,"Save file",QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
+        command += QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
 
         runCommand(command);
     }else{
@@ -428,7 +428,7 @@ void MainWindow::runCommand(QString command){
 
     qDebug() << "executing command: " << command << endl;
 
-    ui->statusBar->showMessage("Processing...");
+    ui->statusBar->showMessage(tr("Processing..."));
 
     QProcess process;
     process.start("sh");
@@ -440,10 +440,10 @@ void MainWindow::runCommand(QString command){
     qDebug() << process.readAllStandardOutput() << endl;
     QString error = process.readAllStandardError();
     if(!error.isEmpty()){
-        QMessageBox::warning(this,"ERROR",error);
-        ui->statusBar->showMessage("Failed",10000);
+        QMessageBox::warning(this,tr("ERROR"),error);
+        ui->statusBar->showMessage(tr("Failed"),10000);
     }else{
-        ui->statusBar->showMessage("Success!",10000);
+        ui->statusBar->showMessage(tr("Success!"),10000);
     }
     process.close();
 

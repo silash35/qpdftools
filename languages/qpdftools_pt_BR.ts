@@ -137,5 +137,98 @@
         <source>Right</source>
         <translation>Direita</translation>
     </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="72"/>
+        <source>Click to add a PDF file</source>
+        <translation>Clique para adicionar um arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="76"/>
+        <source>Click to remove a PDF file</source>
+        <translation>Clique para remover um arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="80"/>
+        <location filename="../mainwindow.cpp" line="84"/>
+        <source>Click to change the merge order</source>
+        <translation>Clique para mudar a ordem dos PDFs</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="95"/>
+        <source>click to rotate the PDF 90 degrees to the left</source>
+        <translation>Clique para rotacioanr PDF em 90° para esquerda</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="99"/>
+        <source>click to rotate the PDF 90 degrees to the right</source>
+        <translation>Clique para rotacioanr PDF em 90° para direita</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="147"/>
+        <location filename="../mainwindow.cpp" line="199"/>
+        <location filename="../mainwindow.cpp" line="259"/>
+        <location filename="../mainwindow.cpp" line="335"/>
+        <source>Select the PDF file</source>
+        <translation>Selecione o arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="156"/>
+        <location filename="../mainwindow.cpp" line="171"/>
+        <location filename="../mainwindow.cpp" line="229"/>
+        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="400"/>
+        <source>Warning</source>
+        <translation>Atenção</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="156"/>
+        <location filename="../mainwindow.cpp" line="229"/>
+        <location filename="../mainwindow.cpp" line="400"/>
+        <source>You need to select a valide PDF file</source>
+        <translation>Você precisa selecionar um arquivo PDF válido</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="171"/>
+        <source>You need to select a compression mode</source>
+        <translation>Você precisa selecionar um modo de compressão</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="242"/>
+        <location filename="../mainwindow.cpp" line="316"/>
+        <location filename="../mainwindow.cpp" line="417"/>
+        <source>Save file</source>
+        <translation>Salvar Arquivo</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="236"/>
+        <source>Select Output Folder</source>
+        <translation>Selecione a pasta de saída</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="318"/>
+        <source>You need to add two or more files to be able to merge them</source>
+        <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="431"/>
+        <source>Processing...</source>
+        <translation>Processando...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="443"/>
+        <source>ERROR</source>
+        <translation>ERRO</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="444"/>
+        <source>Failed</source>
+        <translation>Falhou</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="446"/>
+        <source>Success!</source>
+        <translation>Sucesso!</translation>
+    </message>
 </context>
 </TS>
