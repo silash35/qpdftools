@@ -12,11 +12,19 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 
 set(TS_FILES languages/qpdftools_pt_BR.ts)
 
-add_executable(qpdftools
+set(SRC
     src/main.cpp
     src/mainwindow.cpp
     src/mainwindow.h
     src/mainwindow.ui
+)
+
+qt5_create_translation(QM ${SRC} ${TS_FILES})
+qt5_add_translation(QM ${TS_FILES})
+
+add_executable(qpdftools
+    ${SRC}
+    ${QM}
 )
 
 target_link_libraries(qpdftools
@@ -24,4 +32,4 @@ target_link_libraries(qpdftools
         Qt5::Widgets
 )
 
-qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+#qt5_create_translation(QM ${TS_FILES})
