@@ -126,8 +126,7 @@ void MainWindow::on_tbtn_return1_clicked(){
 
 void MainWindow::on_btn_selectFile1_clicked(){
     ui->ln_file1->clear();
-    ui->ln_file1->setText(
-    QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    ui->ln_file1->setText(getOpenFileName());
     ui->ln_file1->setFocus();
 }
 
@@ -157,7 +156,7 @@ void MainWindow::on_tbtn_pdfCompress_clicked(){
     if(isRunnable){
 
         command += "-dNOPAUSE -dBATCH -sOutputFile='";
-        command += QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "' '";
+        command += getSaveFileName() + "' '";
         command += ui->ln_file1->text() + "'";
 
         runCommand(command);
@@ -175,8 +174,7 @@ void MainWindow::on_tbtn_return2_clicked(){
 
 void MainWindow::on_btn_selectFile2_clicked(){
     ui->ln_file2->clear();
-    ui->ln_file2->setText(
-    QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    ui->ln_file2->setText(getOpenFileName());
     ui->ln_file2->setFocus();
 }
 
@@ -215,7 +213,7 @@ void MainWindow::on_tbtn_pdfSplit_clicked(){
             command = "stapler zip '"
             + ui->ln_file2->text() + "' "
             + ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text() +
-            + " '" + QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
+            + " '" + getSaveFileName() + "'";
         }
         runCommand(command);
     }else{
@@ -283,7 +281,7 @@ void MainWindow::on_tbtn_pdfMerge_clicked(){
             command = command + "'" + ui->list_toMerge->item(i)->text() + "' ";
         }
         command = command + "'"
-        + QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
+        + getSaveFileName() + "'";
     }else{
         QMessageBox::warning(this,tr("Warning"),tr("You need to add two or more files to be able to merge them"));
         command.clear();
@@ -299,8 +297,7 @@ void MainWindow::on_tbtn_return4_clicked(){
 
 void MainWindow::on_btn_selectFile4_clicked(){
     ui->ln_file4->clear();
-    ui->ln_file4->setText(
-    QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)"));
+    ui->ln_file4->setText(getOpenFileName());
     ui->ln_file4->setFocus();
 }
 
@@ -377,7 +374,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked(){
     }
 
     if(isRunnable){
-        command += QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)") + "'";
+        command += getSaveFileName() + "'";
 
         runCommand(command);
     }else{
@@ -412,4 +409,11 @@ void MainWindow::runCommand(QString command){
     process.close();
 
     qDebug() << "finished to execute: " << command << endl;
+}
+
+inline QString MainWindow::getSaveFileName(){
+    return QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)");
+}
+inline QString MainWindow::getOpenFileName(){
+    return QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf  *.PDF)");
 }
