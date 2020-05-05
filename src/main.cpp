@@ -6,10 +6,8 @@ int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     QTranslator t;
 
-    if(QLocale::system().name() == QString("pt_BR")){
-        t.load("/usr/lib/qpdftools/qpdftools_pt_BR.qm");
-        a.installTranslator(&t);
-    }
+    t.load(QLocale::system(),"qpdftools","_","/usr/lib/qpdftools");
+    a.installTranslator(&t);
 
     MainWindow w;
     w.show();

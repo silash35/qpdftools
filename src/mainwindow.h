@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QProcess>
+#include <QDebug>
 
 #define ICONSIZE 30
 #define MENUICONSIZE 50
