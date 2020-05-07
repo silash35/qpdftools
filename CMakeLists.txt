@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
-project(qpdftools)
+project(qpdftools VERSION 1.3.0)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
@@ -32,4 +32,11 @@ target_link_libraries(qpdftools
         Qt5::Widgets
 )
 
-#qt5_create_translation(QM ${TS_FILES})
+if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
+    install(TARGETS qpdftools DESTINATION /usr/bin)
+    install(FILES resources/qpdftools.svg DESTINATION /usr/share/pixmaps)
+    install(FILES ${QM} DESTINATION /usr/lib/qpdftools)
+    install(FILES resources/qpdftools.desktop DESTINATION /usr/share/applications)
+
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
