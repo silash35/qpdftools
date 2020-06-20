@@ -2,13 +2,17 @@
 
 Qpdf Tools is an easy-to-use Qt interface for [Ghostscript](https://www.ghostscript.com/) and [Stapler](https://github.com/hellerbarde/stapler), which makes it possible for normal users to manage their PDFs.
 
+<p align="center">
+  <img src="https://github.com/silash35/qpdftools/blob/develop/resources/print.png?raw=true)">
+</p>
+
 With Qpdf Tools, you can easily compress, split, merge and even rotate your pdf documents.
 
 ## How to install?
 
 If you just want to use the program to manage your PDFs, We have .deb packages available for download in https://github.com/silash35/qpdftools/releases. If you installed Qpdf tools by a .deb package of version equal to or above 1.2 you will receive updates automatically from our APT repository.
 
-If your distribution is Arch Linux or similar (Like Manjaro) I recommend installing it through AUR. Just search for the "qpdftools" package
+If your distribution is Arch Linux or similar (Like Manjaro) I recommend installing it through AUR. Just search for the "qpdftools" package.
 
 Perhaps, in the future, snaps packages and a Windows software version (.exe) may be produced.
 
