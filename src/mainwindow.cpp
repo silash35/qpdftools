@@ -280,8 +280,7 @@ void MainWindow::on_tbtn_pdfMerge_clicked(){
         for(int i = 0; i < ui->list_toMerge->count(); ++i){
             command = command + "'" + ui->list_toMerge->item(i)->text() + "' ";
         }
-        command = command + "'"
-        + getSaveFileName() + "'";
+        command = command + "'" + getSaveFileName() + "'";
     }else{
         QMessageBox::warning(this,tr("Warning"),tr("You need to add two or more files to be able to merge them"));
         command.clear();
@@ -385,7 +384,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked(){
 
 //Other functions
 void MainWindow::runCommand(QString command){
-    qDebug() << "executing command: " << command << endl;
+    qDebug() << "executing command: " << command << "\n";
 
     ui->statusBar->showMessage(tr("Processing..."));
 
@@ -396,7 +395,7 @@ void MainWindow::runCommand(QString command){
     process.closeWriteChannel();
     process.waitForFinished();
 
-    qDebug() << process.readAllStandardOutput() << endl;
+    qDebug() << process.readAllStandardOutput() << "\n";
     QString error = process.readAllStandardError();
 
     if(!error.isEmpty()){
@@ -408,7 +407,7 @@ void MainWindow::runCommand(QString command){
 
     process.close();
 
-    qDebug() << "finished to execute: " << command << endl;
+    qDebug() << "finished to execute: " << command << "\n";
 }
 
 inline QString MainWindow::getSaveFileName(){
