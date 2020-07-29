@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(qpdftools VERSION 1.3.0)
+project(qpdftools VERSION 1.5.0)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
@@ -35,7 +35,7 @@ target_link_libraries(qpdftools
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
     install(TARGETS qpdftools DESTINATION /usr/bin)
-    install(FILES resources/qpdftools.svg DESTINATION /usr/share/pixmaps)
+    install(DIRECTORY resources/hicolor DESTINATION /usr/share/icons)
     install(FILES ${QM} DESTINATION /usr/lib/qpdftools)
     install(FILES resources/qpdftools.desktop DESTINATION /usr/share/applications)
 
