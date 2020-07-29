@@ -35,7 +35,7 @@ target_link_libraries(qpdftools
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
     install(TARGETS qpdftools DESTINATION /usr/bin)
-    install(FILES resources/qpdftools.svg DESTINATION /usr/share/pixmaps)
+    install(FILES resources/hicolor/* DESTINATION /usr/share/icons/hicolor)
     install(FILES ${QM} DESTINATION /usr/lib/qpdftools)
     install(FILES resources/qpdftools.desktop DESTINATION /usr/share/applications)
 

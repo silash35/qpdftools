@@ -1,9 +1,10 @@
 [Desktop Entry]
+
 Name=Qpdf Tools
-Version=1.0
+Version=1.5
 Exec=/usr/bin/qpdftools
 Comment=A easy-to-use Qt interface for Ghostscript and Stapler
-Icon=/usr/share/pixmaps/qpdftools.svg
+Icon= qpdftools.png
 Type=Application
 Terminal=false
 StartupNotify=true

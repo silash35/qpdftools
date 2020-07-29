@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
 //Main
     ui->setupUi(this);
-    this->setWindowIcon(QIcon("/usr/share/pixmaps/qpdftools.svg"));
+    this->setWindowIcon(QIcon(QIcon::fromTheme("qpdftools")));
     this->setWindowTitle("Qpdf Tools");
     this->setCentralWidget(ui->stackedWidget);
     
