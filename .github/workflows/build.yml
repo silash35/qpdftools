@@ -14,11 +14,11 @@ jobs:
     steps:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
-    - name: download Qpdf Tools Code
+    - name: Download Qpdf Tools Code
       uses: actions/checkout@v2
-    - name: configure
+    - name: Configure
       run: cmake .
-    - name: make
+    - name: Compile
       run: make
-    - name: make install
+    - name: Install
       run: sudo make install
