@@ -6,6 +6,7 @@ Qpdf Tools
 
   <img src="https://img.shields.io/aur/license/qpdftools">
   <img src="https://img.shields.io/aur/version/qpdftools">
+  <img src="https://github.com/silash35/qpdftools/workflows/build/badge.svg"> 
   <img src="https://img.shields.io/github/stars/silash35/qpdftools?style=social">
 
 </p>
