@@ -13,10 +13,10 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 set(TS_FILES languages/qpdftools_pt_BR.ts)
 
 set(SRC
-  src/main.cpp
-  src/mainwindow.cpp
-  src/mainwindow.h
-  src/mainwindow.ui
+    src/main.cpp
+    src/interface/mainwindow.hpp
+    src/interface/mainwindow.ui
+    src/interface/mainwindow.cpp
 )
 
 qt5_create_translation(QM ${SRC} ${TS_FILES})
