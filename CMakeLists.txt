@@ -13,30 +13,30 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 set(TS_FILES languages/qpdftools_pt_BR.ts)
 
 set(SRC
-    src/main.cpp
-    src/mainwindow.cpp
-    src/mainwindow.h
-    src/mainwindow.ui
+  src/main.cpp
+  src/mainwindow.cpp
+  src/mainwindow.h
+  src/mainwindow.ui
 )
 
 qt5_create_translation(QM ${SRC} ${TS_FILES})
 qt5_add_translation(QM ${TS_FILES})
 
 add_executable(qpdftools
-    ${SRC}
-    ${QM}
+  ${SRC}
+  ${QM}
 )
 
 target_link_libraries(qpdftools
-    PRIVATE
-        Qt5::Widgets
+  PRIVATE
+    Qt5::Widgets
 )
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-    install(TARGETS qpdftools DESTINATION /usr/bin)
-    install(DIRECTORY resources/hicolor DESTINATION /usr/share/icons)
-    install(FILES ${QM} DESTINATION /usr/lib/qpdftools)
-    install(FILES resources/qpdftools.desktop DESTINATION /usr/share/applications)
+  install(TARGETS qpdftools DESTINATION /usr/bin)
+  install(DIRECTORY resources/hicolor DESTINATION /usr/share/icons)
+  install(FILES ${QM} DESTINATION /usr/lib/qpdftools)
+  install(FILES resources/qpdftools.desktop DESTINATION /usr/share/applications)
 
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
