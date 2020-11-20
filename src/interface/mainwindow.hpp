@@ -85,6 +85,12 @@ private:
   bool isRunnable = true; // Stores if the command can be runned or not
   int rotate{0}; //Stores in degrees how much the pdf will be rotated in rotation mode
 
+  void configMenu();
+  void configCompress();
+  void configSplit();
+  void configMerge();
+  void configRotate();
+
   void runCommand(QString command);
   QString getSaveFileName();
   QString getOpenFileName();

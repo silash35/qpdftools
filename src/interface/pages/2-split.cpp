@@ -1,6 +1,17 @@
 #include "../mainwindow.hpp"
 #include "../ui_mainwindow.h"
 
+void MainWindow::configSplit(){
+  ui->tbtn_return2->setIcon(QIcon::fromTheme("go-previous"));
+
+  ui->spinBox_fistPage->setMinimum(1);
+  ui->rbtn_splitRange->setChecked(true);
+
+  ui->tbtn_pdfSplit->setIcon(QIcon::fromTheme("edit-cut"));
+  ui->tbtn_pdfSplit->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->tbtn_pdfSplit->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+}
+
 void MainWindow::on_tbtn_return2_clicked(){
   ui->stackedWidget->setCurrentIndex(0);
 }

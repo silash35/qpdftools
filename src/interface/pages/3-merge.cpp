@@ -1,6 +1,30 @@
 #include "../mainwindow.hpp"
 #include "../ui_mainwindow.h"
 
+void MainWindow::configMerge(){
+  ui->tbtn_return3->setIcon(QIcon::fromTheme("go-previous"));
+
+  ui->btn_Madd->setIcon(QIcon::fromTheme("list-add"));
+  ui->btn_Madd->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->btn_Madd->setToolTip(tr("Click to add a PDF file"));
+
+  ui->btn_Mrm->setIcon(QIcon::fromTheme("list-remove"));
+  ui->btn_Mrm->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->btn_Mrm->setToolTip(tr("Click to remove a PDF file"));
+
+  ui->btn_Mup->setIcon(QIcon::fromTheme("go-up"));
+  ui->btn_Mup->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->btn_Mup->setToolTip(tr("Click to change the merge order"));
+
+  ui->btn_Mdown->setIcon(QIcon::fromTheme("go-down"));
+  ui->btn_Mdown->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->btn_Mdown->setToolTip(tr("Click to change the merge order"));
+
+  ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
+  ui->tbtn_pdfMerge->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+}
+
 void MainWindow::on_tbtn_return3_clicked(){
   ui->stackedWidget->setCurrentIndex(0);
 }

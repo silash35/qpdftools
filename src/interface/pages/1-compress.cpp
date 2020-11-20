@@ -1,6 +1,13 @@
 #include "../mainwindow.hpp"
 #include "../ui_mainwindow.h"
 
+void MainWindow::configCompress(){
+  ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
+  ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
+  ui->tbtn_pdfCompress->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->tbtn_pdfCompress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+}
+
 void MainWindow::on_tbtn_return1_clicked(){
   ui->stackedWidget->setCurrentIndex(0);
 }

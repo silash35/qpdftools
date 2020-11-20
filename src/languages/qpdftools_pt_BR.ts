@@ -137,90 +137,90 @@
         <translation>Rotacionar PDF</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="63"/>
+        <location filename="../interface/pages/3-merge.cpp" line="9"/>
         <source>Click to add a PDF file</source>
         <translation>Clique para adicionar um arquivo PDF</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="67"/>
+        <location filename="../interface/pages/3-merge.cpp" line="13"/>
         <source>Click to remove a PDF file</source>
         <translation>Clique para remover um arquivo PDF</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="71"/>
-        <location filename="../interface/mainwindow.cpp" line="75"/>
+        <location filename="../interface/pages/3-merge.cpp" line="17"/>
+        <location filename="../interface/pages/3-merge.cpp" line="21"/>
         <source>Click to change the merge order</source>
         <translation>Clique para mudar a ordem dos PDFs</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="86"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="9"/>
         <source>click to rotate the PDF 90 degrees to the left</source>
         <translation>Clique para rotacioanr PDF em 90° para esquerda</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="90"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="13"/>
         <source>click to rotate the PDF 90 degrees to the right</source>
         <translation>Clique para rotacioanr PDF em 90° para direita</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="9"/>
-        <location filename="../interface/mainwindow.cpp" line="137"/>
+        <location filename="../interface/pages/3-merge.cpp" line="33"/>
+        <location filename="../interface/mainwindow.cpp" line="67"/>
         <source>Select the PDF file</source>
         <translation>Selecione o arquivo PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="70"/>
-        <location filename="../interface/pages/3-merge.cpp" line="63"/>
-        <location filename="../interface/pages/2-split.cpp" line="36"/>
-        <location filename="../interface/pages/1-compress.cpp" line="18"/>
-        <location filename="../interface/pages/1-compress.cpp" line="33"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
+        <location filename="../interface/pages/3-merge.cpp" line="87"/>
+        <location filename="../interface/pages/2-split.cpp" line="47"/>
+        <location filename="../interface/pages/1-compress.cpp" line="25"/>
+        <location filename="../interface/pages/1-compress.cpp" line="40"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="70"/>
-        <location filename="../interface/pages/2-split.cpp" line="36"/>
-        <location filename="../interface/pages/1-compress.cpp" line="18"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
+        <location filename="../interface/pages/2-split.cpp" line="47"/>
+        <location filename="../interface/pages/1-compress.cpp" line="25"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress.cpp" line="33"/>
+        <location filename="../interface/pages/1-compress.cpp" line="40"/>
         <source>You need to select a compression mode</source>
         <translation>Você precisa selecionar um modo de compressão</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="134"/>
+        <location filename="../interface/mainwindow.cpp" line="64"/>
         <source>Save file</source>
         <translation>Salvar Arquivo</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split.cpp" line="43"/>
+        <location filename="../interface/pages/2-split.cpp" line="54"/>
         <source>Select Output Folder</source>
         <translation>Selecione a pasta de saída</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="63"/>
+        <location filename="../interface/pages/3-merge.cpp" line="87"/>
         <source>You need to add two or more files to be able to merge them</source>
         <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="109"/>
+        <location filename="../interface/mainwindow.cpp" line="39"/>
         <source>Processing...</source>
         <translation>Processando...</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="122"/>
+        <location filename="../interface/mainwindow.cpp" line="52"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="123"/>
+        <location filename="../interface/mainwindow.cpp" line="53"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="125"/>
+        <location filename="../interface/mainwindow.cpp" line="55"/>
         <source>Success!</source>
         <translation>Sucesso!</translation>
     </message>

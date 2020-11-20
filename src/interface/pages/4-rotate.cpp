@@ -1,6 +1,26 @@
 #include "../mainwindow.hpp"
 #include "../ui_mainwindow.h"
 
+void MainWindow::configRotate(){
+  ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
+
+  ui->btn_left->setIcon(QIcon::fromTheme("object-rotate-left"));
+  ui->btn_left->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->btn_left->setToolTip(tr("click to rotate the PDF 90 degrees to the left"));
+
+  ui->btn_right->setIcon(QIcon::fromTheme("object-rotate-right"));
+  ui->btn_right->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->btn_right->setToolTip(tr("click to rotate the PDF 90 degrees to the right"));
+
+  ui->btn_left->hide();
+  ui->btn_right->hide();
+  ui->label_pdfCover->hide();
+
+  ui->tbtn_pdfRotate->setIcon(QIcon::fromTheme("object-rotate-right"));
+  ui->tbtn_pdfRotate->setIconSize(QSize(ICONSIZE,ICONSIZE));
+  ui->tbtn_pdfRotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+}
+
 void MainWindow::on_tbtn_return4_clicked(){
   ui->stackedWidget->setCurrentIndex(0);
 }
