@@ -163,64 +163,64 @@
         <translation>Clique para rotacioanr PDF em 90° para direita</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="231"/>
-        <location filename="../src/interface/mainwindow.cpp" line="417"/>
+        <location filename="../src/interface/pages/3-merge.cpp" line="9"/>
+        <location filename="../src/interface/mainwindow.cpp" line="137"/>
         <source>Select the PDF file</source>
         <translation>Selecione o arquivo PDF</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="137"/>
-        <location filename="../src/interface/mainwindow.cpp" line="152"/>
-        <location filename="../src/interface/mainwindow.cpp" line="203"/>
-        <location filename="../src/interface/mainwindow.cpp" line="285"/>
-        <location filename="../src/interface/mainwindow.cpp" line="359"/>
+        <location filename="../src/interface/pages/4-rotate.cpp" line="70"/>
+        <location filename="../src/interface/pages/3-merge.cpp" line="63"/>
+        <location filename="../src/interface/pages/2-split.cpp" line="36"/>
+        <location filename="../src/interface/pages/1-compress.cpp" line="18"/>
+        <location filename="../src/interface/pages/1-compress.cpp" line="33"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="137"/>
-        <location filename="../src/interface/mainwindow.cpp" line="203"/>
-        <location filename="../src/interface/mainwindow.cpp" line="359"/>
+        <location filename="../src/interface/pages/4-rotate.cpp" line="70"/>
+        <location filename="../src/interface/pages/2-split.cpp" line="36"/>
+        <location filename="../src/interface/pages/1-compress.cpp" line="18"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="152"/>
+        <location filename="../src/interface/pages/1-compress.cpp" line="33"/>
         <source>You need to select a compression mode</source>
         <translation>Você precisa selecionar um modo de compressão</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="414"/>
+        <location filename="../src/interface/mainwindow.cpp" line="134"/>
         <source>Save file</source>
         <translation>Salvar Arquivo</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="210"/>
+        <location filename="../src/interface/pages/2-split.cpp" line="43"/>
         <source>Select Output Folder</source>
         <translation>Selecione a pasta de saída</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="285"/>
+        <location filename="../src/interface/pages/3-merge.cpp" line="63"/>
         <source>You need to add two or more files to be able to merge them</source>
         <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="389"/>
+        <location filename="../src/interface/mainwindow.cpp" line="109"/>
         <source>Processing...</source>
         <translation>Processando...</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="402"/>
+        <location filename="../src/interface/mainwindow.cpp" line="122"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="403"/>
+        <location filename="../src/interface/mainwindow.cpp" line="123"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
     <message>
-        <location filename="../src/interface/mainwindow.cpp" line="405"/>
+        <location filename="../src/interface/mainwindow.cpp" line="125"/>
         <source>Success!</source>
         <translation>Sucesso!</translation>
     </message>

@@ -1,0 +1,94 @@
+#include "../mainwindow.hpp"
+#include "../ui_mainwindow.h"
+
+void MainWindow::on_tbtn_return4_clicked(){
+  ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_btn_selectFile4_clicked(){
+  ui->ln_file4->clear();
+  ui->ln_file4->setText(getOpenFileName());
+  ui->ln_file4->setFocus();
+}
+
+void MainWindow::on_ln_file4_textChanged(const QString &arg1){
+  rotate = 0;
+
+  if(QFile::exists(arg1)){
+    ui->btn_left->show();
+    ui->btn_right->show();
+    ui->label_pdfCover->show();
+
+    command = "gs -q -o '";
+    command += PDFCOVERPATH;
+    command += "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
+    runCommand(command);
+
+    QPixmap pdfCover(PDFCOVERPATH);
+    ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
+  }else{
+    ui->btn_left->hide();
+    ui->btn_right->hide();
+    ui->label_pdfCover->hide();
+    command.clear();
+  }
+}
+
+void MainWindow::on_btn_left_clicked(){
+  if(rotate <= 0){
+    rotate = 360;
+  }
+
+  rotate -= 90;
+  QTransform rote;
+  rote = rote.rotate(rotate);
+
+  QPixmap pdfCover(PDFCOVERPATH);
+  pdfCover = QPixmap(pdfCover.transformed(rote));
+  ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
+}
+
+void MainWindow::on_btn_right_clicked(){
+  if(rotate >= 360){
+    rotate = 0;
+  }
+
+  rotate += 90;
+  QTransform rote;
+  rote = rote.rotate(rotate);
+
+  QPixmap pdfCover(PDFCOVERPATH);
+  pdfCover = QPixmap(pdfCover.transformed(rote));
+  ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
+}
+
+void MainWindow::on_tbtn_pdfRotate_clicked(){
+
+  isRunnable = true;
+
+  if(!QFile::exists(ui->ln_file4->text())){
+    QMessageBox::warning(this,tr("Warning"),tr("You need to select a valide PDF file"));
+    isRunnable = false;
+  }
+
+  command = "stapler sel A='" + ui->ln_file4->text() + "' A1-end";
+
+  if( (rotate==0) or (rotate==360) ){
+    command += " '";
+  }else if(rotate == 90){
+    command += "R '";
+  }else if(rotate == 180){
+    command += "D '";
+  }else if(rotate == 270){
+    command += "L '";
+  }
+
+  if(isRunnable){
+    command += getSaveFileName() + "'";
+
+    runCommand(command);
+  }else{
+    qDebug() << "command not executed";
+  }
+  command.clear();
+}

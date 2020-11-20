@@ -17,6 +17,11 @@ set(SRC
     src/interface/mainwindow.hpp
     src/interface/mainwindow.ui
     src/interface/mainwindow.cpp
+    src/interface/pages/0-menu.cpp
+    src/interface/pages/1-compress.cpp
+    src/interface/pages/2-split.cpp
+    src/interface/pages/3-merge.cpp
+    src/interface/pages/4-rotate.cpp
 )
 
 qt5_create_translation(QM ${SRC} ${TS_FILES})

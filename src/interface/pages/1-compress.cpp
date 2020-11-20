@@ -1,0 +1,49 @@
+#include "../mainwindow.hpp"
+#include "../ui_mainwindow.h"
+
+void MainWindow::on_tbtn_return1_clicked(){
+  ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_btn_selectFile1_clicked(){
+  ui->ln_file1->clear();
+  ui->ln_file1->setText(getOpenFileName());
+  ui->ln_file1->setFocus();
+}
+
+void MainWindow::on_tbtn_pdfCompress_clicked(){
+  isRunnable = true;
+
+  if(!QFile::exists(ui->ln_file1->text())){
+    QMessageBox::warning(this,tr("Warning"),tr("You need to select a valide PDF file"));
+    isRunnable = false;
+  }
+
+  command = "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/";
+
+  if(ui->rbtn_screen->isChecked()){
+    command += "screen ";
+  }else if(ui->rbtn_ebook->isChecked()){
+    command += "ebook ";
+  }else if(ui->rbtn_printer->isChecked()){
+    command += "printer ";
+  }else if(ui->rbtn_prepress->isChecked()){
+    command += "prepress ";
+  }else{
+    QMessageBox::warning(this,tr("Warning"),tr("You need to select a compression mode"));
+    isRunnable = false;
+  }
+
+  if(isRunnable){
+
+    command += "-dNOPAUSE -dBATCH -sOutputFile='";
+    command += getSaveFileName() + "' '";
+    command += ui->ln_file1->text() + "'";
+
+    runCommand(command);
+  }else{
+    command.clear();
+    qDebug() << "command not executed";
+  }
+
+}

@@ -86,7 +86,7 @@ private:
   int rotate{0}; //Stores in degrees how much the pdf will be rotated in rotation mode
 
   void runCommand(QString command);
-  inline QString getSaveFileName();
-  inline QString getOpenFileName();
+  QString getSaveFileName();
+  QString getOpenFileName();
 };
 #endif // MAINWINDOW_H
