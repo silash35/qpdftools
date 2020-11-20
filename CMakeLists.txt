@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 
-set(TS_FILES languages/qpdftools_pt_BR.ts)
+set(TS_FILES src/languages/qpdftools_pt_BR.ts)
 
 set(SRC
     src/main.cpp
