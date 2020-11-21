@@ -26,16 +26,17 @@ void MainWindow::on_tbtn_pdfCompress_clicked(){
     isRunnable = false;
   }
 
-  command = "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/";
+  command.clear();
+  command << "-sDEVICE=pdfwrite" << "-dCompatibilityLevel=1.4";
 
   if(ui->rbtn_screen->isChecked()){
-    command += "screen ";
+    command << "-dPDFSETTINGS=/screen";
   }else if(ui->rbtn_ebook->isChecked()){
-    command += "ebook ";
+    command << "-dPDFSETTINGS=/ebook";
   }else if(ui->rbtn_printer->isChecked()){
-    command += "printer ";
+    command << "-dPDFSETTINGS=/printer";
   }else if(ui->rbtn_prepress->isChecked()){
-    command += "prepress ";
+    command << "-dPDFSETTINGS=/prepress";
   }else{
     QMessageBox::warning(this,tr("Warning"),tr("You need to select a compression mode"));
     isRunnable = false;
@@ -43,13 +44,12 @@ void MainWindow::on_tbtn_pdfCompress_clicked(){
 
   if(isRunnable){
 
-    command += "-dNOPAUSE -dBATCH -sOutputFile='";
-    command += getSaveFileName() + "' '";
-    command += ui->ln_file1->text() + "'";
+    command << "-dNOPAUSE" << "-dBATCH";
+    command << "-sOutputFile=" + getSaveFileName();
+    command << ui->ln_file1->text();
 
-    runCommand(command);
+    runCommand("gs",command);
   }else{
-    command.clear();
     qDebug() << "command not executed";
   }
 

@@ -48,20 +48,21 @@ void MainWindow::on_tbtn_pdfSplit_clicked(){
     isRunnable = false;
   }
 
+  command.clear();
+
   if(isRunnable){
     if(ui->rbtn_extractAll->isChecked()){
-      command = "cd '"
+      command << "cd '"
       + QFileDialog::getExistingDirectory(this,tr("Select Output Folder"), QDir::homePath()) + "' && "
       + "stapler split " + "'" + ui->ln_file2->text() + "'";
     }else if(ui->rbtn_splitRange->isChecked()){
-      command = "stapler zip '"
+      command << "stapler zip '"
       + ui->ln_file2->text() + "' "
       + ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text() +
       + " '" + getSaveFileName() + "'";
     }
-    runCommand(command);
+    runCommand("stapler", command);
   }else{
-    command.clear();
     qDebug() << "command not executed";
   }
 }

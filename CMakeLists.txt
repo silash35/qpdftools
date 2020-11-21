@@ -13,15 +13,21 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 set(TS_FILES src/languages/qpdftools_pt_BR.ts)
 
 set(SRC
-    src/main.cpp
-    src/interface/mainwindow.hpp
-    src/interface/mainwindow.ui
-    src/interface/mainwindow.cpp
-    src/interface/pages/0-menu.cpp
-    src/interface/pages/1-compress.cpp
-    src/interface/pages/2-split.cpp
-    src/interface/pages/3-merge.cpp
-    src/interface/pages/4-rotate.cpp
+  src/main.cpp
+
+  src/interface/mainwindow.hpp
+  src/interface/mainwindow.ui
+  src/interface/mainwindow.cpp
+
+  src/interface/pages/0-menu.cpp
+  src/interface/pages/1-compress.cpp
+  src/interface/pages/2-split.cpp
+  src/interface/pages/3-merge.cpp
+  src/interface/pages/4-rotate.cpp
+
+  src/api/externalSoftware.hpp
+  src/api/ghostscript.hpp
+  src/api/stapler.hpp
 )
 
 qt5_create_translation(QM ${SRC} ${TS_FILES})

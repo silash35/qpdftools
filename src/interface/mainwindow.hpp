@@ -81,7 +81,7 @@ private slots:
 private:
   Ui::MainWindow *ui;
 
-  QString command = ""; //Stores the command to be executed
+  QStringList command; //Stores the command to be executed
   bool isRunnable = true; // Stores if the command can be runned or not
   int rotate{0}; //Stores in degrees how much the pdf will be rotated in rotation mode
 
@@ -91,8 +91,8 @@ private:
   void configMerge();
   void configRotate();
 
-  void runCommand(QString command);
-  QString getSaveFileName();
+  void runCommand(QString command, QStringList arguments);
   QString getOpenFileName();
+  QString getSaveFileName();
 };
 #endif // MAINWINDOW_H

@@ -39,10 +39,10 @@ void MainWindow::on_ln_file4_textChanged(const QString &arg1){
     ui->btn_right->show();
     ui->label_pdfCover->show();
 
-    command = "gs -q -o '";
-    command += PDFCOVERPATH;
-    command += "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
-    runCommand(command);
+    command << "-q -o '";
+    command << PDFCOVERPATH;
+    command << "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
+    runCommand("gs", command);
 
     QPixmap pdfCover(PDFCOVERPATH);
     ui->label_pdfCover->setPixmap(pdfCover.scaled(300,300,Qt::KeepAspectRatio));
@@ -91,22 +91,22 @@ void MainWindow::on_tbtn_pdfRotate_clicked(){
     isRunnable = false;
   }
 
-  command = "stapler sel A='" + ui->ln_file4->text() + "' A1-end";
+  command << "sel A='" + ui->ln_file4->text() + "' A1-end";
 
   if( (rotate==0) or (rotate==360) ){
-    command += " '";
+    command << " '";
   }else if(rotate == 90){
-    command += "R '";
+    command << "R '";
   }else if(rotate == 180){
-    command += "D '";
+    command << "D '";
   }else if(rotate == 270){
-    command += "L '";
+    command << "L '";
   }
 
   if(isRunnable){
     command += getSaveFileName() + "'";
 
-    runCommand(command);
+    runCommand("stapler",command);
   }else{
     qDebug() << "command not executed";
   }

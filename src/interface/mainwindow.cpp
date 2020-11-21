@@ -1,6 +1,9 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
 
+#include "../api/ghostscript.hpp"
+#include "../api/stapler.hpp"
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
   //Main
   ui->setupUi(this);
@@ -12,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   bool isThemeCompatible = (QIcon::hasThemeIcon("zoom-out") and
     QIcon::hasThemeIcon("edit-cut") and
     QIcon::hasThemeIcon("merge") and
-    QIcon::hasThemeIcon("object-rotate-righ"));
+    QIcon::hasThemeIcon("object-rotate-right"));
 
   //If the theme is not compatible, the program will use breeze theme
   if(!isThemeCompatible){
@@ -33,20 +36,16 @@ MainWindow::~MainWindow(){
 }
 
 //Other functions
-void MainWindow::runCommand(QString command){
-  qDebug() << "executing command: " << command << "\n";
+void MainWindow::runCommand(QString command, QStringList arguments){
 
+  qDebug() << "executing command: " << command << "\n";
   ui->statusBar->showMessage(tr("Processing..."));
 
-  QProcess process;
-  process.start("sh");
+  if(command == "gs"){
+    ghostscript.start(arguments);
+  }
 
-  process.write(qPrintable(command));
-  process.closeWriteChannel();
-  process.waitForFinished();
-
-  qDebug() << process.readAllStandardOutput() << "\n";
-  QString error = process.readAllStandardError();
+  QString error = ghostscript.getStandardError();
 
   if(!error.isEmpty()){
     QMessageBox::warning(this,tr("ERROR"),error);
@@ -55,14 +54,12 @@ void MainWindow::runCommand(QString command){
     ui->statusBar->showMessage(tr("Success!"),10000);
   }
 
-  process.close();
+}
 
-  qDebug() << "finished to execute: " << command << "\n";
+QString MainWindow::getOpenFileName(){
+  return QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf  *.PDF)");
 }
 
 QString MainWindow::getSaveFileName(){
   return QFileDialog::getSaveFileName(this,tr("Save file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf)");
-}
-QString MainWindow::getOpenFileName(){
-  return QFileDialog::getOpenFileName(this,tr("Select the PDF file"),QDir::homePath(),"PDF - Portable Document Format (*.pdf  *.PDF)");
 }

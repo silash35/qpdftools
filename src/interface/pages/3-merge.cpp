@@ -78,15 +78,15 @@ void MainWindow::on_btn_Mdown_clicked(){
 
 void MainWindow::on_tbtn_pdfMerge_clicked(){
   if(ui->list_toMerge->count()>1){
-    command = "stapler sel ";
+    command << "stapler sel ";
     for(int i = 0; i < ui->list_toMerge->count(); ++i){
-      command = command + "'" + ui->list_toMerge->item(i)->text() + "' ";
+      command << "'" + ui->list_toMerge->item(i)->text() + "' ";
     }
-    command = command + "'" + getSaveFileName() + "'";
+    command << "'" + getSaveFileName() + "'";
   }else{
     QMessageBox::warning(this,tr("Warning"),tr("You need to add two or more files to be able to merge them"));
     command.clear();
   }
 
-  runCommand(command);
+  runCommand("stapler", command);
 }

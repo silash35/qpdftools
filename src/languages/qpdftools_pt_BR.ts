@@ -164,7 +164,7 @@
     </message>
     <message>
         <location filename="../interface/pages/3-merge.cpp" line="33"/>
-        <location filename="../interface/mainwindow.cpp" line="67"/>
+        <location filename="../interface/mainwindow.cpp" line="60"/>
         <source>Select the PDF file</source>
         <translation>Selecione o arquivo PDF</translation>
     </message>
@@ -173,7 +173,7 @@
         <location filename="../interface/pages/3-merge.cpp" line="87"/>
         <location filename="../interface/pages/2-split.cpp" line="47"/>
         <location filename="../interface/pages/1-compress.cpp" line="25"/>
-        <location filename="../interface/pages/1-compress.cpp" line="40"/>
+        <location filename="../interface/pages/1-compress.cpp" line="41"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
@@ -185,7 +185,7 @@
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress.cpp" line="40"/>
+        <location filename="../interface/pages/1-compress.cpp" line="41"/>
         <source>You need to select a compression mode</source>
         <translation>Você precisa selecionar um modo de compressão</translation>
     </message>
@@ -195,7 +195,7 @@
         <translation>Salvar Arquivo</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split.cpp" line="54"/>
+        <location filename="../interface/pages/2-split.cpp" line="56"/>
         <source>Select Output Folder</source>
         <translation>Selecione a pasta de saída</translation>
     </message>
@@ -205,22 +205,22 @@
         <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="39"/>
+        <location filename="../interface/mainwindow.cpp" line="42"/>
         <source>Processing...</source>
         <translation>Processando...</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="52"/>
+        <location filename="../interface/mainwindow.cpp" line="51"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="53"/>
+        <location filename="../interface/mainwindow.cpp" line="52"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="55"/>
+        <location filename="../interface/mainwindow.cpp" line="54"/>
         <source>Success!</source>
         <translation>Sucesso!</translation>
     </message>
