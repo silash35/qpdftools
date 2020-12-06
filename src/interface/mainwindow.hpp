@@ -1,18 +1,20 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <QDebug>
 #include <QFileDialog>
+#include <QMainWindow>
 #include <QMessageBox>
 #include <QProcess>
-#include <QDebug>
 
 #define ICONSIZE 30
 #define MENUICONSIZE 50
-#define PDFCOVERPATH "/tmp/pdfCover.png" //PDF Cover Path
+#define PDFCOVERPATH "/tmp/pdfCover.png" // PDF Cover Path
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow {
@@ -23,7 +25,7 @@ public:
 
 private slots:
 
-//page_menu (0)
+  // page_menu (0)
   void on_tbtn_compress_clicked();
 
   void on_tbtn_split_clicked();
@@ -32,14 +34,14 @@ private slots:
 
   void on_tbtn_rotate_clicked();
 
-//page_compress (1)
+  // page_compress (1)
   void on_tbtn_return1_clicked();
 
   void on_btn_selectFile1_clicked();
 
   void on_tbtn_pdfCompress_clicked();
 
-//page_split (2)
+  // page_split (2)
   void on_tbtn_return2_clicked();
 
   void on_btn_selectFile2_clicked();
@@ -52,7 +54,7 @@ private slots:
 
   void on_tbtn_pdfSplit_clicked();
 
-//page_merge (3)
+  // page_merge (3)
   void on_tbtn_return3_clicked();
 
   void on_btn_Madd_clicked();
@@ -65,7 +67,7 @@ private slots:
 
   void on_tbtn_pdfMerge_clicked();
 
- //page_rotate (4)
+  // page_rotate (4)
   void on_tbtn_return4_clicked();
 
   void on_btn_selectFile4_clicked();
@@ -81,9 +83,9 @@ private slots:
 private:
   Ui::MainWindow *ui;
 
-  QStringList command; //Stores the command to be executed
+  QStringList command;    // Stores the command to be executed
   bool isRunnable = true; // Stores if the command can be runned or not
-  int rotate{0}; //Stores in degrees how much the pdf will be rotated in rotation mode
+  int rotate{0};          // Stores in degrees how much the pdf will be rotated in rotation mode
 
   void configMenu();
   void configCompress();
@@ -91,7 +93,7 @@ private:
   void configMerge();
   void configRotate();
 
-  void runCommand(QString command, QStringList arguments);
+  void runCommand(QString command, QStringList arguments, QString dir = "default");
   QString getOpenFileName();
   QString getSaveFileName();
 };

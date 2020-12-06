@@ -3,11 +3,11 @@
 
 #include "externalSoftware.hpp"
 
-class Stapler: public ExternalSoftware{
+class Stapler : public ExternalSoftware {
 public:
-  Stapler(){
+  Stapler() {
     softwareName = "Stapler";
     softwareCommand = "stapler";
   }
-}stapler;
+} stapler;
 #endif // STAPLER_H

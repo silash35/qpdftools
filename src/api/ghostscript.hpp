@@ -3,11 +3,11 @@
 
 #include "externalSoftware.hpp"
 
-class Ghostscript: public ExternalSoftware{
+class Ghostscript : public ExternalSoftware {
 public:
-  Ghostscript(){
+  Ghostscript() {
     softwareName = "Ghostscript";
     softwareCommand = "gs";
   }
-}ghostscript;
+} ghostscript;
 #endif // GHOSTSCRIPT_H
