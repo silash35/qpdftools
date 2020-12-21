@@ -77,17 +77,26 @@ void MainWindow::on_btn_Mdown_clicked() {
 }
 
 void MainWindow::on_tbtn_pdfMerge_clicked() {
-  if (ui->list_toMerge->count() > 1) {
-    command << "stapler sel ";
-    for (int i = 0; i < ui->list_toMerge->count(); ++i) {
-      command << "'" + ui->list_toMerge->item(i)->text() + "' ";
-    }
-    command << "'" + getSaveFileName() + "'";
-  } else {
-    QMessageBox::warning(this, tr("Warning"),
-                         tr("You need to add two or more files to be able to merge them"));
-    command.clear();
+  isRunnable = true;
+
+  QString targetFile = getSaveFileName();
+  if (targetFile == "invalid") {
+    isRunnable = false;
   }
 
-  runCommand("stapler", command);
+  command.clear();
+  if (isRunnable) {
+    if (ui->list_toMerge->count() > 1) {
+      command.clear();
+      command << "sel";
+      for (int i = 0; i < ui->list_toMerge->count(); ++i) {
+        command << ui->list_toMerge->item(i)->text();
+      }
+      command << targetFile;
+      runCommand("stapler", command);
+    } else {
+      QMessageBox::warning(this, tr("Warning"),
+                           tr("You need to add two or more files to be able to merge them"));
+    }
+  }
 }

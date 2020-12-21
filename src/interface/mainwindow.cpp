@@ -43,7 +43,7 @@ void MainWindow::runCommand(QString command, QStringList arguments, QString dir)
   if (command == "gs") {
     ghostscript.start(arguments, dir);
     error = ghostscript.getStandardError();
-  } else if (command == "gs") {
+  } else if (command == "stapler") {
     stapler.start(arguments, dir);
     error = stapler.getStandardError();
   }
@@ -62,6 +62,11 @@ QString MainWindow::getOpenFileName() {
 }
 
 QString MainWindow::getSaveFileName() {
-  return QFileDialog::getSaveFileName(this, tr("Save file"), QDir::homePath(),
-                                      "PDF - Portable Document Format (*.pdf)");
+  QString file = QFileDialog::getSaveFileName(this, tr("Save file"), QDir::homePath(),
+                                              "PDF - Portable Document Format (*.pdf)");
+  if (file.isEmpty()) {
+    file = "invalid";
+  }
+
+  return file;
 }

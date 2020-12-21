@@ -29,17 +29,19 @@ void MainWindow::on_btn_selectFile4_clicked() {
   ui->ln_file4->setFocus();
 }
 
-void MainWindow::on_ln_file4_textChanged(const QString &arg1) {
+void MainWindow::on_ln_file4_textChanged(const QString &pdfPath) {
   rotate = 0;
+  command.clear();
 
-  if (QFile::exists(arg1)) {
+  if (QFile::exists(pdfPath)) {
     ui->btn_left->show();
     ui->btn_right->show();
     ui->label_pdfCover->show();
 
-    command << "-q -o '";
-    command << PDFCOVERPATH;
-    command << "' -sDEVICE=pngalpha -dLastPage=1 -dUseCropBox '" + arg1 + "'";
+    command << "-q"
+            << "-o" << PDFCOVERPATH << "-sDEVICE=pngalpha"
+            << "-dLastPage=1"
+            << "-dUseCropBox" << pdfPath;
     runCommand("gs", command);
 
     QPixmap pdfCover(PDFCOVERPATH);
@@ -83,26 +85,33 @@ void MainWindow::on_btn_right_clicked() {
 void MainWindow::on_tbtn_pdfRotate_clicked() {
 
   isRunnable = true;
+  command.clear();
 
   if (!QFile::exists(ui->ln_file4->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     isRunnable = false;
   }
 
-  command << "sel A='" + ui->ln_file4->text() + "' A1-end";
+  QString targetFile = getSaveFileName();
+  if (targetFile == "invalid") {
+    isRunnable = false;
+  }
 
-  if ((rotate == 0) or (rotate == 360)) {
-    command << " '";
-  } else if (rotate == 90) {
-    command << "R '";
+  command << "sel";
+  command << "A=" + ui->ln_file4->text();
+
+  if (rotate == 90) {
+    command << "A1-endR";
   } else if (rotate == 180) {
-    command << "D '";
+    command << "A1-endD";
   } else if (rotate == 270) {
-    command << "L '";
+    command << "A1-endL";
+  } else {
+    command << "A1-end";
   }
 
   if (isRunnable) {
-    command += getSaveFileName() + "'";
+    command << targetFile;
 
     runCommand("stapler", command);
   } else {

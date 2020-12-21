@@ -147,18 +147,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
-        <location filename="../interface/pages/3-merge.cpp" line="87"/>
-        <location filename="../interface/pages/2-split.cpp" line="47"/>
-        <location filename="../interface/pages/1-compress.cpp" line="25"/>
-        <location filename="../interface/pages/1-compress.cpp" line="41"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="91"/>
+        <location filename="../interface/pages/3-merge.cpp" line="98"/>
+        <location filename="../interface/pages/2-split.cpp" line="45"/>
+        <location filename="../interface/pages/1-compress.cpp" line="23"/>
+        <location filename="../interface/pages/1-compress.cpp" line="45"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
-        <location filename="../interface/pages/2-split.cpp" line="47"/>
-        <location filename="../interface/pages/1-compress.cpp" line="25"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="91"/>
+        <location filename="../interface/pages/2-split.cpp" line="45"/>
+        <location filename="../interface/pages/1-compress.cpp" line="23"/>
         <source>You need to select a valide PDF file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -179,23 +179,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="33"/>
+        <location filename="../interface/pages/3-merge.cpp" line="31"/>
         <location filename="../interface/mainwindow.cpp" line="60"/>
         <source>Select the PDF file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="87"/>
+        <location filename="../interface/pages/3-merge.cpp" line="99"/>
         <source>You need to add two or more files to be able to merge them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split.cpp" line="56"/>
+        <location filename="../interface/pages/2-split.cpp" line="54"/>
         <source>Select Output Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress.cpp" line="41"/>
+        <location filename="../interface/pages/1-compress.cpp" line="45"/>
         <source>You need to select a compression mode</source>
         <translation type="unfinished"></translation>
     </message>

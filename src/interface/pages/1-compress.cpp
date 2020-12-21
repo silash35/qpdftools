@@ -24,6 +24,11 @@ void MainWindow::on_tbtn_pdfCompress_clicked() {
     isRunnable = false;
   }
 
+  QString targetFile = getSaveFileName();
+  if (targetFile == "invalid") {
+    isRunnable = false;
+  }
+
   command.clear();
   command << "-sDEVICE=pdfwrite"
           << "-dCompatibilityLevel=1.4";
@@ -45,7 +50,7 @@ void MainWindow::on_tbtn_pdfCompress_clicked() {
 
     command << "-dNOPAUSE"
             << "-dBATCH";
-    command << "-sOutputFile=" + getSaveFileName();
+    command << "-sOutputFile=" + targetFile;
     command << ui->ln_file1->text();
 
     runCommand("gs", command);
