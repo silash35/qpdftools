@@ -10,8 +10,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 
-set(TS_FILES src/languages/qpdftools_pt_BR.ts)
-
 set(SRC
   src/main.cpp
 
@@ -30,8 +28,8 @@ set(SRC
   src/api/stapler.hpp
 )
 
+set(TS_FILES src/languages/qpdftools_pt_BR.ts)
 qt5_create_translation(QM ${SRC} ${TS_FILES})
-qt5_add_translation(QM ${TS_FILES})
 
 add_executable(qpdftools
   ${SRC}
