@@ -3,6 +3,7 @@
 
 #include "../api/ghostscript.hpp"
 #include "../api/stapler.hpp"
+#include "../utils/lastDirectory.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
 
@@ -57,15 +58,22 @@ void MainWindow::runCommand(QString command, QStringList arguments, QString dir)
 }
 
 QString MainWindow::getOpenFileName() {
-  return QFileDialog::getOpenFileName(this, tr("Select the PDF file"), QDir::homePath(),
-                                      "PDF - Portable Document Format (*.pdf  *.PDF)");
+  QString file = QFileDialog::getOpenFileName(this, tr("Select the PDF file"), lastDirectory.get(),
+                                              "PDF - Portable Document Format (*.pdf  *.PDF)");
+
+  if (!file.isEmpty()) {
+    lastDirectory.set(QFileInfo(file).absoluteDir().absolutePath());
+  }
+  return file;
 }
 
 QString MainWindow::getSaveFileName() {
-  QString file = QFileDialog::getSaveFileName(this, tr("Save file"), QDir::homePath(),
+  QString file = QFileDialog::getSaveFileName(this, tr("Save file"), lastDirectory.get(),
                                               "PDF - Portable Document Format (*.pdf)");
   if (file.isEmpty()) {
     file = "invalid";
+  } else {
+    lastDirectory.set(QFileInfo(file).absoluteDir().absolutePath());
   }
 
   return file;

@@ -180,7 +180,7 @@
     </message>
     <message>
         <location filename="../interface/pages/3-merge.cpp" line="31"/>
-        <location filename="../interface/mainwindow.cpp" line="60"/>
+        <location filename="../interface/mainwindow.cpp" line="61"/>
         <source>Select the PDF file</source>
         <translation>Selecione o arquivo PDF</translation>
     </message>
@@ -200,27 +200,27 @@
         <translation>Você precisa selecionar um modo de compressão</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="39"/>
+        <location filename="../interface/mainwindow.cpp" line="40"/>
         <source>Processing...</source>
         <translation>Processando...</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="52"/>
+        <location filename="../interface/mainwindow.cpp" line="53"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="53"/>
+        <location filename="../interface/mainwindow.cpp" line="54"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="55"/>
+        <location filename="../interface/mainwindow.cpp" line="56"/>
         <source>Success!</source>
         <translation>Sucesso!</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="65"/>
+        <location filename="../interface/mainwindow.cpp" line="71"/>
         <source>Save file</source>
         <translation>Salvar Arquivo</translation>
     </message>
