@@ -84,16 +84,15 @@ void MainWindow::on_tbtn_pdfMerge_clicked() {
     isRunnable = false;
   }
 
-  command.clear();
+  arguments.clear();
   if (isRunnable) {
     if (ui->list_toMerge->count() > 1) {
-      command.clear();
-      command << "sel";
+      arguments << "sel";
       for (int i = 0; i < ui->list_toMerge->count(); ++i) {
-        command << ui->list_toMerge->item(i)->text();
+        arguments << ui->list_toMerge->item(i)->text();
       }
-      command << targetFile;
-      runCommand("stapler", command);
+      arguments << targetFile;
+      runCommand("stapler", arguments);
     } else {
       QMessageBox::warning(this, tr("Warning"),
                            tr("You need to add two or more files to be able to merge them"));

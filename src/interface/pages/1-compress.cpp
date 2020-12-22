@@ -29,18 +29,18 @@ void MainWindow::on_tbtn_pdfCompress_clicked() {
     isRunnable = false;
   }
 
-  command.clear();
-  command << "-sDEVICE=pdfwrite"
-          << "-dCompatibilityLevel=1.4";
+  arguments.clear();
+  arguments << "-sDEVICE=pdfwrite"
+            << "-dCompatibilityLevel=1.4";
 
   if (ui->rbtn_screen->isChecked()) {
-    command << "-dPDFSETTINGS=/screen";
+    arguments << "-dPDFSETTINGS=/screen";
   } else if (ui->rbtn_ebook->isChecked()) {
-    command << "-dPDFSETTINGS=/ebook";
+    arguments << "-dPDFSETTINGS=/ebook";
   } else if (ui->rbtn_printer->isChecked()) {
-    command << "-dPDFSETTINGS=/printer";
+    arguments << "-dPDFSETTINGS=/printer";
   } else if (ui->rbtn_prepress->isChecked()) {
-    command << "-dPDFSETTINGS=/prepress";
+    arguments << "-dPDFSETTINGS=/prepress";
   } else {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a compression mode"));
     isRunnable = false;
@@ -48,12 +48,12 @@ void MainWindow::on_tbtn_pdfCompress_clicked() {
 
   if (isRunnable) {
 
-    command << "-dNOPAUSE"
-            << "-dBATCH";
-    command << "-sOutputFile=" + targetFile;
-    command << ui->ln_file1->text();
+    arguments << "-dNOPAUSE"
+              << "-dBATCH";
+    arguments << "-sOutputFile=" + targetFile;
+    arguments << ui->ln_file1->text();
 
-    runCommand("gs", command);
+    runCommand("gs", arguments);
   } else {
     qDebug() << "command not executed";
   }

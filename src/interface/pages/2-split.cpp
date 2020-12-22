@@ -46,21 +46,21 @@ void MainWindow::on_tbtn_pdfSplit_clicked() {
     isRunnable = false;
   }
 
-  command.clear();
+  arguments.clear();
   if (isRunnable) {
     if (ui->rbtn_extractAll->isChecked()) {
-      command << "split" << ui->ln_file2->text();
-      runCommand("stapler", command,
+      arguments << "split" << ui->ln_file2->text();
+      runCommand("stapler", arguments,
                  QFileDialog::getExistingDirectory(this, tr("Select Output Folder")));
 
     } else if (ui->rbtn_splitRange->isChecked()) {
 
       QString targetFile = getSaveFileName();
       if (targetFile != "invalid") {
-        command << "zip" << ui->ln_file2->text();
-        command << ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text();
-        command << targetFile;
-        runCommand("stapler", command);
+        arguments << "zip" << ui->ln_file2->text();
+        arguments << ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text();
+        arguments << targetFile;
+        runCommand("stapler", arguments);
       }
     }
   } else {

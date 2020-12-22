@@ -147,8 +147,8 @@
         <translation>Clique para rotacioanr PDF em 90° para direita</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="91"/>
-        <location filename="../interface/pages/3-merge.cpp" line="98"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
+        <location filename="../interface/pages/3-merge.cpp" line="97"/>
         <location filename="../interface/pages/2-split.cpp" line="45"/>
         <location filename="../interface/pages/1-compress.cpp" line="23"/>
         <location filename="../interface/pages/1-compress.cpp" line="45"/>
@@ -156,7 +156,7 @@
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="91"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
         <location filename="../interface/pages/2-split.cpp" line="45"/>
         <location filename="../interface/pages/1-compress.cpp" line="23"/>
         <source>You need to select a valide PDF file</source>
@@ -185,7 +185,7 @@
         <translation>Selecione o arquivo PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="99"/>
+        <location filename="../interface/pages/3-merge.cpp" line="98"/>
         <source>You need to add two or more files to be able to merge them</source>
         <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
     </message>

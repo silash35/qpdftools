@@ -31,18 +31,18 @@ void MainWindow::on_btn_selectFile4_clicked() {
 
 void MainWindow::on_ln_file4_textChanged(const QString &pdfPath) {
   rotate = 0;
-  command.clear();
+  arguments.clear();
 
   if (QFile::exists(pdfPath)) {
     ui->btn_left->show();
     ui->btn_right->show();
     ui->label_pdfCover->show();
 
-    command << "-q"
-            << "-o" << PDFCOVERPATH << "-sDEVICE=pngalpha"
-            << "-dLastPage=1"
-            << "-dUseCropBox" << pdfPath;
-    runCommand("gs", command);
+    arguments << "-q"
+              << "-o" << PDFCOVERPATH << "-sDEVICE=pngalpha"
+              << "-dLastPage=1"
+              << "-dUseCropBox" << pdfPath;
+    runCommand("gs", arguments);
 
     QPixmap pdfCover(PDFCOVERPATH);
     ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
@@ -50,7 +50,6 @@ void MainWindow::on_ln_file4_textChanged(const QString &pdfPath) {
     ui->btn_left->hide();
     ui->btn_right->hide();
     ui->label_pdfCover->hide();
-    command.clear();
   }
 }
 
@@ -85,7 +84,7 @@ void MainWindow::on_btn_right_clicked() {
 void MainWindow::on_tbtn_pdfRotate_clicked() {
 
   isRunnable = true;
-  command.clear();
+  arguments.clear();
 
   if (!QFile::exists(ui->ln_file4->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
@@ -97,25 +96,24 @@ void MainWindow::on_tbtn_pdfRotate_clicked() {
     isRunnable = false;
   }
 
-  command << "sel";
-  command << "A=" + ui->ln_file4->text();
+  arguments << "sel";
+  arguments << "A=" + ui->ln_file4->text();
 
   if (rotate == 90) {
-    command << "A1-endR";
+    arguments << "A1-endR";
   } else if (rotate == 180) {
-    command << "A1-endD";
+    arguments << "A1-endD";
   } else if (rotate == 270) {
-    command << "A1-endL";
+    arguments << "A1-endL";
   } else {
-    command << "A1-end";
+    arguments << "A1-end";
   }
 
   if (isRunnable) {
-    command << targetFile;
+    arguments << targetFile;
 
-    runCommand("stapler", command);
+    runCommand("stapler", arguments);
   } else {
     qDebug() << "command not executed";
   }
-  command.clear();
 }

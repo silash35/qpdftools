@@ -83,7 +83,7 @@ private slots:
 private:
   Ui::MainWindow *ui;
 
-  QStringList command;    // Stores the command to be executed
+  QStringList arguments;  // Stores the command to be executed
   bool isRunnable = true; // Stores if the command can be runned or not
   int rotate{0};          // Stores in degrees how much the pdf will be rotated in rotation mode
 
