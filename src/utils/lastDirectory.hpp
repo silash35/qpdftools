@@ -25,6 +25,8 @@ public:
       lastDirectory = dir;
     }
   }
+
+  void setByFile(QString file) { set(QFileInfo(file).absoluteDir().absolutePath()); }
 };
 
 LastDirectory lastDirectory;

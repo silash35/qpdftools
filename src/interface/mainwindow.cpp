@@ -62,7 +62,7 @@ QString MainWindow::getOpenFileName() {
                                               "PDF - Portable Document Format (*.pdf  *.PDF)");
 
   if (!file.isEmpty()) {
-    lastDirectory.set(QFileInfo(file).absoluteDir().absolutePath());
+    lastDirectory.setByFile(file);
   }
   return file;
 }
@@ -73,7 +73,7 @@ QString MainWindow::getSaveFileName() {
   if (file.isEmpty()) {
     file = "invalid";
   } else {
-    lastDirectory.set(QFileInfo(file).absoluteDir().absolutePath());
+    lastDirectory.setByFile(file);
   }
 
   return file;
