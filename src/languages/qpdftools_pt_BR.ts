@@ -147,18 +147,18 @@
         <translation>Clique para rotacioanr PDF em 90° para direita</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
-        <location filename="../interface/pages/3-merge.cpp" line="97"/>
-        <location filename="../interface/pages/2-split.cpp" line="45"/>
-        <location filename="../interface/pages/1-compress.cpp" line="23"/>
-        <location filename="../interface/pages/1-compress.cpp" line="45"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="87"/>
+        <location filename="../interface/pages/3-merge.cpp" line="82"/>
+        <location filename="../interface/pages/2-split.cpp" line="44"/>
+        <location filename="../interface/pages/1-compress.cpp" line="22"/>
+        <location filename="../interface/pages/1-compress.cpp" line="44"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="90"/>
-        <location filename="../interface/pages/2-split.cpp" line="45"/>
-        <location filename="../interface/pages/1-compress.cpp" line="23"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="87"/>
+        <location filename="../interface/pages/2-split.cpp" line="44"/>
+        <location filename="../interface/pages/1-compress.cpp" line="22"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
@@ -185,17 +185,17 @@
         <translation>Selecione o arquivo PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="98"/>
+        <location filename="../interface/pages/3-merge.cpp" line="83"/>
         <source>You need to add two or more files to be able to merge them</source>
         <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split.cpp" line="54"/>
+        <location filename="../interface/pages/2-split.cpp" line="53"/>
         <source>Select Output Folder</source>
         <translation>Selecione a pasta de saída</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress.cpp" line="45"/>
+        <location filename="../interface/pages/1-compress.cpp" line="44"/>
         <source>You need to select a compression mode</source>
         <translation>Você precisa selecionar um modo de compressão</translation>
     </message>

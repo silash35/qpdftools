@@ -83,19 +83,17 @@ void MainWindow::on_btn_right_clicked() {
 
 void MainWindow::on_tbtn_pdfRotate_clicked() {
 
-  isRunnable = true;
-  arguments.clear();
-
   if (!QFile::exists(ui->ln_file4->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
-    isRunnable = false;
+    return;
   }
 
   QString targetFile = getSaveFileName();
   if (targetFile == "invalid") {
-    isRunnable = false;
+    return;
   }
 
+  arguments.clear();
   arguments << "sel";
   arguments << "A=" + ui->ln_file4->text();
 
@@ -109,11 +107,7 @@ void MainWindow::on_tbtn_pdfRotate_clicked() {
     arguments << "A1-end";
   }
 
-  if (isRunnable) {
-    arguments << targetFile;
+  arguments << targetFile;
 
-    runCommand("stapler", arguments);
-  } else {
-    qDebug() << "command not executed";
-  }
+  runCommand("stapler", arguments);
 }

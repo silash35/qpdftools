@@ -17,16 +17,15 @@ void MainWindow::on_btn_selectFile1_clicked() {
 }
 
 void MainWindow::on_tbtn_pdfCompress_clicked() {
-  isRunnable = true;
 
   if (!QFile::exists(ui->ln_file1->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
-    isRunnable = false;
+    return;
   }
 
   QString targetFile = getSaveFileName();
   if (targetFile == "invalid") {
-    isRunnable = false;
+    return;
   }
 
   arguments.clear();
@@ -43,18 +42,13 @@ void MainWindow::on_tbtn_pdfCompress_clicked() {
     arguments << "-dPDFSETTINGS=/prepress";
   } else {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a compression mode"));
-    isRunnable = false;
+    return;
   }
 
-  if (isRunnable) {
+  arguments << "-dNOPAUSE"
+            << "-dBATCH";
+  arguments << "-sOutputFile=" + targetFile;
+  arguments << ui->ln_file1->text();
 
-    arguments << "-dNOPAUSE"
-              << "-dBATCH";
-    arguments << "-sOutputFile=" + targetFile;
-    arguments << ui->ln_file1->text();
-
-    runCommand("gs", arguments);
-  } else {
-    qDebug() << "command not executed";
-  }
+  runCommand("gs", arguments);
 }
