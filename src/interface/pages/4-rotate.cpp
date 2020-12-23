@@ -1,7 +1,7 @@
 #include "../mainwindow.hpp"
 #include "../ui_mainwindow.h"
 
-#define PDFCOVERPATH "/tmp/pdfCover.png"
+#define PDFCOVERPATH "/tmp/pdfCover.jpeg"
 
 void MainWindow::configRotate() {
   ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
@@ -41,7 +41,7 @@ void MainWindow::on_ln_file4_textChanged(const QString &pdfPath) {
     ui->label_pdfCover->show();
 
     arguments << "-q"
-              << "-o" << PDFCOVERPATH << "-sDEVICE=pngalpha"
+              << "-o" << PDFCOVERPATH << "-sDEVICE=jpeg"
               << "-dLastPage=1"
               << "-dUseCropBox" << pdfPath;
     runCommand("gs", arguments);
