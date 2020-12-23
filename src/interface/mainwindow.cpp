@@ -51,9 +51,9 @@ void MainWindow::runCommand(QString command, QStringList arguments, QString dir)
 
   if (!error.isEmpty()) {
     QMessageBox::warning(this, tr("ERROR"), error);
-    ui->statusBar->showMessage(tr("Failed"), 10000);
+    ui->statusBar->showMessage(tr("Failed"), 5000);
   } else {
-    ui->statusBar->showMessage(tr("Success!"), 10000);
+    ui->statusBar->showMessage(tr("Success!"), 5000);
   }
 }
 

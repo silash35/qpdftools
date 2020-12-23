@@ -1,6 +1,8 @@
 #include "../mainwindow.hpp"
 #include "../ui_mainwindow.h"
 
+#define PDFCOVERPATH "/tmp/pdfCover.png"
+
 void MainWindow::configRotate() {
   ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
 

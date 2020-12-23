@@ -9,7 +9,6 @@
 
 #define ICONSIZE 30
 #define MENUICONSIZE 50
-#define PDFCOVERPATH "/tmp/pdfCover.png" // PDF Cover Path
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

@@ -137,17 +137,17 @@
         <translation>Rotacionar PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="9"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="11"/>
         <source>click to rotate the PDF 90 degrees to the left</source>
         <translation>Clique para rotacioanr PDF em 90° para esquerda</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="13"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="15"/>
         <source>click to rotate the PDF 90 degrees to the right</source>
         <translation>Clique para rotacioanr PDF em 90° para direita</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="87"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
         <location filename="../interface/pages/3-merge.cpp" line="82"/>
         <location filename="../interface/pages/2-split.cpp" line="44"/>
         <location filename="../interface/pages/1-compress.cpp" line="22"/>
@@ -156,7 +156,7 @@
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="87"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
         <location filename="../interface/pages/2-split.cpp" line="44"/>
         <location filename="../interface/pages/1-compress.cpp" line="22"/>
         <source>You need to select a valide PDF file</source>
