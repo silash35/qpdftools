@@ -26,6 +26,8 @@ set(SRC
   src/api/externalSoftware.hpp
   src/api/ghostscript.hpp
   src/api/stapler.hpp
+
+  src/utils/lastDirectory.cpp
 )
 
 set(TS_FILES src/languages/qpdftools_pt_BR.ts)

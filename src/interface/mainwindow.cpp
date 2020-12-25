@@ -3,7 +3,6 @@
 
 #include "../api/ghostscript.hpp"
 #include "../api/stapler.hpp"
-#include "../utils/lastDirectory.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
 

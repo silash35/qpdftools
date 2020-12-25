@@ -28,13 +28,15 @@ void MainWindow::configMerge() {
 void MainWindow::on_tbtn_return3_clicked() { ui->stackedWidget->setCurrentIndex(0); }
 
 void MainWindow::on_btn_Madd_clicked() {
-  QStringList aux = QFileDialog::getOpenFileNames(this, tr("Select the PDF file"), QDir::homePath(),
-                                                  "PDF - Portable Document Format (*.pdf)");
+  QStringList files =
+      QFileDialog::getOpenFileNames(this, tr("Select the PDF file"), lastDirectory.get(),
+                                    "PDF - Portable Document Format (*.pdf)");
 
-  for (int i = 0; i < aux.count(); ++i) {
-    qDebug() << i << ": " << aux[i];
-    if (QFile::exists(aux[i])) {
-      ui->list_toMerge->addItem(aux[i]);
+  for (int i = 0; i < files.count(); ++i) {
+    qDebug() << i << ": " << files[i];
+    if (QFile::exists(files[i])) {
+      ui->list_toMerge->addItem(files[i]);
+      lastDirectory.setByFile(files[i]);
     }
   }
 }

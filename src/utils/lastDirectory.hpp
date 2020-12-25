@@ -6,29 +6,16 @@
 class LastDirectory {
 private:
   QString lastDirectory = QDir::homePath();
-
-  bool directoryIsValid(QString dir) {
-    QDir qDir(dir);
-    return qDir.exists();
-  }
+  bool directoryIsValid(QString dir);
 
 public:
-  QString get() {
-    if (!directoryIsValid(lastDirectory)) {
-      lastDirectory = QDir::homePath();
-    }
-    return lastDirectory;
-  }
+  QString get();
 
-  void set(QString dir) {
-    if (directoryIsValid(dir)) {
-      lastDirectory = dir;
-    }
-  }
+  void set(QString dir);
 
-  void setByFile(QString file) { set(QFileInfo(file).absoluteDir().absolutePath()); }
+  void setByFile(QString file);
 };
 
-LastDirectory lastDirectory;
+extern LastDirectory lastDirectory;
 
 #endif // LASTDIRECTORY_HPP

@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "../utils/lastDirectory.hpp"
+
 #include <QDebug>
 #include <QFileDialog>
 #include <QMainWindow>
