@@ -1,10 +1,10 @@
-name: C/C++ CI
+name: build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, develop ]
 
 jobs:
   build:
@@ -14,10 +14,11 @@ jobs:
     steps:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
-    - uses: actions/checkout@v2
-    - name: configure
+    - name: Download Qpdf Tools Code
+      uses: actions/checkout@v2
+    - name: Configure
       run: cmake .
-    - name: make
+    - name: Compile
       run: make
-    - name: make install
+    - name: Install
       run: sudo make install
