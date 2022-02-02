@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "../api/ghostscript.hpp"
+#include "../api/qpdf.hpp"
 #include "../api/stapler.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -46,6 +47,9 @@ void MainWindow::runCommand(QString command, QStringList arguments, QString dir)
   } else if (command == "stapler") {
     stapler.start(arguments, dir);
     error = stapler.getStandardError();
+  } else if (command == "qpdf") {
+    qpdf.start(arguments, dir);
+    error = qpdf.getStandardError();
   }
 
   if (!error.isEmpty()) {

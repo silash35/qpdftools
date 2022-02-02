@@ -96,20 +96,11 @@ void MainWindow::on_tbtn_pdfRotate_clicked() {
   }
 
   arguments.clear();
-  arguments << "sel";
-  arguments << "A=" + ui->ln_file4->text();
 
-  if (rotate == 90) {
-    arguments << "A1-endR";
-  } else if (rotate == 180) {
-    arguments << "A1-endD";
-  } else if (rotate == 270) {
-    arguments << "A1-endL";
-  } else {
-    arguments << "A1-end";
-  }
-
+  // qpdf in.pdf out.pdf --rotate=angle
+  arguments << ui->ln_file4->text();
   arguments << targetFile;
+  arguments << "--rotate=" + QString::number(rotate);
 
-  runCommand("stapler", arguments);
+  runCommand("qpdf", arguments);
 }
