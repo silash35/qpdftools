@@ -25,7 +25,7 @@ set(SRC
 
   src/api/externalSoftware.hpp
   src/api/ghostscript.hpp
-  src/api/stapler.hpp
+  src/api/qpdf.hpp
 
   src/utils/lastDirectory.cpp
 )
