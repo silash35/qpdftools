@@ -36,7 +36,6 @@ MainWindow::~MainWindow() { delete ui; }
 
 // Other functions
 void MainWindow::runCommand(QString command, QStringList arguments, QString dir) {
-
   ui->statusBar->showMessage(tr("Processing..."));
 
   QString error = "";
