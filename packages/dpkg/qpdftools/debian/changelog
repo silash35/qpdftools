@@ -1,6 +1,7 @@
-qpdftools (1.6-1) focal; urgency=low
+qpdftools (2.0) focal; urgency=low
 
   * This Changelog will no longer be updated.
-  * If you want more information, access the project's GitHub (https://github.com/silash35/qpdftools)
+  * If you want information about updates, access the project's GitHub (https://github.com/silash35/qpdftools)
 
- -- Silas Henrique <silash35@gmail.com>  Sun, 27 Dec 2020 14:31:09 -0300
+ -- Silas Henrique <silash35@gmail.com>  Wed, 02 Feb 2022 21:52:43 -0300
+
