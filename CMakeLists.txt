@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(qpdftools VERSION 1.6.0)
+project(qpdftools VERSION 2.0.0)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
@@ -25,7 +25,7 @@ set(SRC
 
   src/api/externalSoftware.hpp
   src/api/ghostscript.hpp
-  src/api/stapler.hpp
+  src/api/qpdf.hpp
 
   src/utils/lastDirectory.cpp
 )

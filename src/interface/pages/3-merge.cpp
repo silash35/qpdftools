@@ -92,11 +92,15 @@ void MainWindow::on_tbtn_pdfMerge_clicked() {
   }
 
   arguments.clear();
-  arguments << "sel";
+
+  // qpdf --empty --pages in1.pdf in2.pdf -- out.pdf
+  arguments << "--empty";
+  arguments << "--pages";
   for (int i = 0; i < ui->list_toMerge->count(); ++i) {
     arguments << ui->list_toMerge->item(i)->text();
   }
+  arguments << "--";
   arguments << targetFile;
 
-  runCommand("stapler", arguments);
+  runCommand("qpdf", arguments);
 }

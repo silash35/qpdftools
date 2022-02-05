@@ -39,7 +39,6 @@ void MainWindow::on_spinBox_fistPage_valueChanged(int arg1) {
 }
 
 void MainWindow::on_tbtn_pdfSplit_clicked() {
-
   if (!QFile::exists(ui->ln_file2->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;
@@ -48,18 +47,30 @@ void MainWindow::on_tbtn_pdfSplit_clicked() {
   arguments.clear();
 
   if (ui->rbtn_extractAll->isChecked()) {
-    arguments << "split" << ui->ln_file2->text();
-    runCommand("stapler", arguments,
-               QFileDialog::getExistingDirectory(this, tr("Select Output Folder")));
+    QString targetFolder = QFileDialog::getExistingDirectory(this, tr("Select Output Folder"));
+    if (targetFolder == "") {
+      return;
+    }
+    // qpdf in.pdf out.pdf --split-pages
+    arguments << ui->ln_file2->text();
+    arguments << "out.pdf";
+    arguments << "--split-pages";
+
+    runCommand("qpdf", arguments, targetFolder);
 
   } else if (ui->rbtn_splitRange->isChecked()) {
-
     QString targetFile = getSaveFileName();
-    if (targetFile != "invalid") {
-      arguments << "zip" << ui->ln_file2->text();
-      arguments << ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text();
-      arguments << targetFile;
-      runCommand("stapler", arguments);
+    if (targetFile == "invalid") {
+      return;
     }
+    // qpdf in.pdf --pages . start-end -- out.pdf
+    arguments << ui->ln_file2->text();
+    arguments << "--pages";
+    arguments << ".";
+    arguments << ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text();
+    arguments << "--";
+    arguments << targetFile;
+
+    runCommand("qpdf", arguments);
   }
 }

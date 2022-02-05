@@ -1,3 +1,4 @@
 *.user*
 build/
 .vscode/
+*.tar.gz

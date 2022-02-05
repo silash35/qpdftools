@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "../api/ghostscript.hpp"
-#include "../api/stapler.hpp"
+#include "../api/qpdf.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
 
@@ -35,7 +35,6 @@ MainWindow::~MainWindow() { delete ui; }
 
 // Other functions
 void MainWindow::runCommand(QString command, QStringList arguments, QString dir) {
-
   ui->statusBar->showMessage(tr("Processing..."));
 
   QString error = "";
@@ -43,9 +42,9 @@ void MainWindow::runCommand(QString command, QStringList arguments, QString dir)
   if (command == "gs") {
     ghostscript.start(arguments, dir);
     error = ghostscript.getStandardError();
-  } else if (command == "stapler") {
-    stapler.start(arguments, dir);
-    error = stapler.getStandardError();
+  } else if (command == "qpdf") {
+    qpdf.start(arguments, dir);
+    error = qpdf.getStandardError();
   }
 
   if (!error.isEmpty()) {
