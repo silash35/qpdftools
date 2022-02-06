@@ -1,13 +1,11 @@
 [Desktop Entry]
 
 Name=Qpdf Tools
-Version=2.0
-Exec=/usr/bin/qpdftools
+Exec=io.github.silash35.qpdftools
 Comment=A easy-to-use Qt interface for Ghostscript and QPDF
 Icon=qpdftools
 Type=Application
 Terminal=false
 StartupNotify=true
-Encoding=UTF-8
 Categories=Office;Qt;Utility;
 Name[pt_BR]=Qpdf Tools

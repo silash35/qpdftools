@@ -48,6 +48,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   install(TARGETS qpdftools DESTINATION /usr/bin)
   install(DIRECTORY resources/hicolor DESTINATION /usr/share/icons)
   install(FILES ${QM} DESTINATION /usr/lib/qpdftools)
-  install(FILES resources/qpdftools.desktop DESTINATION /usr/share/applications)
+  install(FILES resources/io.github.silash35.qpdftools.desktop DESTINATION /usr/share/applications)
+  install(FILES resources/io.github.silash35.qpdftools.appdata.xml DESTINATION /usr/share/metainfo)
 
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
