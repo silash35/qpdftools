@@ -13,7 +13,6 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 set(SRC
   src/main.cpp
 
-  src/interface/mainwindow.hpp
   src/interface/mainwindow.ui
   src/interface/mainwindow.cpp
 
@@ -22,10 +21,6 @@ set(SRC
   src/interface/pages/2-split.cpp
   src/interface/pages/3-merge.cpp
   src/interface/pages/4-rotate.cpp
-
-  src/api/externalSoftware.hpp
-  src/api/ghostscript.hpp
-  src/api/qpdf.hpp
 
   src/utils/lastDirectory.cpp
 )
