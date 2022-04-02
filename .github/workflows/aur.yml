@@ -9,6 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+#      - name: Setup PKGBUILD
+#        run: |
+#          cd ./packages/AUR
+#          updpkgsums
+#          makepkg --printsrcinfo > .SRCINFO
+#          cd ../../
+          
+      - name: Setup PKGBUILD
+        uses: 2m/arch-pkgbuild-builder@v1.18
+        with:
+          target: "run"
+          command: "cd ./packages/AUR | updpkgsums | makepkg --printsrcinfo > .SRCINFO | cd ../../"
 
       - name: Validate PKGBUILD
         uses: 2m/arch-pkgbuild-builder@v1.18
