@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Install Archlinux
+
+      - name: Install Arch linux
         run: curl -L https://github.com/zaoqi/github-actions-archlinux/raw/master/install.sh | sh
-      
+
       - name: Setup PKGBUILD
         run: |
           cd ./packages/AUR
