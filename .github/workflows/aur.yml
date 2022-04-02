@@ -11,26 +11,26 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Validate PKGBUILD
-        uses: 2m/arch-pkgbuild-builder@v1
+        uses: 2m/arch-pkgbuild-builder@v1.18
         with:
           target: "pkgbuild"
           pkgname: "/packages/AUR/PKGBUILD"
 
       - name: Validate SRCINFO
-        uses: 2m/arch-pkgbuild-builder@v1
+        uses: 2m/arch-pkgbuild-builder@v1.18
         with:
           target: "srcinfo"
           pkgname: "/packages/AUR/PKGBUILD"
 
       - name: Validate binary
-        uses: 2m/arch-pkgbuild-builder@v1
+        uses: 2m/arch-pkgbuild-builder@v1.18
         with:
           target: "run"
           pkgname: "/packages/AUR/PKGBUILD"
           command: "qpdftools"
 
       - name: Publish AUR package
-        uses: KSXGitHub/github-actions-deploy-aur@2
+        uses: KSXGitHub/github-actions-deploy-aur@2.2.5
         with:
           pkgname: qpdftools
           pkgbuild: ./packages/AUR/PKGBUILD
