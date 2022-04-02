@@ -30,7 +30,7 @@ jobs:
           command: "qpdftools"
 
       - name: Publish AUR package
-        uses: KSXGitHub/github-actions-deploy-aur@2.2.5
+        uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
         with:
           pkgname: qpdftools
           pkgbuild: ./packages/AUR/PKGBUILD
