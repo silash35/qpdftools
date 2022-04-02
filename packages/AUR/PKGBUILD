@@ -16,12 +16,12 @@ source=("https://github.com/silash35/qpdftools/archive/v$pkgver.tar.gz")
 md5sums=('3220ae72d82e25146603e3d341b1f391')
 
 build() {
-	cd qpdftools-$pkgver
-	cmake -DCMAKE_BUILD_TYPE=Release .
-	make
+    cd qpdftools-$pkgver
+    cmake -DCMAKE_BUILD_TYPE=Release .
+    make
 }
 
 package() {
-	cd qpdftools-$pkgver
-	make DESTDIR="$pkgdir/" install
+    cd qpdftools-$pkgver
+    make DESTDIR="$pkgdir/" install
 }
