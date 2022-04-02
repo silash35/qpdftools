@@ -14,19 +14,19 @@ jobs:
         uses: 2m/arch-pkgbuild-builder@v1.18
         with:
           target: "pkgbuild"
-          pkgname: "/packages/AUR"
+          pkgname: "./packages/AUR/PKGBUILD"
 
       - name: Validate SRCINFO
         uses: 2m/arch-pkgbuild-builder@v1.18
         with:
           target: "srcinfo"
-          pkgname: "/packages/AUR"
+          pkgname: "./packages/PKGBUILD"
 
       - name: Validate binary
         uses: 2m/arch-pkgbuild-builder@v1.18
         with:
           target: "run"
-          pkgname: "/packages/AUR"
+          pkgname: "./packages/PKGBUILD"
           command: "qpdftools"
 
       - name: Publish AUR package
