@@ -13,8 +13,8 @@ provides=('qpdftools')
 conflicts=('qpdftools-git')
 
 source=("https://github.com/silash35/qpdftools/archive/v$pkgver.tar.gz")
-sha512sums=('will be updated automatically')
-md5sums=('will be updated automatically')
+sha512sums=('is updated automatically')
+md5sums=('is updated automatically')
 
 build() {
     cd qpdftools-$pkgver

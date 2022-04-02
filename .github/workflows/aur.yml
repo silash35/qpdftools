@@ -5,8 +5,20 @@ on:
     branches: [master, develop]
 
 jobs:
-  aur-publish:
+
+jobs:
+  installDepends:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Fix apt issue with Github Actions
+        run: sudo apt update
+      - name: Install make dependencies
+        run: sudo apt install qt5-default qttools5-dev cmake extra-cmake-modules make
+
+  aur:
+    runs-on: ubuntu-latest
+    needs: installDepends
     steps:
       - uses: actions/checkout@v3
 
