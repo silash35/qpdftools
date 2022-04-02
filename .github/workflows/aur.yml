@@ -10,13 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fix apt issue with Github Actions
-        run: sudo apt update
-
-      - name: Install make dependencies
-        run: sudo apt install qt5-default qttools5-dev cmake extra-cmake-modules make
-
-      - name: Install Arch Linux package tools
+      - name: Setup PKGBUILD
         uses: hapakaien/archlinux-package-action@v2.0.2
         with:
           path: ./packages/AUR
