@@ -1,0 +1,44 @@
+name: Publish on AUR
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  aur:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PKGBUILD
+        uses: hapakaien/archlinux-package-action@v2.0.2
+        with:
+          path: ./packages/AUR
+          srcinfo: true
+          updpkgsums: true
+          flags: ""
+          namcap: false
+
+      - name: Validate PKGBUILD
+        uses: 2m/arch-pkgbuild-builder@v1.18
+        with:
+          target: "pkgbuild"
+          pkgname: "packages/AUR"
+
+      - name: Validate SRCINFO
+        uses: 2m/arch-pkgbuild-builder@v1.18
+        with:
+          target: "srcinfo"
+          pkgname: "packages/AUR"
+
+      - name: Publish AUR package
+        uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
+        with:
+          pkgname: qpdftools
+          pkgbuild: ./packages/AUR/PKGBUILD
+          commit_username: GitHub Action
+          commit_email: action@github.com
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          commit_message: Update AUR package
+          ssh_keyscan_types: rsa,dsa,ed25519

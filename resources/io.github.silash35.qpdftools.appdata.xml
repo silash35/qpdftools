@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2022 Silas Henrique <silash35@gmail.com> -->
+<component type="desktop-application">
+  <id>io.github.silash35.qpdftools</id>
+  <metadata_license>Unlicense</metadata_license>
+  <project_license>Unlicense</project_license>
+  <name>Qpdf Tools</name>
+  <summary>Qpdf Tools is an easy-to-use Qt interface for Ghostscript and QPDF</summary>
+
+  <description>
+    <p>Qpdf Tools is an easy-to-use Qt interface for Ghostscript and QPDF.</p>
+    <p>Qpdf Tools makes possible for normal users to manage their PDFs.</p>
+    <p>With Qpdf Tools, you can easily compress, split, merge and even rotate your pdf documents.</p>
+  </description>
+
+  <launchable type="desktop-id">io.github.silash35.qpdftools.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>
+        The inicial page
+      </caption>
+      <image>https://github.com/silash35/qpdftools/blob/master/resources/print.png?raw=true</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/silash35/qpdftools</url>
+
+  <provides>
+    <binary>qpdftools</binary>
+  </provides>
+
+  <releases>
+    <release version="2.0.0" date="2022-04-02">
+      <description>
+        <p>This Changelog will no longer be updated.</p>
+        <p>If you want information about updates, access the project's GitHub.</p>
+      </description>
+    </release>
+  </releases>
+</component>

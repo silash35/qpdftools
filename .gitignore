@@ -1,4 +1,4 @@
 *.user*
 build/
-.vscode/
 *.tar.gz
+.flatpak-builder/
