@@ -6,7 +6,6 @@ on:
 
 jobs:
 
-jobs:
   installDepends:
     runs-on: ubuntu-latest
 
