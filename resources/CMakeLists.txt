@@ -25,7 +25,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 
   ecm_install_icons(ICONS ${ICONS}
-    DESTINATION ${KDE_INSTALL_ICONDIR} THEME hi
+    DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor
   )
 
   install(PROGRAMS io.github.silash35.qpdftools.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
