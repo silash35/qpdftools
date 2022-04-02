@@ -16,6 +16,8 @@ jobs:
           path: ./packages/AUR
           srcinfo: true
           updpkgsums: true
+          flags: ''
+          namcap: false
 
       - name: Validate PKGBUILD
         uses: 2m/arch-pkgbuild-builder@v1.18
