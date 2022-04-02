@@ -1,6 +1,6 @@
 # Maintainer: Silas Henrique <silash35@gmail.com>
 pkgname=qpdftools
-pkgver=2.0.1
+pkgver=2.0.2
 pkgrel=0
 epoch=0
 pkgdesc="Qpdf Tools is an easy-to-use Qt interface for Ghostscript and QPDF"
