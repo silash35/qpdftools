@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Fix apt issue with Github Actions
-        run: sudo apt update && sudo apt upgrade
+        run: sudo apt update
       - name: Install make dependencies
         run: sudo apt install qt5-default qttools5-dev cmake extra-cmake-modules make
       - name: Download Qpdf Tools Code
