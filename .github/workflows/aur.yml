@@ -13,7 +13,7 @@ jobs:
       - name: Install Arch Linux package tools
         uses: hapakaien/archlinux-package-action@v2.0.2
         with:
-          path: ./packages/AUR/PKGBUILd
+          path: ./packages/AUR
           srcinfo: true
           updpkgsums: true
 
