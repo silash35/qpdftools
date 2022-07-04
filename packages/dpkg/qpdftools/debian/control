@@ -2,7 +2,7 @@ Source: qpdftools
 Section: doc
 Priority: extra
 Build-Depends: debhelper (>=10), cmake (>=3.15), extra-cmake-modules (>=5.44), make (>=4.1), qtbase5-dev (>=5.12), qttools5-dev (>=5.12)
-Standards-Version: 2.0.3
+Standards-Version: 2.0.4
 Maintainer: Silas Henrique <silash35@gmail.com>
 #Vcs-Git: https://github.com/silash35/qpdftools.git
 
