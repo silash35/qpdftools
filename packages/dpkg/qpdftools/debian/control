@@ -1,15 +1,15 @@
 Source: qpdftools
 Section: doc
 Priority: extra
-Build-Depends: debhelper (>=10), qt5-default (>=5.12), qttools5-dev (>=5.12), cmake (>=3.15), make
-Standards-Version: 2.0.3
+Build-Depends: debhelper (>=10), cmake (>=3.15), extra-cmake-modules (>=5.44), make (>=4.1), qtbase5-dev (>=5.12), qttools5-dev (>=5.12)
+Standards-Version: 2.0.4
 Maintainer: Silas Henrique <silash35@gmail.com>
 #Vcs-Git: https://github.com/silash35/qpdftools.git
 
 Package: qpdftools
 Homepage: https://github.com/silash35/qpdftools
 Architecture: amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, ghostscript (>=9.25), qpdf (>=8.0), qt5-default (>=5.12), breeze-icon-theme (>= 5.40)
+Depends: ${shlibs:Depends}, ${misc:Depends}, ghostscript (>=9.25), qpdf (>=8.0), libqt5gui5 (>= 5.9) | libqt5gui5-gles (>= 5.9), breeze-icon-theme (>= 5.40)
 Description: Qpdf Tools is an easy-to-use Qt interface for Ghostscript and QPDF.
   Qpdf Tools is an easy-to-use Qt interface for Ghostscript and QPDF.
   Qpdf Tools makes possible for normal users to manage their PDFs.

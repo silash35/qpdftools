@@ -14,7 +14,7 @@ jobs:
       - name: Fix apt issue with Github Actions
         run: sudo apt update
       - name: Install make dependencies
-        run: sudo apt install qt5-default qttools5-dev cmake extra-cmake-modules make
+        run: sudo apt install cmake extra-cmake-modules make qtbase5-dev qttools5-dev
       - name: Download Qpdf Tools Code
         uses: actions/checkout@v3
       - name: Configure
