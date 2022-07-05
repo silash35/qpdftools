@@ -15,16 +15,17 @@ jobs:
       - name: Fix apt issue with Github Actions
         run: sudo apt update
       - name: Install make dependencies
-        run: sudo apt install cmake extra-cmake-modules make qtbase5-dev qttools5-dev wget
+        run: sudo apt install cmake extra-cmake-modules make qtbase5-dev qttools5-dev wget devscripts debhelper
       - name: Get release source code
         run: wget https://github.com/silash35/qpdftools/archive/refs/tags/v2.0.4.tar.gz
       - name: Move release source code
         run: mv v2.0.4.tar.gz ./packages/dpkg/qpdftools/qpdftools_2.0.4.orig.tar.gz
-      - name: Publish PPA
-        uses: yuezk/publish-ppa-package@main
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v5
         with:
-          repository: "ppa:silash35/qpdftools"
-          series: "focal"
-          gpg_private_key: ${{ secrets.PPA_GPG_PRIVATE_KEY }}
-          gpg_passphrase: ${{ secrets.PPA_GPG_PASSPHRASE }}
-          pkgdir: "${{ github.workspace }}/packages/dpkg/qpdftools/"
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+      - name: Build package
+        run: cd ./packages/dpkg/qpdftools/ && debuild -S
+      - name: Publish PPA
+        run: dput ppa:silash35/qpdftools qpdftools_2.0.4_source.changes
