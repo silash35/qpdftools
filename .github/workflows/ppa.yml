@@ -24,6 +24,7 @@ jobs:
         uses: yuezk/publish-ppa-package@main
         with:
           repository: "ppa:silash35/qpdftools"
+          series: "focal"
           gpg_private_key: ${{ secrets.PPA_GPG_PRIVATE_KEY }}
           gpg_passphrase: ${{ secrets.PPA_GPG_PASSPHRASE }}
           pkgdir: "${{ github.workspace }}/packages/dpkg/qpdftools/"
