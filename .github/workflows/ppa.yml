@@ -26,6 +26,6 @@ jobs:
           gpg_private_key: ${{ secrets.PPA_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PPA_GPG_PASSPHRASE }}
       - name: Build package
-        run: cd ./packages/dpkg/ && debuild -S
+        run: cd ./packages/dpkg/qpdftools/ && debuild -S
       - name: Publish PPA
-        run: cd ./packages/dpkg/qpdftools/ && dput ppa:silash35/qpdftools qpdftools_2.0.4_source.changes
+        run: cd ./packages/dpkg/ && dput ppa:silash35/qpdftools qpdftools_2.0.4_source.changes
