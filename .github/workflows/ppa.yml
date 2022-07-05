@@ -1,0 +1,25 @@
+name: Publish on Launchpad
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  ppa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Qpdf Tools Code
+        uses: actions/checkout@v3
+      - name: Fix apt issue with Github Actions
+        run: sudo apt update
+      - name: Install make dependencies
+        run: sudo apt install cmake extra-cmake-modules make qtbase5-dev qttools5-dev
+      - name: Publish PPA
+        uses: yuezk/publish-ppa-package@main
+        with:
+          repository: "ppa:silash35/qpdftools"
+          gpg_private_key: ${{ secrets.PPA_GPG_PRIVATE_KEY }}
+          gpg_passphrase: ${{ secrets.PPA_GPG_PASSPHRASE }}
+          pkgdir: "${{ github.workspace }}/packages/dpkg/qpdftools/"

@@ -6,12 +6,16 @@
     "AUTOUIC",
     "BINDIR",
     "debhelper",
+    "dpkg",
     "hapakaien",
     "libqt",
     "METAINFODIR",
     "namcap",
+    "pkgdir",
+    "qtbase",
     "rbtn",
     "tbtn",
-    "updpkgsums"
+    "updpkgsums",
+    "yuezk"
   ]
 }
