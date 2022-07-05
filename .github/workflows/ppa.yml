@@ -2,9 +2,8 @@ name: Publish on Launchpad
 
 on:
   push:
-    branches: [master, develop]
-  pull_request:
-    branches: [master, develop]
+    tags:
+      - "v*"
 
 jobs:
   ppa:
