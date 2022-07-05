@@ -15,7 +15,11 @@ jobs:
       - name: Fix apt issue with Github Actions
         run: sudo apt update
       - name: Install make dependencies
-        run: sudo apt install cmake extra-cmake-modules make qtbase5-dev qttools5-dev
+        run: sudo apt install cmake extra-cmake-modules make qtbase5-dev qttools5-dev wget
+      - name: Get release source code
+        run: wget https://github.com/silash35/qpdftools/archive/refs/tags/v2.0.4.tar.gz
+      - name: Move release source code
+        run: mv v2.0.4.tar.gz ./packages/dpkg/qpdftools/qpdftools_2.0.4.orig.tar.gz
       - name: Publish PPA
         uses: yuezk/publish-ppa-package@main
         with:
