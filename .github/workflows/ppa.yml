@@ -8,7 +8,7 @@ on:
 
 jobs:
   ppa:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Download Qpdf Tools Code
         uses: actions/checkout@v3
