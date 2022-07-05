@@ -28,4 +28,4 @@ jobs:
       - name: Build package
         run: cd ./packages/dpkg/qpdftools/ && debuild -S
       - name: Publish PPA
-        run: dput ppa:silash35/qpdftools qpdftools_2.0.4_source.changes
+        run: cd ./packages/dpkg/qpdftools/ && dput ppa:silash35/qpdftools qpdftools_2.0.4_source.changes
