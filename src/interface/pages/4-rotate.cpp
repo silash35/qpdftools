@@ -1,17 +1,17 @@
 #include "../mainwindow.hpp"
 #include "../ui_mainwindow.h"
 
-#define PDFCOVERPATH "/tmp/pdfCover.jpeg"
+#define PDF_COVER_PATH "/tmp/pdfCover.jpeg"
 
 void MainWindow::configRotate() {
   ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
 
   ui->btn_left->setIcon(QIcon::fromTheme("object-rotate-left"));
-  ui->btn_left->setIconSize(QSize(ICONSIZE, ICONSIZE));
+  ui->btn_left->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->btn_left->setToolTip(tr("click to rotate the PDF 90 degrees to the left"));
 
   ui->btn_right->setIcon(QIcon::fromTheme("object-rotate-right"));
-  ui->btn_right->setIconSize(QSize(ICONSIZE, ICONSIZE));
+  ui->btn_right->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->btn_right->setToolTip(tr("click to rotate the PDF 90 degrees to the right"));
 
   ui->btn_left->hide();
@@ -19,7 +19,7 @@ void MainWindow::configRotate() {
   ui->label_pdfCover->hide();
 
   ui->tbtn_pdfRotate->setIcon(QIcon::fromTheme("object-rotate-right"));
-  ui->tbtn_pdfRotate->setIconSize(QSize(ICONSIZE, ICONSIZE));
+  ui->tbtn_pdfRotate->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->tbtn_pdfRotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
@@ -41,12 +41,12 @@ void MainWindow::on_ln_file4_textChanged(const QString &pdfPath) {
     ui->label_pdfCover->show();
 
     arguments << "-q"
-              << "-o" << PDFCOVERPATH << "-sDEVICE=jpeg"
+              << "-o" << PDF_COVER_PATH << "-sDEVICE=jpeg"
               << "-dLastPage=1"
               << "-dUseCropBox" << pdfPath;
     runCommand("gs", arguments);
 
-    QPixmap pdfCover(PDFCOVERPATH);
+    QPixmap pdfCover(PDF_COVER_PATH);
     ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
   } else {
     ui->btn_left->hide();
@@ -64,7 +64,7 @@ void MainWindow::on_btn_left_clicked() {
   QTransform rote;
   rote = rote.rotate(rotate);
 
-  QPixmap pdfCover(PDFCOVERPATH);
+  QPixmap pdfCover(PDF_COVER_PATH);
   pdfCover = QPixmap(pdfCover.transformed(rote));
   ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
 }
@@ -78,7 +78,7 @@ void MainWindow::on_btn_right_clicked() {
   QTransform rote;
   rote = rote.rotate(rotate);
 
-  QPixmap pdfCover(PDFCOVERPATH);
+  QPixmap pdfCover(PDF_COVER_PATH);
   pdfCover = QPixmap(pdfCover.transformed(rote));
   ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
 }

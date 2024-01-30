@@ -8,7 +8,7 @@ void MainWindow::configSplit() {
   ui->rbtn_splitRange->setChecked(true);
 
   ui->tbtn_pdfSplit->setIcon(QIcon::fromTheme("edit-cut"));
-  ui->tbtn_pdfSplit->setIconSize(QSize(ICONSIZE, ICONSIZE));
+  ui->tbtn_pdfSplit->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->tbtn_pdfSplit->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 

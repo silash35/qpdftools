@@ -1,5 +1,5 @@
-#ifndef EXTERNALSOFTWARE_HPP
-#define EXTERNALSOFTWARE_HPP
+#ifndef EXTERNAL_SOFTWARE_HPP
+#define EXTERNAL_SOFTWARE_HPP
 
 #include <QDebug>
 #include <QProcess>
@@ -22,7 +22,7 @@ public:
       qDebug() << dir << "\n";
     }
     qDebug() << "starting to execute " << softwareName
-             << " with the folowing arguments:" << arguments << "\n";
+             << " with the following arguments:" << arguments << "\n";
     process.start(softwareCommand, arguments, QIODevice::ReadWrite);
     process.closeWriteChannel();
   }
@@ -35,4 +35,4 @@ public:
 
   ~ExternalSoftware() { process.close(); }
 };
-#endif // EXTERNALSOFTWARE_HPP
+#endif // EXTERNAL_SOFTWARE_HPP

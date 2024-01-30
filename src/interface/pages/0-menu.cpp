@@ -4,19 +4,19 @@
 void MainWindow::configMenu() {
   ui->tbtn_compress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
   ui->tbtn_compress->setIcon(QIcon::fromTheme("zoom-out"));
-  ui->tbtn_compress->setIconSize(QSize(MENUICONSIZE, MENUICONSIZE));
+  ui->tbtn_compress->setIconSize(QSize(MENU_ICON_SIZE, MENU_ICON_SIZE));
 
   ui->tbtn_split->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
   ui->tbtn_split->setIcon(QIcon::fromTheme("edit-cut"));
-  ui->tbtn_split->setIconSize(QSize(MENUICONSIZE, MENUICONSIZE));
+  ui->tbtn_split->setIconSize(QSize(MENU_ICON_SIZE, MENU_ICON_SIZE));
 
   ui->tbtn_merge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
   ui->tbtn_merge->setIcon(QIcon::fromTheme("merge"));
-  ui->tbtn_merge->setIconSize(QSize(MENUICONSIZE, MENUICONSIZE));
+  ui->tbtn_merge->setIconSize(QSize(MENU_ICON_SIZE, MENU_ICON_SIZE));
 
   ui->tbtn_rotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
   ui->tbtn_rotate->setIcon(QIcon::fromTheme("object-rotate-right"));
-  ui->tbtn_rotate->setIconSize(QSize(MENUICONSIZE, MENUICONSIZE));
+  ui->tbtn_rotate->setIconSize(QSize(MENU_ICON_SIZE, MENU_ICON_SIZE));
 }
 
 void MainWindow::on_tbtn_compress_clicked() { ui->stackedWidget->setCurrentIndex(1); }

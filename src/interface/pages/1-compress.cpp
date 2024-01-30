@@ -4,7 +4,7 @@
 void MainWindow::configCompress() {
   ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
   ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
-  ui->tbtn_pdfCompress->setIconSize(QSize(ICONSIZE, ICONSIZE));
+  ui->tbtn_pdfCompress->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->tbtn_pdfCompress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 

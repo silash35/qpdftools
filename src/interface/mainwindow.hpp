@@ -9,8 +9,8 @@
 #include <QMessageBox>
 #include <QProcess>
 
-#define ICONSIZE 30
-#define MENUICONSIZE 50
+#define ICON_SIZE 30
+#define MENU_ICON_SIZE 50
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
