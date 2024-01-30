@@ -3,7 +3,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(KDEInstallDirs)
 
 # Add Qt
-find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(SRC
   main.cpp
@@ -19,23 +19,19 @@ set(SRC
 
   utils/lastDirectory.cpp
 )
-
-set(TS_FILES languages/qpdftools_pt_BR.ts)
-qt5_create_translation(QM ${SRC} ${TS_FILES})
-
 add_executable(qpdftools
   ${SRC}
-  ${QM}
 )
+
+set(TS_FILES languages/qpdftools_pt_BR.ts)
+qt6_add_translations(qpdftools TS_FILES ${TS_FILES})
 
 target_link_libraries(qpdftools
   PRIVATE
-    Qt5::Widgets
+  Qt6::Widgets
 )
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-
   install(TARGETS qpdftools DESTINATION ${KDE_INSTALL_BINDIR})
   install(FILES ${QM} DESTINATION ${KDE_INSTALL_LIBDIR}/qpdftools)
-
-endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")

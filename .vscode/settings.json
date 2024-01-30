@@ -1,6 +1,8 @@
 {
+  "files.associations": { "*.ts": "xml" },
   "cSpell.words": [
     "APPDIR",
+    "archlinux",
     "AUTOMOC",
     "AUTORCC",
     "AUTOUIC",

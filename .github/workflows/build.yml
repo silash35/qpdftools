@@ -16,7 +16,7 @@ jobs:
       - name: Install make dependencies
         run: sudo apt install cmake extra-cmake-modules make qtbase5-dev qttools5-dev
       - name: Download Qpdf Tools Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Configure
         run: cmake .
       - name: Compile

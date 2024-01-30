@@ -1,4 +1,12 @@
 *.user*
-build/
 *.tar.gz
 .flatpak-builder/
+
+# cmake
+build/
+.qt/
+CMakeFiles/
+Makefile
+prefix.sh
+CMakeCache.txt
+cmake_install.cmake
