@@ -5,9 +5,10 @@
 int main(int argc, char *argv[]) {
   QApplication a(argc, argv);
 
-  QTranslator t;
-  t.load(QLocale::system(), "qpdftools", "_", "/usr/lib/qpdftools");
-  a.installTranslator(&t);
+  QTranslator translator;
+  // look up e.g. :/i18n/qpdftools_pt_BR.qm
+  if (translator.load(QLocale(), "qpdftools", "_", ":/i18n"))
+    QCoreApplication::installTranslator(&translator);
 
   MainWindow w;
   w.show();

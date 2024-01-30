@@ -147,18 +147,18 @@
         <translation>Clique para rotacioanr PDF em 90° para direita</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
-        <location filename="../interface/pages/3-merge.cpp" line="84"/>
-        <location filename="../interface/pages/2-split.cpp" line="43"/>
         <location filename="../interface/pages/1-compress.cpp" line="22"/>
         <location filename="../interface/pages/1-compress.cpp" line="44"/>
+        <location filename="../interface/pages/2-split.cpp" line="43"/>
+        <location filename="../interface/pages/3-merge.cpp" line="84"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
-        <location filename="../interface/pages/2-split.cpp" line="43"/>
         <location filename="../interface/pages/1-compress.cpp" line="22"/>
+        <location filename="../interface/pages/2-split.cpp" line="43"/>
+        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
@@ -179,8 +179,8 @@
         <translation>Clique para mudar a ordem dos PDFs</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="32"/>
         <location filename="../interface/mainwindow.cpp" line="59"/>
+        <location filename="../interface/pages/3-merge.cpp" line="32"/>
         <source>Select the PDF file</source>
         <translation>Selecione o arquivo PDF</translation>
     </message>

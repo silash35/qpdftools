@@ -33,5 +33,4 @@ target_link_libraries(qpdftools
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   install(TARGETS qpdftools DESTINATION ${KDE_INSTALL_BINDIR})
-  install(FILES ${QM} DESTINATION ${KDE_INSTALL_LIBDIR}/qpdftools)
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
