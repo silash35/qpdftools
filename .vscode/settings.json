@@ -1,5 +1,13 @@
 {
-  "files.associations": { "*.ts": "xml" },
+  "files.associations": { "*.ts": "xml", "*.ui": "xml" },
+
+  "editor.formatOnSave": true,
+  "editor.indentSize": 2,
+  "[xml]": {
+    "editor.detectIndentation": true,
+    "editor.indentSize": 1,
+    "editor.tabSize": 1
+  },
   "cSpell.words": [
     "APPDIR",
     "archlinux",

@@ -9,5 +9,8 @@ public:
     softwareName = "qpdf";
     softwareCommand = "qpdf";
   }
-} qpdf;
+};
+
+extern Qpdf qpdf;
+
 #endif // QPDF_H

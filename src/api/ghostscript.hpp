@@ -9,5 +9,7 @@ public:
     softwareName = "Ghostscript";
     softwareCommand = "gs";
   }
-} ghostscript;
+};
+
+extern Ghostscript ghostscript;
 #endif // GHOSTSCRIPT_H

@@ -5,6 +5,7 @@
 #include "../api/qpdf.hpp"
 
 #include "pages/0-menu/menu.hpp"
+#include "pages/1-compress/compress.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
 
@@ -25,20 +26,23 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   }
 
   MenuPage *menuPage = new MenuPage(this);
-
   ui->stackedWidget->insertWidget(0, menuPage);
   connect(menuPage, &MenuPage::setPage, this, &MainWindow::setPage);
 
-  ui->stackedWidget->setCurrentIndex(0);
+  CompressPage *compressPage = new CompressPage(this);
+  ui->stackedWidget->insertWidget(1, compressPage);
+  connect(compressPage, &CompressPage::setPage, this, &MainWindow::setPage);
 
-  configCompress();
   configSplit();
   configMerge();
   configRotate();
+
+  ui->stackedWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
+// Public Slots
 void MainWindow::setPage(int newPage) { ui->stackedWidget->setCurrentIndex(newPage); }
 
 // Other functions

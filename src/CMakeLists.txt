@@ -8,16 +8,20 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools)
 set(SRC
   main.cpp
 
+  api/ghostscript.cpp
+  api/qpdf.cpp
+
   interface/mainwindow.ui
   interface/mainwindow.cpp
 
-  interface/pages/1-compress.cpp
   interface/pages/2-split.cpp
   interface/pages/3-merge.cpp
   interface/pages/4-rotate.cpp
 
   interface/pages/0-menu/menu.ui
   interface/pages/0-menu/menu.cpp
+  interface/pages/1-compress/compress.ui
+  interface/pages/1-compress/compress.cpp
 
   utils/lastDirectory.cpp
 )

@@ -1,34 +1,42 @@
-#include "../mainwindow.hpp"
-#include "../ui_mainwindow.h"
+#include "compress.hpp"
+#include "ui_compress.h"
 
-void MainWindow::configCompress() {
+#include "api/ghostscript.hpp"
+#include "api/qpdf.hpp"
+#include "utils/lastDirectory.hpp"
+
+CompressPage::CompressPage(QWidget *parent) : QWidget(parent), ui(new Ui::CompressPage) {
+  ui->setupUi(this);
+
   ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
   ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
   ui->tbtn_pdfCompress->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->tbtn_pdfCompress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
-void MainWindow::on_tbtn_return1_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+CompressPage::~CompressPage() { delete ui; }
 
-void MainWindow::on_btn_selectFile1_clicked() {
+void CompressPage::on_tbtn_return1_clicked() { emit setPage(0); }
+
+void CompressPage::on_btn_selectFile1_clicked() {
   ui->ln_file1->clear();
-  ui->ln_file1->setText(getOpenFileName());
+  ui->ln_file1->setText(lastDirectory.getOpenFileName(this));
   ui->ln_file1->setFocus();
 }
 
-void MainWindow::on_tbtn_pdfCompress_clicked() {
+void CompressPage::on_tbtn_pdfCompress_clicked() {
 
   if (!QFile::exists(ui->ln_file1->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;
   }
 
-  QString targetFile = getSaveFileName();
+  QString targetFile = lastDirectory.getSaveFileName(this);
   if (targetFile == "invalid") {
     return;
   }
 
-  arguments.clear();
+  QStringList arguments;
   arguments << "-sDEVICE=pdfwrite"
             << "-dCompatibilityLevel=1.4";
 
@@ -51,4 +59,23 @@ void MainWindow::on_tbtn_pdfCompress_clicked() {
   arguments << ui->ln_file1->text();
 
   runCommand("gs", arguments);
+}
+
+// Remover depois
+
+void CompressPage::runCommand(QString command, QStringList arguments, QString dir) {
+  QString error = "";
+
+  if (command == "gs") {
+    ghostscript.start(arguments, dir);
+    error = ghostscript.getStandardError();
+  } else if (command == "qpdf") {
+    qpdf.start(arguments, dir);
+    error = qpdf.getStandardError();
+  }
+
+  if (!error.isEmpty()) {
+    QMessageBox::warning(this, tr("ERROR"), error);
+  } else {
+  }
 }
