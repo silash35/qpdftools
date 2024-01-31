@@ -11,11 +11,13 @@ set(SRC
   interface/mainwindow.ui
   interface/mainwindow.cpp
 
-  interface/pages/0-menu.cpp
   interface/pages/1-compress.cpp
   interface/pages/2-split.cpp
   interface/pages/3-merge.cpp
   interface/pages/4-rotate.cpp
+
+  interface/pages/0-menu/menu.ui
+  interface/pages/0-menu/menu.cpp
 
   utils/lastDirectory.cpp
 )

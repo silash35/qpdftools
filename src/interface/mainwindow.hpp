@@ -12,11 +12,9 @@
 #define ICON_SIZE 30
 #define MENU_ICON_SIZE 50
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
-QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow {
   Q_OBJECT
@@ -24,17 +22,10 @@ public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
 
+public slots:
+  void setPage(int newPage);
+
 private slots:
-
-  // page_menu (0)
-  void on_tbtn_compress_clicked();
-
-  void on_tbtn_split_clicked();
-
-  void on_tbtn_merge_clicked();
-
-  void on_tbtn_rotate_clicked();
-
   // page_compress (1)
   void on_tbtn_return1_clicked();
 

@@ -4,6 +4,8 @@
 #include "../api/ghostscript.hpp"
 #include "../api/qpdf.hpp"
 
+#include "pages/0-menu/menu.hpp"
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
 
   // Main
@@ -22,9 +24,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QIcon::setThemeName("breeze");
   }
 
+  MenuPage *menuPage = new MenuPage(this);
+
+  ui->stackedWidget->insertWidget(0, menuPage);
+  connect(menuPage, &MenuPage::setPage, this, &MainWindow::setPage);
+
   ui->stackedWidget->setCurrentIndex(0);
 
-  configMenu();
   configCompress();
   configSplit();
   configMerge();
@@ -32,6 +38,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 }
 
 MainWindow::~MainWindow() { delete ui; }
+
+void MainWindow::setPage(int newPage) { ui->stackedWidget->setCurrentIndex(newPage); }
 
 // Other functions
 void MainWindow::runCommand(QString command, QStringList arguments, QString dir) {

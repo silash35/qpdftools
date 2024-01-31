@@ -1,7 +1,11 @@
-#include "../mainwindow.hpp"
-#include "../ui_mainwindow.h"
+#include "menu.hpp"
+#include "ui_menu.h"
 
-void MainWindow::configMenu() {
+#define MENU_ICON_SIZE 50
+
+MenuPage::MenuPage(QWidget *parent) : QWidget(parent), ui(new Ui::MenuPage) {
+  ui->setupUi(this);
+
   ui->tbtn_compress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
   ui->tbtn_compress->setIcon(QIcon::fromTheme("zoom-out"));
   ui->tbtn_compress->setIconSize(QSize(MENU_ICON_SIZE, MENU_ICON_SIZE));
@@ -19,10 +23,12 @@ void MainWindow::configMenu() {
   ui->tbtn_rotate->setIconSize(QSize(MENU_ICON_SIZE, MENU_ICON_SIZE));
 }
 
-void MainWindow::on_tbtn_compress_clicked() { ui->stackedWidget->setCurrentIndex(1); }
+MenuPage::~MenuPage() { delete ui; }
 
-void MainWindow::on_tbtn_split_clicked() { ui->stackedWidget->setCurrentIndex(2); }
+void MenuPage::on_tbtn_compress_clicked() { emit setPage(1); }
 
-void MainWindow::on_tbtn_merge_clicked() { ui->stackedWidget->setCurrentIndex(3); }
+void MenuPage::on_tbtn_split_clicked() { emit setPage(2); }
 
-void MainWindow::on_tbtn_rotate_clicked() { ui->stackedWidget->setCurrentIndex(4); }
+void MenuPage::on_tbtn_merge_clicked() { emit setPage(3); }
+
+void MenuPage::on_tbtn_rotate_clicked() { emit setPage(4); }
