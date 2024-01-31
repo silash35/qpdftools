@@ -7,6 +7,7 @@
 #include "pages/0-menu/menu.hpp"
 #include "pages/1-compress/compress.hpp"
 #include "pages/2-split/split.hpp"
+#include "pages/3-merge/merge.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
   // Main
@@ -37,7 +38,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   ui->stackedWidget->insertWidget(1, splitPage);
   connect(splitPage, &SplitPage::setPage, this, &MainWindow::setPage);
 
-  configMerge();
+  MergePage *mergePage = new MergePage(this);
+  ui->stackedWidget->insertWidget(1, mergePage);
+  connect(mergePage, &MergePage::setPage, this, &MainWindow::setPage);
+
   configRotate();
 
   ui->stackedWidget->setCurrentIndex(0);

@@ -25,19 +25,6 @@ public slots:
   void setPage(int newPage);
 
 private slots:
-  // page_merge (3)
-  void on_tbtn_return3_clicked();
-
-  void on_btn_Madd_clicked();
-
-  void on_btn_Mrm_clicked();
-
-  void on_btn_Mup_clicked();
-
-  void on_btn_Mdown_clicked();
-
-  void on_tbtn_pdfMerge_clicked();
-
   // page_rotate (4)
   void on_tbtn_return4_clicked();
 
@@ -57,7 +44,6 @@ private:
   QStringList arguments; // Stores the command to be executed
   int rotate{0};         // Stores in degrees how much the pdf will be rotated in rotation mode
 
-  void configMerge();
   void configRotate();
 
   void runCommand(QString command, QStringList arguments, QString dir = "default");

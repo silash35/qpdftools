@@ -1,7 +1,13 @@
-#include "../mainwindow.hpp"
-#include "../ui_mainwindow.h"
+#include "merge.hpp"
+#include "ui_merge.h"
 
-void MainWindow::configMerge() {
+#include "api/ghostscript.hpp"
+#include "api/qpdf.hpp"
+#include "utils/lastDirectory.hpp"
+
+MergePage::MergePage(QWidget *parent) : QWidget(parent), ui(new Ui::MergePage) {
+  ui->setupUi(this);
+
   ui->tbtn_return3->setIcon(QIcon::fromTheme("go-previous"));
 
   ui->btn_Madd->setIcon(QIcon::fromTheme("list-add"));
@@ -25,9 +31,11 @@ void MainWindow::configMerge() {
   ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
-void MainWindow::on_tbtn_return3_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+MergePage::~MergePage() { delete ui; }
 
-void MainWindow::on_btn_Madd_clicked() {
+void MergePage::on_tbtn_return3_clicked() { emit setPage(0); }
+
+void MergePage::on_btn_Madd_clicked() {
   QStringList files =
       QFileDialog::getOpenFileNames(this, tr("Select the PDF file"), lastDirectory.get(),
                                     "PDF - Portable Document Format (*.pdf)");
@@ -41,13 +49,13 @@ void MainWindow::on_btn_Madd_clicked() {
   }
 }
 
-void MainWindow::on_btn_Mrm_clicked() {
+void MergePage::on_btn_Mrm_clicked() {
   if ((ui->list_toMerge->currentRow() >= 0) and (ui->list_toMerge->count() > 0)) {
     delete ui->list_toMerge->takeItem(ui->list_toMerge->row(ui->list_toMerge->currentItem()));
   }
 }
 
-void MainWindow::on_btn_Mup_clicked() {
+void MergePage::on_btn_Mup_clicked() {
   int currentRow = ui->list_toMerge->currentRow();
 
   if (currentRow > 0) {
@@ -62,7 +70,7 @@ void MainWindow::on_btn_Mup_clicked() {
   ui->list_toMerge->update();
 }
 
-void MainWindow::on_btn_Mdown_clicked() {
+void MergePage::on_btn_Mdown_clicked() {
   int currentRow = ui->list_toMerge->currentRow();
 
   if ((currentRow >= 0) and (ui->list_toMerge->count() > 0) and
@@ -78,7 +86,7 @@ void MainWindow::on_btn_Mdown_clicked() {
   ui->list_toMerge->update();
 }
 
-void MainWindow::on_tbtn_pdfMerge_clicked() {
+void MergePage::on_tbtn_pdfMerge_clicked() {
 
   if (ui->list_toMerge->count() <= 1) {
     QMessageBox::warning(this, tr("Warning"),
@@ -86,12 +94,12 @@ void MainWindow::on_tbtn_pdfMerge_clicked() {
     return;
   }
 
-  QString targetFile = getSaveFileName();
+  QString targetFile = lastDirectory.getSaveFileName();
   if (targetFile == "invalid") {
     return;
   }
 
-  arguments.clear();
+  QStringList arguments;
 
   // qpdf --empty --pages in1.pdf in2.pdf -- out.pdf
   arguments << "--empty";
@@ -103,4 +111,23 @@ void MainWindow::on_tbtn_pdfMerge_clicked() {
   arguments << targetFile;
 
   runCommand("qpdf", arguments);
+}
+
+// Remove later
+
+void MergePage::runCommand(QString command, QStringList arguments, QString dir) {
+  QString error = "";
+
+  if (command == "gs") {
+    ghostscript.start(arguments, dir);
+    error = ghostscript.getStandardError();
+  } else if (command == "qpdf") {
+    qpdf.start(arguments, dir);
+    error = qpdf.getStandardError();
+  }
+
+  if (!error.isEmpty()) {
+    QMessageBox::warning(this, tr("ERROR"), error);
+  } else {
+  }
 }
