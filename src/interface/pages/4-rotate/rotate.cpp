@@ -3,7 +3,7 @@
 
 #include "api/ghostscript.hpp"
 #include "api/qpdf.hpp"
-#include "utils/lastDirectory.hpp"
+#include "interface/utils/fileDialog.hpp"
 
 RotatePage::RotatePage(QWidget *parent) : QWidget(parent), ui(new Ui::RotatePage) {
   ui->setupUi(this);
@@ -33,7 +33,7 @@ void RotatePage::on_tbtn_return4_clicked() { emit setPage(0); }
 
 void RotatePage::on_btn_selectFile4_clicked() {
   ui->ln_file4->clear();
-  ui->ln_file4->setText(lastDirectory.getOpenFileName());
+  ui->ln_file4->setText(fileDialog.getOpenFileName());
   ui->ln_file4->setFocus();
 }
 
@@ -96,7 +96,7 @@ void RotatePage::on_tbtn_pdfRotate_clicked() {
     return;
   }
 
-  QString targetFile = lastDirectory.getSaveFileName();
+  QString targetFile = fileDialog.getSaveFileName();
   if (targetFile == "invalid") {
     return;
   }

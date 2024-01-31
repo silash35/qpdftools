@@ -3,7 +3,7 @@
 
 #include "api/ghostscript.hpp"
 #include "api/qpdf.hpp"
-#include "utils/lastDirectory.hpp"
+#include "interface/utils/fileDialog.hpp"
 
 CompressPage::CompressPage(QWidget *parent) : QWidget(parent), ui(new Ui::CompressPage) {
   ui->setupUi(this);
@@ -20,7 +20,7 @@ void CompressPage::on_tbtn_return1_clicked() { emit setPage(0); }
 
 void CompressPage::on_btn_selectFile1_clicked() {
   ui->ln_file1->clear();
-  ui->ln_file1->setText(lastDirectory.getOpenFileName(this));
+  ui->ln_file1->setText(fileDialog.getOpenFileName(this));
   ui->ln_file1->setFocus();
 }
 
@@ -31,7 +31,7 @@ void CompressPage::on_tbtn_pdfCompress_clicked() {
     return;
   }
 
-  QString targetFile = lastDirectory.getSaveFileName(this);
+  QString targetFile = fileDialog.getSaveFileName(this);
   if (targetFile == "invalid") {
     return;
   }

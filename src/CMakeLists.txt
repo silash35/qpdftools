@@ -14,6 +14,8 @@ set(SRC
   interface/mainwindow.ui
   interface/mainwindow.cpp
 
+  interface/utils/fileDialog.cpp
+
   interface/pages/0-menu/menu.ui
   interface/pages/0-menu/menu.cpp
   interface/pages/1-compress/compress.ui
@@ -24,8 +26,6 @@ set(SRC
   interface/pages/3-merge/merge.cpp
   interface/pages/4-rotate/rotate.ui
   interface/pages/4-rotate/rotate.cpp
-
-  utils/lastDirectory.cpp
 )
 add_executable(qpdftools
   ${SRC}

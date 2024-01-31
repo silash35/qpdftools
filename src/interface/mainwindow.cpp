@@ -1,15 +1,6 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
 
-#include "../api/ghostscript.hpp"
-#include "../api/qpdf.hpp"
-
-#include "pages/0-menu/menu.hpp"
-#include "pages/1-compress/compress.hpp"
-#include "pages/2-split/split.hpp"
-#include "pages/3-merge/merge.hpp"
-#include "pages/4-rotate/rotate.hpp"
-
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
   // Main
   ui->setupUi(this);

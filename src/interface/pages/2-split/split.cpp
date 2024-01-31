@@ -3,7 +3,7 @@
 
 #include "api/ghostscript.hpp"
 #include "api/qpdf.hpp"
-#include "utils/lastDirectory.hpp"
+#include "interface/utils/fileDialog.hpp"
 
 SplitPage::SplitPage(QWidget *parent) : QWidget(parent), ui(new Ui::SplitPage) {
   ui->setupUi(this);
@@ -24,7 +24,7 @@ void SplitPage::on_tbtn_return2_clicked() { emit setPage(0); }
 
 void SplitPage::on_btn_selectFile2_clicked() {
   ui->ln_file2->clear();
-  ui->ln_file2->setText(lastDirectory.getOpenFileName());
+  ui->ln_file2->setText(fileDialog.getOpenFileName(this));
   ui->ln_file2->setFocus();
 }
 
@@ -67,7 +67,7 @@ void SplitPage::on_tbtn_pdfSplit_clicked() {
     runCommand("qpdf", arguments, targetFolder);
 
   } else if (ui->rbtn_splitRange->isChecked()) {
-    QString targetFile = lastDirectory.getSaveFileName();
+    QString targetFile = fileDialog.getSaveFileName();
     if (targetFile == "invalid") {
       return;
     }

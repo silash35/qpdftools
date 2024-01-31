@@ -3,7 +3,7 @@
 
 #include "api/ghostscript.hpp"
 #include "api/qpdf.hpp"
-#include "utils/lastDirectory.hpp"
+#include "interface/utils/fileDialog.hpp"
 
 MergePage::MergePage(QWidget *parent) : QWidget(parent), ui(new Ui::MergePage) {
   ui->setupUi(this);
@@ -36,17 +36,8 @@ MergePage::~MergePage() { delete ui; }
 void MergePage::on_tbtn_return3_clicked() { emit setPage(0); }
 
 void MergePage::on_btn_Madd_clicked() {
-  QStringList files =
-      QFileDialog::getOpenFileNames(this, tr("Select the PDF file"), lastDirectory.get(),
-                                    "PDF - Portable Document Format (*.pdf)");
-
-  for (int i = 0; i < files.count(); ++i) {
-    qDebug() << i << ": " << files[i];
-    if (QFile::exists(files[i])) {
-      ui->list_toMerge->addItem(files[i]);
-      lastDirectory.setByFile(files[i]);
-    }
-  }
+  QStringList files = fileDialog.getOpenFileNames(this);
+  ui->list_toMerge->addItems(files);
 }
 
 void MergePage::on_btn_Mrm_clicked() {
@@ -94,7 +85,7 @@ void MergePage::on_tbtn_pdfMerge_clicked() {
     return;
   }
 
-  QString targetFile = lastDirectory.getSaveFileName();
+  QString targetFile = fileDialog.getSaveFileName();
   if (targetFile == "invalid") {
     return;
   }

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../utils/lastDirectory.hpp"
-
-#include <QDebug>
-#include <QFileDialog>
 #include <QMainWindow>
-#include <QMessageBox>
-#include <QProcess>
+
+#include "pages/0-menu/menu.hpp"
+#include "pages/1-compress/compress.hpp"
+#include "pages/2-split/split.hpp"
+#include "pages/3-merge/merge.hpp"
+#include "pages/4-rotate/rotate.hpp"
 
 namespace Ui {
 class MainWindow;
