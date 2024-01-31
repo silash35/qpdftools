@@ -1,0 +1,41 @@
+#pragma once
+
+#include <QMessageBox>
+#include <QWidget>
+
+#define ICON_SIZE 30
+#define PDF_COVER_PATH "/tmp/pdfCover.jpeg"
+
+namespace Ui {
+class RotatePage;
+}
+
+class RotatePage : public QWidget {
+  Q_OBJECT
+
+public:
+  explicit RotatePage(QWidget *parent = nullptr);
+  ~RotatePage();
+
+signals:
+  void setPage(int newPage);
+
+private slots:
+  void on_tbtn_return4_clicked();
+
+  void on_btn_selectFile4_clicked();
+
+  void on_ln_file4_textChanged(const QString &arg1);
+
+  void on_btn_left_clicked();
+
+  void on_btn_right_clicked();
+
+  void on_tbtn_pdfRotate_clicked();
+
+private:
+  Ui::RotatePage *ui;
+  int rotate{0};
+
+  void runCommand(QString command, QStringList arguments, QString dir = "default");
+};

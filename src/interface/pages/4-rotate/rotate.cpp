@@ -1,9 +1,13 @@
-#include "../mainwindow.hpp"
-#include "../ui_mainwindow.h"
+#include "rotate.hpp"
+#include "ui_rotate.h"
 
-#define PDF_COVER_PATH "/tmp/pdfCover.jpeg"
+#include "api/ghostscript.hpp"
+#include "api/qpdf.hpp"
+#include "utils/lastDirectory.hpp"
 
-void MainWindow::configRotate() {
+RotatePage::RotatePage(QWidget *parent) : QWidget(parent), ui(new Ui::RotatePage) {
+  ui->setupUi(this);
+
   ui->tbtn_return4->setIcon(QIcon::fromTheme("go-previous"));
 
   ui->btn_left->setIcon(QIcon::fromTheme("object-rotate-left"));
@@ -23,17 +27,19 @@ void MainWindow::configRotate() {
   ui->tbtn_pdfRotate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
-void MainWindow::on_tbtn_return4_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+RotatePage::~RotatePage() { delete ui; }
 
-void MainWindow::on_btn_selectFile4_clicked() {
+void RotatePage::on_tbtn_return4_clicked() { emit setPage(0); }
+
+void RotatePage::on_btn_selectFile4_clicked() {
   ui->ln_file4->clear();
-  ui->ln_file4->setText(getOpenFileName());
+  ui->ln_file4->setText(lastDirectory.getOpenFileName());
   ui->ln_file4->setFocus();
 }
 
-void MainWindow::on_ln_file4_textChanged(const QString &pdfPath) {
+void RotatePage::on_ln_file4_textChanged(const QString &pdfPath) {
   rotate = 0;
-  arguments.clear();
+  QStringList arguments;
 
   if (QFile::exists(pdfPath)) {
     ui->btn_left->show();
@@ -55,7 +61,7 @@ void MainWindow::on_ln_file4_textChanged(const QString &pdfPath) {
   }
 }
 
-void MainWindow::on_btn_left_clicked() {
+void RotatePage::on_btn_left_clicked() {
   if (rotate <= 0) {
     rotate = 360;
   }
@@ -69,7 +75,7 @@ void MainWindow::on_btn_left_clicked() {
   ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
 }
 
-void MainWindow::on_btn_right_clicked() {
+void RotatePage::on_btn_right_clicked() {
   if (rotate >= 360) {
     rotate = 0;
   }
@@ -83,19 +89,19 @@ void MainWindow::on_btn_right_clicked() {
   ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
 }
 
-void MainWindow::on_tbtn_pdfRotate_clicked() {
+void RotatePage::on_tbtn_pdfRotate_clicked() {
 
   if (!QFile::exists(ui->ln_file4->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;
   }
 
-  QString targetFile = getSaveFileName();
+  QString targetFile = lastDirectory.getSaveFileName();
   if (targetFile == "invalid") {
     return;
   }
 
-  arguments.clear();
+  QStringList arguments;
 
   // qpdf in.pdf out.pdf --rotate=angle
   arguments << ui->ln_file4->text();
@@ -103,4 +109,23 @@ void MainWindow::on_tbtn_pdfRotate_clicked() {
   arguments << "--rotate=" + QString::number(rotate);
 
   runCommand("qpdf", arguments);
+}
+
+// Remove later
+
+void RotatePage::runCommand(QString command, QStringList arguments, QString dir) {
+  QString error = "";
+
+  if (command == "gs") {
+    ghostscript.start(arguments, dir);
+    error = ghostscript.getStandardError();
+  } else if (command == "qpdf") {
+    qpdf.start(arguments, dir);
+    error = qpdf.getStandardError();
+  }
+
+  if (!error.isEmpty()) {
+    QMessageBox::warning(this, tr("ERROR"), error);
+  } else {
+  }
 }

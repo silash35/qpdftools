@@ -8,6 +8,7 @@
 #include "pages/1-compress/compress.hpp"
 #include "pages/2-split/split.hpp"
 #include "pages/3-merge/merge.hpp"
+#include "pages/4-rotate/rotate.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
   // Main
@@ -27,71 +28,27 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   }
 
   MenuPage *menuPage = new MenuPage(this);
-  ui->stackedWidget->insertWidget(0, menuPage);
+  ui->stackedWidget->addWidget(menuPage);
   connect(menuPage, &MenuPage::setPage, this, &MainWindow::setPage);
 
   CompressPage *compressPage = new CompressPage(this);
-  ui->stackedWidget->insertWidget(1, compressPage);
+  ui->stackedWidget->addWidget(compressPage);
   connect(compressPage, &CompressPage::setPage, this, &MainWindow::setPage);
 
   SplitPage *splitPage = new SplitPage(this);
-  ui->stackedWidget->insertWidget(1, splitPage);
+  ui->stackedWidget->addWidget(splitPage);
   connect(splitPage, &SplitPage::setPage, this, &MainWindow::setPage);
 
   MergePage *mergePage = new MergePage(this);
-  ui->stackedWidget->insertWidget(1, mergePage);
+  ui->stackedWidget->addWidget(mergePage);
   connect(mergePage, &MergePage::setPage, this, &MainWindow::setPage);
 
-  configRotate();
-
-  ui->stackedWidget->setCurrentIndex(0);
+  RotatePage *rotatePage = new RotatePage(this);
+  ui->stackedWidget->addWidget(rotatePage);
+  connect(rotatePage, &RotatePage::setPage, this, &MainWindow::setPage);
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
 // Public Slots
 void MainWindow::setPage(int newPage) { ui->stackedWidget->setCurrentIndex(newPage); }
-
-// Other functions
-void MainWindow::runCommand(QString command, QStringList arguments, QString dir) {
-  ui->statusBar->showMessage(tr("Processing..."));
-
-  QString error = "";
-
-  if (command == "gs") {
-    ghostscript.start(arguments, dir);
-    error = ghostscript.getStandardError();
-  } else if (command == "qpdf") {
-    qpdf.start(arguments, dir);
-    error = qpdf.getStandardError();
-  }
-
-  if (!error.isEmpty()) {
-    QMessageBox::warning(this, tr("ERROR"), error);
-    ui->statusBar->showMessage(tr("Failed"), 5000);
-  } else {
-    ui->statusBar->showMessage(tr("Success!"), 5000);
-  }
-}
-
-QString MainWindow::getOpenFileName() {
-  QString file = QFileDialog::getOpenFileName(this, tr("Select the PDF file"), lastDirectory.get(),
-                                              "PDF - Portable Document Format (*.pdf  *.PDF)");
-
-  if (!file.isEmpty()) {
-    lastDirectory.setByFile(file);
-  }
-  return file;
-}
-
-QString MainWindow::getSaveFileName() {
-  QString file = QFileDialog::getSaveFileName(this, tr("Save file"), lastDirectory.get(),
-                                              "PDF - Portable Document Format (*.pdf)");
-  if (file.isEmpty()) {
-    file = "invalid";
-  } else {
-    lastDirectory.setByFile(file);
-  }
-
-  return file;
-}
