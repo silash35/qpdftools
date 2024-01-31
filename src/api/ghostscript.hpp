@@ -1,5 +1,4 @@
-#ifndef GHOSTSCRIPT_H
-#define GHOSTSCRIPT_H
+#pragma once
 
 #include "externalSoftware.hpp"
 
@@ -12,4 +11,3 @@ public:
 };
 
 extern Ghostscript ghostscript;
-#endif // GHOSTSCRIPT_H

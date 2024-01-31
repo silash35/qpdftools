@@ -1,5 +1,4 @@
-#ifndef LAST_DIRECTORY_HPP
-#define LAST_DIRECTORY_HPP
+#pragma once
 
 #include <QDir>
 #include <QFileDialog>
@@ -23,5 +22,3 @@ public:
 };
 
 extern LastDirectory lastDirectory;
-
-#endif // LAST_DIRECTORY_HPP

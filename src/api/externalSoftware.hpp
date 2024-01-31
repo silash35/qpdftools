@@ -1,5 +1,4 @@
-#ifndef EXTERNAL_SOFTWARE_HPP
-#define EXTERNAL_SOFTWARE_HPP
+#pragma once
 
 #include <QDebug>
 #include <QProcess>
@@ -35,4 +34,3 @@ public:
 
   ~ExternalSoftware() { process.close(); }
 };
-#endif // EXTERNAL_SOFTWARE_HPP

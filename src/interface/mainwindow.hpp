@@ -1,5 +1,4 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include "../utils/lastDirectory.hpp"
 
@@ -79,4 +78,3 @@ private:
   QString getOpenFileName();
   QString getSaveFileName();
 };
-#endif // MAINWINDOW_H

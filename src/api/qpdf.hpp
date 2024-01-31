@@ -1,5 +1,4 @@
-#ifndef QPDF_H
-#define QPDF_H
+#pragma once
 
 #include "externalSoftware.hpp"
 
@@ -12,5 +11,3 @@ public:
 };
 
 extern Qpdf qpdf;
-
-#endif // QPDF_H

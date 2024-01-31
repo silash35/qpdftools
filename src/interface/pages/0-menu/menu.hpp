@@ -1,5 +1,4 @@
-#ifndef MENU_H
-#define MENU_H
+#pragma once
 
 #include <QWidget>
 
@@ -29,5 +28,3 @@ private slots:
 private:
   Ui::MenuPage *ui;
 };
-
-#endif // MENU_H

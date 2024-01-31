@@ -1,5 +1,4 @@
-#ifndef COMPRESS_H
-#define COMPRESS_H
+#pragma once
 
 #include <QMessageBox>
 #include <QWidget>
@@ -32,5 +31,3 @@ private:
 
   void runCommand(QString command, QStringList arguments, QString dir = "default");
 };
-
-#endif // COMPRESS_H
