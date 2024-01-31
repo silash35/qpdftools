@@ -11,24 +11,24 @@ protected:
 
   void waitForFinished() {
     process.waitForFinished();
-    qDebug() << "finished to execute " + softwareName << "\n";
+    qInfo() << "finished to execute " + softwareName << "\n";
   }
 
 public:
   void start(QStringList arguments, QString dir) {
     if (dir != "default") {
       process.setWorkingDirectory(dir);
-      qDebug() << dir << "\n";
+      qInfo() << dir << "\n";
     }
-    qDebug() << "starting to execute " << softwareName
-             << " with the following arguments:" << arguments << "\n";
+    qInfo() << "starting to execute " << softwareName
+            << " with the following arguments:" << arguments << "\n";
     process.start(softwareCommand, arguments, QIODevice::ReadWrite);
     process.closeWriteChannel();
   }
 
   QString getStandardError() {
     waitForFinished();
-    qDebug() << process.readAllStandardOutput() << "\n";
+    qInfo() << process.readAllStandardOutput() << "\n";
     return process.readAllStandardError();
   }
 

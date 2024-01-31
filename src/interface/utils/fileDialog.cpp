@@ -48,7 +48,7 @@ QStringList FileDialog::getOpenFileNames(QWidget *parent) {
   QStringList validFiles;
 
   for (int i = 0; i < files.count(); ++i) {
-    qDebug() << i << ": " << files[i];
+    qInfo() << i << ": " << files[i];
     if (QFile::exists(files[i])) {
       validFiles.push_back(files[i]);
     }
