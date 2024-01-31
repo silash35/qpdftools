@@ -61,7 +61,7 @@ void CompressPage::on_tbtn_pdfCompress_clicked() {
   runCommand("gs", arguments);
 }
 
-// Remover depois
+// Remove later
 
 void CompressPage::runCommand(QString command, QStringList arguments, QString dir) {
   QString error = "";

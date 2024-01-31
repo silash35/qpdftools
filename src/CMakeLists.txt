@@ -14,7 +14,6 @@ set(SRC
   interface/mainwindow.ui
   interface/mainwindow.cpp
 
-  interface/pages/2-split.cpp
   interface/pages/3-merge.cpp
   interface/pages/4-rotate.cpp
 
@@ -22,6 +21,8 @@ set(SRC
   interface/pages/0-menu/menu.cpp
   interface/pages/1-compress/compress.ui
   interface/pages/1-compress/compress.cpp
+  interface/pages/2-split/split.ui
+  interface/pages/2-split/split.cpp
 
   utils/lastDirectory.cpp
 )

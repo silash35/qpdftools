@@ -6,9 +6,9 @@
 
 #include "pages/0-menu/menu.hpp"
 #include "pages/1-compress/compress.hpp"
+#include "pages/2-split/split.hpp"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
-
   // Main
   ui->setupUi(this);
   this->setWindowIcon(QIcon(QIcon::fromTheme("io.github.silash35.qpdftools")));
@@ -33,7 +33,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   ui->stackedWidget->insertWidget(1, compressPage);
   connect(compressPage, &CompressPage::setPage, this, &MainWindow::setPage);
 
-  configSplit();
+  SplitPage *splitPage = new SplitPage(this);
+  ui->stackedWidget->insertWidget(1, splitPage);
+  connect(splitPage, &SplitPage::setPage, this, &MainWindow::setPage);
+
   configMerge();
   configRotate();
 

@@ -25,19 +25,6 @@ public slots:
   void setPage(int newPage);
 
 private slots:
-  // page_split (2)
-  void on_tbtn_return2_clicked();
-
-  void on_btn_selectFile2_clicked();
-
-  void on_rbtn_extractAll_clicked();
-
-  void on_rbtn_splitRange_clicked();
-
-  void on_spinBox_fistPage_valueChanged(int arg1);
-
-  void on_tbtn_pdfSplit_clicked();
-
   // page_merge (3)
   void on_tbtn_return3_clicked();
 
@@ -70,7 +57,6 @@ private:
   QStringList arguments; // Stores the command to be executed
   int rotate{0};         // Stores in degrees how much the pdf will be rotated in rotation mode
 
-  void configSplit();
   void configMerge();
   void configRotate();
 
