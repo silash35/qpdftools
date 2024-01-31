@@ -47,12 +47,12 @@ void RotatePage::on_ln_file4_textChanged(const QString &pdfPath) {
     ui->label_pdfCover->show();
 
     arguments << "-q"
-              << "-o" << PDF_COVER_PATH << "-sDEVICE=jpeg"
+              << "-o" << pdfCoverPath << "-sDEVICE=jpeg"
               << "-dLastPage=1"
               << "-dUseCropBox" << pdfPath;
     runCommand("gs", arguments);
 
-    QPixmap pdfCover(PDF_COVER_PATH);
+    QPixmap pdfCover(pdfCoverPath);
     ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
   } else {
     ui->btn_left->hide();
@@ -70,7 +70,7 @@ void RotatePage::on_btn_left_clicked() {
   QTransform rote;
   rote = rote.rotate(rotate);
 
-  QPixmap pdfCover(PDF_COVER_PATH);
+  QPixmap pdfCover(pdfCoverPath);
   pdfCover = QPixmap(pdfCover.transformed(rote));
   ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
 }
@@ -84,7 +84,7 @@ void RotatePage::on_btn_right_clicked() {
   QTransform rote;
   rote = rote.rotate(rotate);
 
-  QPixmap pdfCover(PDF_COVER_PATH);
+  QPixmap pdfCover(pdfCoverPath);
   pdfCover = QPixmap(pdfCover.transformed(rote));
   ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
 }

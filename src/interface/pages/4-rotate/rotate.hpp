@@ -1,10 +1,10 @@
 #pragma once
 
+#include <QDir>
 #include <QMessageBox>
 #include <QWidget>
 
 #define ICON_SIZE 30
-#define PDF_COVER_PATH "/tmp/pdfCover.jpeg"
 
 namespace Ui {
 class RotatePage;
@@ -36,6 +36,8 @@ private slots:
 private:
   Ui::RotatePage *ui;
   int rotate{0};
+
+  QString pdfCoverPath = QDir::tempPath() + "/pdfCover.jpeg";
 
   void runCommand(QString command, QStringList arguments, QString dir = "default");
 };
