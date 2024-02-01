@@ -3,7 +3,6 @@
 Ghostscript::Ghostscript() : ExternalSoftware("Ghostscript", "gs") {}
 
 void Ghostscript::compressPDF(QString input, QString output, CompressionMode mode) {
-
   QStringList arguments;
   arguments << "-sDEVICE=pdfwrite"
             << "-dCompatibilityLevel=1.4";

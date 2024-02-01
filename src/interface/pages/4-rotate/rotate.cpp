@@ -88,7 +88,6 @@ void RotatePage::on_btn_right_clicked() {
 }
 
 void RotatePage::on_tbtn_pdfRotate_clicked() {
-
   if (!QFile::exists(ui->ln_file4->text())) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;

@@ -24,9 +24,7 @@ void CompressPage::on_btn_selectFile1_clicked() {
 }
 
 void CompressPage::on_tbtn_pdfCompress_clicked() {
-
   QString input = ui->ln_file1->text();
-
   if (!QFile::exists(input)) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;

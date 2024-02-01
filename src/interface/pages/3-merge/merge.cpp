@@ -78,7 +78,6 @@ void MergePage::on_btn_Mdown_clicked() {
 }
 
 void MergePage::on_tbtn_pdfMerge_clicked() {
-
   if (ui->list_toMerge->count() <= 1) {
     QMessageBox::warning(this, tr("Warning"),
                          tr("You need to add two or more files to be able to merge them"));
