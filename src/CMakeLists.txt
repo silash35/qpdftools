@@ -8,6 +8,7 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools)
 set(SRC
   main.cpp
 
+  api/externalSoftware.cpp
   api/ghostscript.cpp
   api/qpdf.cpp
 
