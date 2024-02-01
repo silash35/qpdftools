@@ -3,6 +3,7 @@
 #include <QDir>
 #include <QMessageBox>
 #include <QWidget>
+#include <QtConcurrent>
 
 #define ICON_SIZE 30
 

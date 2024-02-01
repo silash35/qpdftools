@@ -25,13 +25,15 @@ void CompressPage::on_btn_selectFile1_clicked() {
 
 void CompressPage::on_tbtn_pdfCompress_clicked() {
 
-  if (!QFile::exists(ui->ln_file1->text())) {
+  QString input = ui->ln_file1->text();
+
+  if (!QFile::exists(input)) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;
   }
 
-  QString targetFile = fileDialog.getSaveFileName(this);
-  if (targetFile == "invalid") {
+  QString output = fileDialog.getSaveFileName(this);
+  if (output == "invalid") {
     return;
   }
 
@@ -50,7 +52,5 @@ void CompressPage::on_tbtn_pdfCompress_clicked() {
     return;
   }
 
-  emit runAsyncFunction([this, targetFile, mode]() {
-    ghostscript.compressPDF(ui->ln_file1->text(), targetFile, mode);
-  });
+  emit runAsyncFunction([input, output, mode] { ghostscript.compressPDF(input, output, mode); });
 }

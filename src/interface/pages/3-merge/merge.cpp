@@ -94,5 +94,5 @@ void MergePage::on_tbtn_pdfMerge_clicked() {
   for (int i = 0; i < ui->list_toMerge->count(); ++i)
     inputs << ui->list_toMerge->item(i)->text();
 
-  emit runAsyncFunction([inputs, output]() { qpdf.mergePDF(inputs, output); });
+  emit runAsyncFunction([inputs, output] { qpdf.mergePDF(inputs, output); });
 }

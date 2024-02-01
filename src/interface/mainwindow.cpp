@@ -49,9 +49,12 @@ MainWindow::~MainWindow() { delete ui; }
 void MainWindow::setPage(int newPage) { ui->stackedWidget->setCurrentIndex(newPage); }
 
 void MainWindow::runAsyncFunction(std::function<void()> asyncFunction) {
+  ui->statusBar->showMessage(tr("Processing..."));
+
   QtConcurrent::run(asyncFunction)
-      .then([] {
-        // Do nothing
-      })
-      .onFailed([this](QString error) { QMessageBox::warning(this, tr("ERROR"), error); });
+      .then([this] { ui->statusBar->showMessage(tr("Success!"), 5000); })
+      .onFailed([this](QString error) {
+        QMessageBox::warning(this, tr("ERROR"), error);
+        ui->statusBar->showMessage(tr("Failed"), 5000);
+      });
 }

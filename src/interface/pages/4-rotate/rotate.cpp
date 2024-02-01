@@ -46,11 +46,11 @@ void RotatePage::on_ln_file4_textChanged(const QString &pdfPath) {
     ui->btn_right->show();
     ui->label_pdfCover->show();
 
-    emit runAsyncFunction([this, pdfPath]() {
+    QtConcurrent::run([this, pdfPath] {
       ghostscript.generateThumbnail(pdfPath, pdfCoverPath);
       QPixmap pdfCover(pdfCoverPath);
       ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
-    });
+    }).onFailed([this](QString error) { QMessageBox::warning(this, tr("ERROR"), error); });
 
   } else {
     ui->btn_left->hide();
@@ -101,5 +101,5 @@ void RotatePage::on_tbtn_pdfRotate_clicked() {
   QString input = ui->ln_file4->text();
   int angle = rotate;
 
-  emit runAsyncFunction([input, output, angle]() { qpdf.rotatePDF(input, output, angle); });
+  emit runAsyncFunction([input, output, angle] { qpdf.rotatePDF(input, output, angle); });
 }

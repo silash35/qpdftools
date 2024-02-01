@@ -47,31 +47,31 @@ void SplitPage::on_spinBox_fistPage_valueChanged(int arg1) {
 }
 
 void SplitPage::on_tbtn_pdfSplit_clicked() {
-  if (!QFile::exists(ui->ln_file2->text())) {
+  QString input = ui->ln_file2->text();
+  if (!QFile::exists(input)) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;
   }
 
-  QStringList arguments;
-
   if (ui->rbtn_extractAll->isChecked()) {
-    QString targetFolder = QFileDialog::getExistingDirectory(this, tr("Select Output Folder"));
-    if (targetFolder == "") {
+    QString outputFolder = QFileDialog::getExistingDirectory(this, tr("Select Output Folder"));
+    if (outputFolder == "") {
       return;
     }
 
-    emit runAsyncFunction(
-        [this, targetFolder]() { qpdf.splitPDF(ui->ln_file2->text(), targetFolder); });
+    emit runAsyncFunction([input, outputFolder] { qpdf.splitPDF(input, outputFolder); });
 
   } else if (ui->rbtn_splitRange->isChecked()) {
-    QString targetFile = fileDialog.getSaveFileName();
-    if (targetFile == "invalid") {
+    QString output = fileDialog.getSaveFileName();
+    if (output == "invalid") {
       return;
     }
 
-    emit runAsyncFunction([this, targetFile]() {
-      qpdf.splitPDF(ui->ln_file2->text(), targetFile, ui->spinBox_fistPage->value(),
-                    ui->spinBox_lastPage->value());
+    int firstPage = ui->spinBox_fistPage->value();
+    int lastPage = ui->spinBox_lastPage->value();
+
+    emit runAsyncFunction([input, output, firstPage, lastPage] {
+      qpdf.splitPDF(input, output, firstPage, lastPage);
     });
   }
 }
