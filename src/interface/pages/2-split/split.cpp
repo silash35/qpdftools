@@ -59,45 +59,19 @@ void SplitPage::on_tbtn_pdfSplit_clicked() {
     if (targetFolder == "") {
       return;
     }
-    // qpdf in.pdf out.pdf --split-pages
-    arguments << ui->ln_file2->text();
-    arguments << "out.pdf";
-    arguments << "--split-pages";
 
-    runCommand("qpdf", arguments, targetFolder);
+    emit runAsyncFunction(
+        [this, targetFolder]() { qpdf.splitPDF(ui->ln_file2->text(), targetFolder); });
 
   } else if (ui->rbtn_splitRange->isChecked()) {
     QString targetFile = fileDialog.getSaveFileName();
     if (targetFile == "invalid") {
       return;
     }
-    // qpdf in.pdf --pages . start-end -- out.pdf
-    arguments << ui->ln_file2->text();
-    arguments << "--pages";
-    arguments << ".";
-    arguments << ui->spinBox_fistPage->text() + "-" + ui->spinBox_lastPage->text();
-    arguments << "--";
-    arguments << targetFile;
 
-    runCommand("qpdf", arguments);
-  }
-}
-
-// Remove later
-
-void SplitPage::runCommand(QString command, QStringList arguments, QString dir) {
-  QString error = "";
-
-  if (command == "gs") {
-    ghostscript.start(arguments, dir);
-    error = ghostscript.getStandardError();
-  } else if (command == "qpdf") {
-    qpdf.start(arguments, dir);
-    error = qpdf.getStandardError();
-  }
-
-  if (!error.isEmpty()) {
-    QMessageBox::warning(this, tr("ERROR"), error);
-  } else {
+    emit runAsyncFunction([this, targetFile]() {
+      qpdf.splitPDF(ui->ln_file2->text(), targetFile, ui->spinBox_fistPage->value(),
+                    ui->spinBox_lastPage->value());
+    });
   }
 }

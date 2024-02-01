@@ -4,9 +4,9 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
   // Main
   ui->setupUi(this);
-  this->setWindowIcon(QIcon(QIcon::fromTheme("io.github.silash35.qpdftools")));
-  this->setWindowTitle("Qpdf Tools");
-  this->setCentralWidget(ui->stackedWidget);
+  setWindowIcon(QIcon(QIcon::fromTheme("io.github.silash35.qpdftools")));
+  setWindowTitle("Qpdf Tools");
+  setCentralWidget(ui->stackedWidget);
 
   // Check if the system theme has the necessary icons.
   bool isThemeCompatible =
@@ -25,21 +25,33 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   CompressPage *compressPage = new CompressPage(this);
   ui->stackedWidget->addWidget(compressPage);
   connect(compressPage, &CompressPage::setPage, this, &MainWindow::setPage);
+  connect(compressPage, &CompressPage::runAsyncFunction, this, &MainWindow::runAsyncFunction);
 
   SplitPage *splitPage = new SplitPage(this);
   ui->stackedWidget->addWidget(splitPage);
   connect(splitPage, &SplitPage::setPage, this, &MainWindow::setPage);
+  connect(splitPage, &SplitPage::runAsyncFunction, this, &MainWindow::runAsyncFunction);
 
   MergePage *mergePage = new MergePage(this);
   ui->stackedWidget->addWidget(mergePage);
   connect(mergePage, &MergePage::setPage, this, &MainWindow::setPage);
+  connect(mergePage, &MergePage::runAsyncFunction, this, &MainWindow::runAsyncFunction);
 
   RotatePage *rotatePage = new RotatePage(this);
   ui->stackedWidget->addWidget(rotatePage);
   connect(rotatePage, &RotatePage::setPage, this, &MainWindow::setPage);
+  connect(rotatePage, &RotatePage::runAsyncFunction, this, &MainWindow::runAsyncFunction);
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
 // Public Slots
 void MainWindow::setPage(int newPage) { ui->stackedWidget->setCurrentIndex(newPage); }
+
+void MainWindow::runAsyncFunction(std::function<void()> asyncFunction) {
+  QtConcurrent::run(asyncFunction)
+      .then([] {
+        // Do nothing
+      })
+      .onFailed([this](QString error) { QMessageBox::warning(this, tr("ERROR"), error); });
+}

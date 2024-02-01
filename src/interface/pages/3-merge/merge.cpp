@@ -85,40 +85,14 @@ void MergePage::on_tbtn_pdfMerge_clicked() {
     return;
   }
 
-  QString targetFile = fileDialog.getSaveFileName();
-  if (targetFile == "invalid") {
+  QString output = fileDialog.getSaveFileName();
+  if (output == "invalid") {
     return;
   }
 
-  QStringList arguments;
+  QStringList inputs;
+  for (int i = 0; i < ui->list_toMerge->count(); ++i)
+    inputs << ui->list_toMerge->item(i)->text();
 
-  // qpdf --empty --pages in1.pdf in2.pdf -- out.pdf
-  arguments << "--empty";
-  arguments << "--pages";
-  for (int i = 0; i < ui->list_toMerge->count(); ++i) {
-    arguments << ui->list_toMerge->item(i)->text();
-  }
-  arguments << "--";
-  arguments << targetFile;
-
-  runCommand("qpdf", arguments);
-}
-
-// Remove later
-
-void MergePage::runCommand(QString command, QStringList arguments, QString dir) {
-  QString error = "";
-
-  if (command == "gs") {
-    ghostscript.start(arguments, dir);
-    error = ghostscript.getStandardError();
-  } else if (command == "qpdf") {
-    qpdf.start(arguments, dir);
-    error = qpdf.getStandardError();
-  }
-
-  if (!error.isEmpty()) {
-    QMessageBox::warning(this, tr("ERROR"), error);
-  } else {
-  }
+  emit runAsyncFunction([inputs, output]() { qpdf.mergePDF(inputs, output); });
 }

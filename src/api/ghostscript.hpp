@@ -8,8 +8,8 @@ public:
 
   enum CompressionMode { screen, ebook, printer, prepress };
 
-  QString compressPDF(QString input, QString output, CompressionMode mode);
-  QString generateThumbnail(QString input, QString output);
+  void compressPDF(QString input, QString output, CompressionMode mode);
+  void generateThumbnail(QString input, QString output);
 };
 
 extern Ghostscript ghostscript;

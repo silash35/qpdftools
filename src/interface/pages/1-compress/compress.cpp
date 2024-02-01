@@ -2,7 +2,6 @@
 #include "ui_compress.h"
 
 #include "api/ghostscript.hpp"
-#include "api/qpdf.hpp"
 #include "interface/utils/fileDialog.hpp"
 
 CompressPage::CompressPage(QWidget *parent) : QWidget(parent), ui(new Ui::CompressPage) {
@@ -36,46 +35,22 @@ void CompressPage::on_tbtn_pdfCompress_clicked() {
     return;
   }
 
-  QStringList arguments;
-  arguments << "-sDEVICE=pdfwrite"
-            << "-dCompatibilityLevel=1.4";
+  Ghostscript::CompressionMode mode;
 
   if (ui->rbtn_screen->isChecked()) {
-    arguments << "-dPDFSETTINGS=/screen";
+    mode = Ghostscript::screen;
   } else if (ui->rbtn_ebook->isChecked()) {
-    arguments << "-dPDFSETTINGS=/ebook";
+    mode = Ghostscript::ebook;
   } else if (ui->rbtn_printer->isChecked()) {
-    arguments << "-dPDFSETTINGS=/printer";
+    mode = Ghostscript::printer;
   } else if (ui->rbtn_prepress->isChecked()) {
-    arguments << "-dPDFSETTINGS=/prepress";
+    mode = Ghostscript::prepress;
   } else {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a compression mode"));
     return;
   }
 
-  arguments << "-dNOPAUSE"
-            << "-dBATCH";
-  arguments << "-sOutputFile=" + targetFile;
-  arguments << ui->ln_file1->text();
-
-  runCommand("gs", arguments);
-}
-
-// Remove later
-
-void CompressPage::runCommand(QString command, QStringList arguments, QString dir) {
-  QString error = "";
-
-  if (command == "gs") {
-    ghostscript.start(arguments, dir);
-    error = ghostscript.getStandardError();
-  } else if (command == "qpdf") {
-    qpdf.start(arguments, dir);
-    error = qpdf.getStandardError();
-  }
-
-  if (!error.isEmpty()) {
-    QMessageBox::warning(this, tr("ERROR"), error);
-  } else {
-  }
+  emit runAsyncFunction([this, targetFile, mode]() {
+    ghostscript.compressPDF(ui->ln_file1->text(), targetFile, mode);
+  });
 }

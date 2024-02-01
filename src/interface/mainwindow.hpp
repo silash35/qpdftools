@@ -1,6 +1,9 @@
 #pragma once
 
+#include <QFuture>
+#include <QFutureWatcher>
 #include <QMainWindow>
+#include <QtConcurrent>
 
 #include "pages/0-menu/menu.hpp"
 #include "pages/1-compress/compress.hpp"
@@ -20,6 +23,7 @@ public:
 
 public slots:
   void setPage(int newPage);
+  void runAsyncFunction(std::function<void()> function);
 
 private:
   Ui::MainWindow *ui;

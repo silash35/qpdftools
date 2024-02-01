@@ -1,9 +1,9 @@
-#include "externalSofware.hpp"
+#include "externalSoftware.hpp"
 
 ExternalSoftware::ExternalSoftware(QString name, QString command)
     : softwareName(name), softwareCommand(command) {}
 
-QString ExternalSoftware::run(QStringList arguments, QString dir) {
+void ExternalSoftware::run(QStringList arguments, QString dir) {
   QProcess process;
 
   if (dir != "default") {
@@ -18,6 +18,10 @@ QString ExternalSoftware::run(QStringList arguments, QString dir) {
   process.waitForFinished();
   qInfo() << "finished to execute " + softwareName << "\n";
 
-  qInfo() << process.readAllStandardOutput() << "\n";
-  return process.readAllStandardError();
+  QString error = process.readAllStandardError();
+
+  if (!error.isEmpty()) {
+    qCritical() << "Error in " + softwareName + ": " + error << "\n";
+    throw "Error in " + softwareName + ": " + error;
+  }
 }

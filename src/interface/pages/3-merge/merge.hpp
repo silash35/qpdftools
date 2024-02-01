@@ -18,6 +18,7 @@ public:
 
 signals:
   void setPage(int newPage);
+  void runAsyncFunction(std::function<void()> asyncFunction);
 
 private slots:
   void on_tbtn_return3_clicked();
@@ -34,6 +35,4 @@ private slots:
 
 private:
   Ui::MergePage *ui;
-
-  void runCommand(QString command, QStringList arguments, QString dir = "default");
 };

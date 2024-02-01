@@ -3,7 +3,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(KDEInstallDirs)
 
 # Add Qt
-find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Concurrent LinguistTools)
 
 set(SRC
   main.cpp
@@ -37,6 +37,8 @@ qt6_add_translations(qpdftools TS_FILES ${TS_FILES})
 
 target_link_libraries(qpdftools
   PRIVATE
+  Qt6::Core
+  Qt6::Concurrent
   Qt6::Widgets
 )
 

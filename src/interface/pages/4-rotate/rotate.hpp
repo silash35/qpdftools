@@ -19,6 +19,7 @@ public:
 
 signals:
   void setPage(int newPage);
+  void runAsyncFunction(std::function<void()> asyncFunction);
 
 private slots:
   void on_tbtn_return4_clicked();
@@ -38,6 +39,4 @@ private:
   int rotate{0};
 
   QString pdfCoverPath = QDir::tempPath() + "/pdfCover.jpeg";
-
-  void runCommand(QString command, QStringList arguments, QString dir = "default");
 };

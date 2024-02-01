@@ -46,14 +46,12 @@ void RotatePage::on_ln_file4_textChanged(const QString &pdfPath) {
     ui->btn_right->show();
     ui->label_pdfCover->show();
 
-    arguments << "-q"
-              << "-o" << pdfCoverPath << "-sDEVICE=jpeg"
-              << "-dLastPage=1"
-              << "-dUseCropBox" << pdfPath;
-    runCommand("gs", arguments);
+    emit runAsyncFunction([this, pdfPath]() {
+      ghostscript.generateThumbnail(pdfPath, pdfCoverPath);
+      QPixmap pdfCover(pdfCoverPath);
+      ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
+    });
 
-    QPixmap pdfCover(pdfCoverPath);
-    ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
   } else {
     ui->btn_left->hide();
     ui->btn_right->hide();
@@ -96,36 +94,12 @@ void RotatePage::on_tbtn_pdfRotate_clicked() {
     return;
   }
 
-  QString targetFile = fileDialog.getSaveFileName();
-  if (targetFile == "invalid") {
+  QString output = fileDialog.getSaveFileName();
+  if (output == "invalid") {
     return;
   }
+  QString input = ui->ln_file4->text();
+  int angle = rotate;
 
-  QStringList arguments;
-
-  // qpdf in.pdf out.pdf --rotate=angle
-  arguments << ui->ln_file4->text();
-  arguments << targetFile;
-  arguments << "--rotate=" + QString::number(rotate);
-
-  runCommand("qpdf", arguments);
-}
-
-// Remove later
-
-void RotatePage::runCommand(QString command, QStringList arguments, QString dir) {
-  QString error = "";
-
-  if (command == "gs") {
-    ghostscript.start(arguments, dir);
-    error = ghostscript.getStandardError();
-  } else if (command == "qpdf") {
-    qpdf.start(arguments, dir);
-    error = qpdf.getStandardError();
-  }
-
-  if (!error.isEmpty()) {
-    QMessageBox::warning(this, tr("ERROR"), error);
-  } else {
-  }
+  emit runAsyncFunction([input, output, angle]() { qpdf.rotatePDF(input, output, angle); });
 }
