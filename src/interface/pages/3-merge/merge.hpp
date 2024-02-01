@@ -1,9 +1,8 @@
 #pragma once
 
+#include "interface/utils/globals.hpp"
 #include <QMessageBox>
 #include <QWidget>
-
-#define ICON_SIZE 30
 
 namespace Ui {
 class MergePage;

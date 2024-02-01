@@ -4,8 +4,7 @@
 #include <QMessageBox>
 #include <QWidget>
 #include <QtConcurrent>
-
-#define ICON_SIZE 30
+#include "interface/utils/globals.hpp"
 
 namespace Ui {
 class RotatePage;
