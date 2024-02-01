@@ -3,7 +3,7 @@
 ExternalSoftware::ExternalSoftware(QString name, QString command)
     : softwareName(name), softwareCommand(command) {}
 
-void ExternalSoftware::run(QStringList arguments, QString dir) {
+void ExternalSoftware::run(const QStringList &arguments, const QString &dir) {
   QProcess process;
 
   if (dir != "default") {

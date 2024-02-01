@@ -4,18 +4,18 @@ FileDialog::FileDialog(QString filter) : filter(filter) {}
 
 // Private Methods
 
-bool FileDialog::directoryIsValid(QString dir) {
+bool FileDialog::directoryIsValid(const QString &dir) {
   QDir qDir(dir);
   return qDir.exists();
 }
 
-void FileDialog::setLastDirectory(QString dir) {
+void FileDialog::setLastDirectory(const QString &dir) {
   if (directoryIsValid(dir)) {
     lastDirectory = dir;
   }
 }
 
-void FileDialog::setLastDirectoryByFile(QString file) {
+void FileDialog::setLastDirectoryByFile(const QString &file) {
   setLastDirectory(QFileInfo(file).absoluteDir().absolutePath());
 }
 

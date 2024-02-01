@@ -2,7 +2,7 @@
 
 Ghostscript::Ghostscript() : ExternalSoftware("Ghostscript", "gs") {}
 
-void Ghostscript::compressPDF(QString input, QString output, CompressionMode mode) {
+void Ghostscript::compressPDF(const QString &input, const QString &output, CompressionMode mode) {
   QStringList arguments;
   arguments << "-sDEVICE=pdfwrite"
             << "-dCompatibilityLevel=1.4";
@@ -26,7 +26,7 @@ void Ghostscript::compressPDF(QString input, QString output, CompressionMode mod
   run(arguments);
 }
 
-void Ghostscript::generateThumbnail(QString input, QString output) {
+void Ghostscript::generateThumbnail(const QString &input, const QString &output) {
   QStringList arguments;
 
   arguments << "-q"

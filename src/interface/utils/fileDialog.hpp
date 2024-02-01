@@ -14,10 +14,10 @@ private:
   // so the user does not have to select the same directory every time
   QString lastDirectory = QDir::homePath();
 
-  bool directoryIsValid(QString dir);
+  bool directoryIsValid(const QString &dir);
 
-  void setLastDirectory(QString dir);
-  void setLastDirectoryByFile(QString file);
+  void setLastDirectory(const QString &dir);
+  void setLastDirectoryByFile(const QString &file);
 
 public:
   FileDialog(QString filter);

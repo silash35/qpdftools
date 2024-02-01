@@ -9,7 +9,7 @@ protected:
   QString softwareName;
   QString softwareCommand;
 
-  void run(QStringList arguments, QString dir = "default");
+  void run(const QStringList &arguments, const QString &dir = "default");
 
 public:
   ExternalSoftware(QString name, QString command);

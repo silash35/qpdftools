@@ -2,7 +2,7 @@
 
 Qpdf::Qpdf() : ExternalSoftware("qpdf", "qpdf") {}
 
-void Qpdf::splitPDF(QString input, QString outputFolder) {
+void Qpdf::splitPDF(const QString &input, const QString &outputFolder) {
   // qpdf in.pdf out.pdf --split-pages
 
   QStringList arguments;
@@ -12,21 +12,19 @@ void Qpdf::splitPDF(QString input, QString outputFolder) {
   run(arguments, outputFolder);
 }
 
-void Qpdf::splitPDF(QString input, QString output, int firstPage, int lastPage) {
+void Qpdf::splitPDF(const QString &input, const QString &output, int firstPage, int lastPage) {
   // qpdf in.pdf --pages . start-end -- out.pdf
 
   QStringList arguments;
-  arguments << input;
-  arguments << "--pages";
-  arguments << ".";
-  arguments << firstPage + "-" + lastPage;
-  arguments << "--";
-  arguments << output;
+  arguments << input << "--pages"
+            << ".";
+  arguments << QString::number(firstPage) + "-" + QString::number(lastPage);
+  arguments << "--" << output;
 
   run(arguments);
 }
 
-void Qpdf::mergePDF(QStringList inputs, QString output) {
+void Qpdf::mergePDF(const QStringList &inputs, const QString &output) {
   // qpdf --empty --pages in1.pdf in2.pdf -- out.pdf
   QStringList arguments;
 
@@ -41,14 +39,14 @@ void Qpdf::mergePDF(QStringList inputs, QString output) {
   run(arguments);
 }
 
-void Qpdf::rotatePDF(QString input, QString output, int angle) {
+void Qpdf::rotatePDF(const QString &input, const QString &output, int angle) {
   // qpdf in.pdf out.pdf --rotate=angle
 
   QStringList arguments;
 
   arguments << input;
   arguments << output;
-  arguments << "--rotate=" + angle;
+  arguments << "--rotate=" + QString::number(angle);
 
   run(arguments);
 }
