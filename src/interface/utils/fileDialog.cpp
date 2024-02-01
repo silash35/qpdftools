@@ -1,6 +1,6 @@
 #include "fileDialog.hpp"
 
-FileDialog::FileDialog(QString filter) : filter(filter) {}
+FileDialog::FileDialog(QString filter, QString extension) : filter(filter), extension(extension) {}
 
 // Private Methods
 
@@ -39,6 +39,10 @@ QString FileDialog::getSaveFileName(QWidget *parent) {
     setLastDirectoryByFile(file);
   }
 
+  if (!file.endsWith(extension)) {
+    file.append(extension);
+  }
+
   return file;
 }
 
@@ -62,4 +66,4 @@ QStringList FileDialog::getOpenFileNames(QWidget *parent) {
 }
 
 // Initialize only allowing PDF files
-FileDialog fileDialog("PDF - Portable Document Format (*.pdf  *.PDF)");
+FileDialog fileDialog("PDF - Portable Document Format (*.pdf  *.PDF)", ".pdf");

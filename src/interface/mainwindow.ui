@@ -11,18 +11,12 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">Qpdf Tools</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_4">
-    <item>
-     <widget class="QStackedWidget" name="stackedWidget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-     </widget>
-    </item>
-   </layout>
+  <property name="windowIcon">
+   <iconset theme="io.github.silash35.qpdftools"/>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>

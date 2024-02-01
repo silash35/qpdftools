@@ -4,9 +4,6 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
   // Main
   ui->setupUi(this);
-  setWindowIcon(QIcon(QIcon::fromTheme("io.github.silash35.qpdftools")));
-  setWindowTitle("Qpdf Tools");
-  setCentralWidget(ui->stackedWidget);
 
   // Check if the system theme has the necessary icons.
   bool isThemeCompatible =

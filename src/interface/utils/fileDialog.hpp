@@ -10,6 +10,8 @@ class FileDialog : public QObject {
 
 private:
   QString filter; // What type of files are allowed
+  QString extension;
+
   // Keep track of the last directory opened,
   // so the user does not have to select the same directory every time
   QString lastDirectory = QDir::homePath();
@@ -20,7 +22,7 @@ private:
   void setLastDirectoryByFile(const QString &file);
 
 public:
-  FileDialog(QString filter);
+  FileDialog(QString filter, QString extension);
 
   QString getOpenFileName(QWidget *parent);
   QString getSaveFileName(QWidget *parent);
