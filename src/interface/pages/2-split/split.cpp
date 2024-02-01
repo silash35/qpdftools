@@ -62,7 +62,7 @@ void SplitPage::on_tbtn_pdfSplit_clicked() {
     emit runAsyncFunction([input, outputFolder] { qpdf.splitPDF(input, outputFolder); });
 
   } else if (ui->rbtn_splitRange->isChecked()) {
-    QString output = fileDialog.getSaveFileName();
+    QString output = fileDialog.getSaveFileName(this);
     if (output == "invalid") {
       return;
     }

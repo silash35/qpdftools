@@ -53,7 +53,7 @@ void MainWindow::runAsyncFunction(std::function<void()> asyncFunction) {
 
   QtConcurrent::run(asyncFunction)
       .then([this] { ui->statusBar->showMessage(tr("Success!"), 5000); })
-      .onFailed([this](QString error) {
+      .onFailed(qApp, [this](char *error) {
         QMessageBox::warning(this, tr("ERROR"), error);
         ui->statusBar->showMessage(tr("Failed"), 5000);
       });

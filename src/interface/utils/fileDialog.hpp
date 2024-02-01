@@ -22,9 +22,9 @@ private:
 public:
   FileDialog(QString filter);
 
-  QString getOpenFileName(QWidget *parent = nullptr);
-  QString getSaveFileName(QWidget *parent = nullptr);
-  QStringList getOpenFileNames(QWidget *parent = nullptr);
+  QString getOpenFileName(QWidget *parent);
+  QString getSaveFileName(QWidget *parent);
+  QStringList getOpenFileNames(QWidget *parent);
 };
 
 extern FileDialog fileDialog;

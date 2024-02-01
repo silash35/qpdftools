@@ -33,13 +33,12 @@ void RotatePage::on_tbtn_return4_clicked() { emit setPage(0); }
 
 void RotatePage::on_btn_selectFile4_clicked() {
   ui->ln_file4->clear();
-  ui->ln_file4->setText(fileDialog.getOpenFileName());
+  ui->ln_file4->setText(fileDialog.getOpenFileName(this));
   ui->ln_file4->setFocus();
 }
 
 void RotatePage::on_ln_file4_textChanged(const QString &pdfPath) {
   rotate = 0;
-  QStringList arguments;
 
   if (QFile::exists(pdfPath)) {
     ui->btn_left->show();
@@ -50,7 +49,9 @@ void RotatePage::on_ln_file4_textChanged(const QString &pdfPath) {
       ghostscript.generateThumbnail(pdfPath, pdfCoverPath);
       QPixmap pdfCover(pdfCoverPath);
       ui->label_pdfCover->setPixmap(pdfCover.scaled(300, 300, Qt::KeepAspectRatio));
-    }).onFailed([this](QString error) { QMessageBox::warning(this, tr("ERROR"), error); });
+    }).onFailed(qApp, [this]() {
+      QMessageBox::warning(this, tr("ERROR"), tr("Failed to generate thumbnail"));
+    });
 
   } else {
     ui->btn_left->hide();
@@ -93,7 +94,7 @@ void RotatePage::on_tbtn_pdfRotate_clicked() {
     return;
   }
 
-  QString output = fileDialog.getSaveFileName();
+  QString output = fileDialog.getSaveFileName(this);
   if (output == "invalid") {
     return;
   }

@@ -84,7 +84,7 @@ void MergePage::on_tbtn_pdfMerge_clicked() {
     return;
   }
 
-  QString output = fileDialog.getSaveFileName();
+  QString output = fileDialog.getSaveFileName(this);
   if (output == "invalid") {
     return;
   }
