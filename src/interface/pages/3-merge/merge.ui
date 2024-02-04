@@ -30,7 +30,7 @@
         <iconset theme="list-add"/>
        </property>
        <property name="class" stdset="0">
-        <string>icon24</string>
+        <string notr="true">icon24</string>
        </property>
       </widget>
      </item>
@@ -43,7 +43,7 @@
         <iconset theme="list-remove"/>
        </property>
        <property name="class" stdset="0">
-        <string>icon24</string>
+        <string notr="true">icon24</string>
        </property>
       </widget>
      </item>
@@ -63,7 +63,7 @@
         <iconset theme="go-up"/>
        </property>
        <property name="class" stdset="0">
-        <string>icon24</string>
+        <string notr="true">icon24</string>
        </property>
       </widget>
      </item>
@@ -76,7 +76,7 @@
         <iconset theme="go-down"/>
        </property>
        <property name="class" stdset="0">
-        <string>icon24</string>
+        <string notr="true">icon24</string>
        </property>
       </widget>
      </item>
@@ -88,7 +88,7 @@
       <string>Merge PDFs</string>
      </property>
      <property name="class" stdset="0">
-      <string>icon32</string>
+      <string notr="true">icon32</string>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonTextUnderIcon</enum>

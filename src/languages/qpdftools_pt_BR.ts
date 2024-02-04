@@ -1,228 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<TS version="2.1" language="pt_BR" sourcelanguage="en_US">
 <context>
-    <name>MainWindow</name>
+    <name>CompressPage</name>
     <message>
-        <location filename="../interface/mainwindow.ui" line="14"/>
-        <source>MainWindow</source>
-        <translation>Janela Principal</translation>
+        <location filename="../interface/pages/1-compress/compress.ui" line="9"/>
+        <source>Return</source>
+        <translation>Voltar</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="35"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h1 align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;Qpdf Tools&lt;/span&gt;&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h1 align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;Qpdf Tools&lt;/span&gt;&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="42"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;Tools for manage PDFs&lt;/span&gt;&lt;/h2&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;Ferramentas para Gerenciar PDFs&lt;/span&gt;&lt;/h2&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="65"/>
-        <source>Compress a PDF file</source>
-        <translation>Comprimir um arquivo PDF</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="81"/>
-        <source>Split a PDF file</source>
-        <translation>Dividir um arquivo PDF</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="94"/>
-        <source>Rotate a PDF file</source>
-        <translation>Rotacionar um arquivo PDF</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="107"/>
-        <source>Merge PDF files</source>
-        <translation>Juntar arquivos PDF</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="124"/>
-        <location filename="../interface/mainwindow.ui" line="243"/>
-        <location filename="../interface/mainwindow.ui" line="437"/>
-        <location filename="../interface/mainwindow.ui" line="553"/>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="127"/>
-        <location filename="../interface/mainwindow.ui" line="246"/>
-        <location filename="../interface/mainwindow.ui" line="440"/>
-        <location filename="../interface/mainwindow.ui" line="556"/>
-        <source>Esc</source>
-        <translation>Esc</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="151"/>
-        <location filename="../interface/mainwindow.ui" line="270"/>
-        <location filename="../interface/mainwindow.ui" line="580"/>
+        <location filename="../interface/pages/1-compress/compress.ui" line="24"/>
         <source>Select PDF</source>
         <translation>Selecionar PDF</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="163"/>
+        <location filename="../interface/pages/1-compress/compress.ui" line="36"/>
         <source>Select the compression mode:</source>
         <translation>Selecione o modo de compressão:</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="169"/>
+        <location filename="../interface/pages/1-compress/compress.ui" line="42"/>
         <source>Super low resolution (Screen Optimized)</source>
         <translation>Super baixa resolução (Otimizado para tela)</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="176"/>
+        <location filename="../interface/pages/1-compress/compress.ui" line="49"/>
         <source>Low resolution (For Ebooks)</source>
         <translation>Baixa resolução (Para Ebooks)</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="183"/>
+        <location filename="../interface/pages/1-compress/compress.ui" line="56"/>
         <source>Normal resolution (For printing)</source>
         <translation>Resolução normal (Para Impressão)</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="190"/>
+        <location filename="../interface/pages/1-compress/compress.ui" line="63"/>
         <source>High resolution</source>
         <translation>Alta resolução</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="215"/>
+        <location filename="../interface/pages/1-compress/compress.ui" line="73"/>
         <source>Compress PDF</source>
         <translation>Comprimir PDF</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.ui" line="303"/>
-        <source>Split by range</source>
-        <translation>Dividir por intervalo</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="316"/>
-        <source>Extract all pages</source>
-        <translation>Extrair todas as páginas</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="342"/>
-        <source>From page:</source>
-        <translation>Da página:</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="360"/>
-        <source>To page:</source>
-        <translation>Para página:</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="409"/>
-        <source>Split PDF</source>
-        <translation>Dividir PDF</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="525"/>
-        <source>Merge PDFs</source>
-        <translation>Juntar PDFs</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="663"/>
-        <source>Left</source>
-        <translation>Esquerda</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="683"/>
-        <source>Right</source>
-        <translation>Direita</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.ui" line="737"/>
-        <source>Rotate PDF</source>
-        <translation>Rotacionar PDF</translation>
-    </message>
-    <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="11"/>
-        <source>click to rotate the PDF 90 degrees to the left</source>
-        <translation>Clique para rotacioanr PDF em 90° para esquerda</translation>
-    </message>
-    <message>
-        <location filename="../interface/pages/4-rotate.cpp" line="15"/>
-        <source>click to rotate the PDF 90 degrees to the right</source>
-        <translation>Clique para rotacioanr PDF em 90° para direita</translation>
-    </message>
-    <message>
-        <location filename="../interface/pages/1-compress.cpp" line="22"/>
-        <location filename="../interface/pages/1-compress.cpp" line="44"/>
-        <location filename="../interface/pages/2-split.cpp" line="43"/>
-        <location filename="../interface/pages/3-merge.cpp" line="84"/>
-        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="24"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="44"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress.cpp" line="22"/>
-        <location filename="../interface/pages/2-split.cpp" line="43"/>
-        <location filename="../interface/pages/4-rotate.cpp" line="89"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="24"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="9"/>
-        <source>Click to add a PDF file</source>
-        <translation>Clique para adicionar um arquivo PDF</translation>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="44"/>
+        <source>You need to select a compression mode</source>
+        <translation>Você precisa selecionar um modo de compressão</translation>
     </message>
+</context>
+<context>
+    <name>FileDialog</name>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="13"/>
-        <source>Click to remove a PDF file</source>
-        <translation>Clique para remover um arquivo PDF</translation>
-    </message>
-    <message>
-        <location filename="../interface/pages/3-merge.cpp" line="17"/>
-        <location filename="../interface/pages/3-merge.cpp" line="21"/>
-        <source>Click to change the merge order</source>
-        <translation>Clique para mudar a ordem dos PDFs</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.cpp" line="59"/>
-        <location filename="../interface/pages/3-merge.cpp" line="32"/>
+        <location filename="../interface/utils/fileDialog.cpp" line="26"/>
         <source>Select the PDF file</source>
         <translation>Selecione o arquivo PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge.cpp" line="85"/>
-        <source>You need to add two or more files to be able to merge them</source>
-        <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
+        <location filename="../interface/utils/fileDialog.cpp" line="35"/>
+        <source>Save file</source>
+        <translation>Salvar Arquivo</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split.cpp" line="50"/>
-        <source>Select Output Folder</source>
-        <translation>Selecione a pasta de saída</translation>
+        <location filename="../interface/utils/fileDialog.cpp" line="51"/>
+        <source>Select the PDF files</source>
+        <translation>Selecione os arquivos PDF</translation>
     </message>
+</context>
+<context>
+    <name>MainWindow</name>
     <message>
-        <location filename="../interface/pages/1-compress.cpp" line="44"/>
-        <source>You need to select a compression mode</source>
-        <translation>Você precisa selecionar um modo de compressão</translation>
-    </message>
-    <message>
-        <location filename="../interface/mainwindow.cpp" line="38"/>
+        <location filename="../interface/mainwindow.cpp" line="49"/>
         <source>Processing...</source>
         <translation>Processando...</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="51"/>
+        <location filename="../interface/mainwindow.cpp" line="54"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="52"/>
+        <location filename="../interface/mainwindow.cpp" line="55"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="54"/>
+        <location filename="../interface/mainwindow.cpp" line="52"/>
         <source>Success!</source>
         <translation>Sucesso!</translation>
     </message>
+</context>
+<context>
+    <name>MenuPage</name>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="69"/>
-        <source>Save file</source>
-        <translation>Salvar Arquivo</translation>
+        <location filename="../interface/pages/0-menu/menu.ui" line="40"/>
+        <source>Tools for manage PDFs</source>
+        <translation>Ferramentas para Gerenciar PDFs</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/0-menu/menu.ui" line="71"/>
+        <source> Compress a PDF file</source>
+        <translation> Comprimir arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/0-menu/menu.ui" line="84"/>
+        <source> Split a PDF file</source>
+        <translation> Dividir um arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/0-menu/menu.ui" line="97"/>
+        <source> Rotate a PDF file</source>
+        <translation> Rotacionar arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/0-menu/menu.ui" line="110"/>
+        <source> Merge PDF files</source>
+        <translation> Juntar arquivos PDF</translation>
+    </message>
+</context>
+<context>
+    <name>MergePage</name>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.ui" line="9"/>
+        <source>Return</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.ui" line="27"/>
+        <source>Add a PDF file</source>
+        <translation>Adicionar arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.ui" line="40"/>
+        <source>Remove a PDF file</source>
+        <translation>Remover arquivo PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.ui" line="60"/>
+        <source>Change merge order (move selected item up)</source>
+        <translation>Alterar ordem dos PDFs (Mover item selecionado para cima)</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.ui" line="73"/>
+        <source>Change merge order (move selected item down)</source>
+        <translation>Alterar ordem dos PDFs (Mover item selecionado para baixo)</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.ui" line="88"/>
+        <source>Merge PDFs</source>
+        <translation>Juntar PDFs</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.cpp" line="56"/>
+        <source>Warning</source>
+        <translation>Atenção</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/3-merge/merge.cpp" line="57"/>
+        <source>You need to add two or more files to be able to merge them</source>
+        <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
+    </message>
+</context>
+<context>
+    <name>RotatePage</name>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.ui" line="9"/>
+        <source>Return</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.ui" line="24"/>
+        <source>Select PDF</source>
+        <translation>Selecionar PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.ui" line="52"/>
+        <source>Left</source>
+        <translation>Esquerda</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.ui" line="55"/>
+        <source>Rotate the PDF 90 degrees to the left</source>
+        <translation>Girar o PDF 90 graus para a esquerda</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.ui" line="68"/>
+        <source>Right</source>
+        <translation>Direita</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.ui" line="71"/>
+        <source>Rotate the PDF 90 degrees to the right</source>
+        <translation>Girar o PDF 90 graus para a direita</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.ui" line="104"/>
+        <source>Rotate PDF</source>
+        <translation>Rotacionar PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="35"/>
+        <source>ERROR</source>
+        <translation>ERRO</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="35"/>
+        <source>Failed to generate thumbnail</source>
+        <translation>Falha ao gerar miniatura</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="75"/>
+        <source>Warning</source>
+        <translation>Atenção</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="75"/>
+        <source>You need to select a valide PDF file</source>
+        <translation>Você precisa selecionar um arquivo PDF válido</translation>
+    </message>
+</context>
+<context>
+    <name>SplitPage</name>
+    <message>
+        <location filename="../interface/pages/2-split/split.ui" line="9"/>
+        <source>Return</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.ui" line="24"/>
+        <source>Select PDF</source>
+        <translation>Selecionar PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.ui" line="38"/>
+        <source>Split by range</source>
+        <translation>Dividir por intervalo</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.ui" line="48"/>
+        <source>Extract all pages</source>
+        <translation>Extrair todas as páginas</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.ui" line="61"/>
+        <source>From page:</source>
+        <translation>Da página:</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.ui" line="82"/>
+        <source>To page:</source>
+        <translation>Para página:</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.ui" line="110"/>
+        <source>Split PDF</source>
+        <translation>Dividir PDF</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.cpp" line="39"/>
+        <source>Warning</source>
+        <translation>Atenção</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.cpp" line="39"/>
+        <source>You need to select a valide PDF file</source>
+        <translation>Você precisa selecionar um arquivo PDF válido</translation>
+    </message>
+    <message>
+        <location filename="../interface/pages/2-split/split.cpp" line="44"/>
+        <source>Select Output Folder</source>
+        <translation>Selecione a pasta de saída</translation>
     </message>
 </context>
 </TS>

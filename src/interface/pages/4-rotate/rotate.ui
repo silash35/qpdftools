@@ -58,7 +58,7 @@
             <iconset theme="object-rotate-left"/>
            </property>
            <property name="class" stdset="0">
-            <string>icon24</string>
+            <string notr="true">icon24</string>
            </property>
           </widget>
          </item>
@@ -74,7 +74,7 @@
             <iconset theme="object-rotate-left"/>
            </property>
            <property name="class" stdset="0">
-            <string>icon24</string>
+            <string notr="true">icon24</string>
            </property>
           </widget>
          </item>
@@ -104,7 +104,7 @@
       <string>Rotate PDF</string>
      </property>
      <property name="class" stdset="0">
-      <string>icon32</string>
+      <string notr="true">icon32</string>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonTextUnderIcon</enum>

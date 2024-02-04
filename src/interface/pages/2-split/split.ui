@@ -110,7 +110,7 @@
       <string>Split PDF</string>
      </property>
      <property name="class" stdset="0">
-      <string>icon32</string>
+      <string notr="true">icon32</string>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonTextUnderIcon</enum>
