@@ -1,6 +1,5 @@
 #pragma once
 
-#include "interface/utils/globals.hpp"
 #include <QMessageBox>
 #include <QWidget>
 
@@ -20,9 +19,9 @@ signals:
   void runAsyncFunction(std::function<void()> asyncFunction);
 
 private slots:
-  void on_tbtn_return1_clicked();
+  void on_tbtn_return_clicked();
 
-  void on_btn_selectFile1_clicked();
+  void on_btn_selectFile_clicked();
 
   void on_tbtn_pdfCompress_clicked();
 

@@ -6,25 +6,20 @@
 
 CompressPage::CompressPage(QWidget *parent) : QWidget(parent), ui(new Ui::CompressPage) {
   ui->setupUi(this);
-
-  ui->tbtn_return1->setIcon(QIcon::fromTheme("go-previous"));
-  ui->tbtn_pdfCompress->setIcon(QIcon::fromTheme("zoom-out"));
-  ui->tbtn_pdfCompress->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
-  ui->tbtn_pdfCompress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
 CompressPage::~CompressPage() { delete ui; }
 
-void CompressPage::on_tbtn_return1_clicked() { emit setPage(0); }
+void CompressPage::on_tbtn_return_clicked() { emit setPage(0); }
 
-void CompressPage::on_btn_selectFile1_clicked() {
-  ui->ln_file1->clear();
-  ui->ln_file1->setText(fileDialog.getOpenFileName(this));
-  ui->ln_file1->setFocus();
+void CompressPage::on_btn_selectFile_clicked() {
+  ui->ln_file->clear();
+  ui->ln_file->setText(fileDialog.getOpenFileName(this));
+  ui->ln_file->setFocus();
 }
 
 void CompressPage::on_tbtn_pdfCompress_clicked() {
-  QString input = ui->ln_file1->text();
+  QString input = ui->ln_file->text();
   if (!QFile::exists(input)) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;
