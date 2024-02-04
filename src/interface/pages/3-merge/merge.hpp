@@ -1,8 +1,10 @@
 #pragma once
 
-#include "interface/utils/globals.hpp"
 #include <QMessageBox>
 #include <QWidget>
+
+#include "api/qpdf.hpp"
+#include "interface/utils/fileDialog.hpp"
 
 namespace Ui {
 class MergePage;

@@ -34,7 +34,7 @@
        </property>
       </widget>
      </item>
-     <item >
+     <item>
       <widget class="QPushButton" name="btn_Mrm">
        <property name="toolTip">
         <string>Remove a PDF file</string>
@@ -54,7 +54,7 @@
        </property>
       </spacer>
      </item>
-     <item >
+     <item>
       <widget class="QPushButton" name="btn_Mup">
        <property name="toolTip">
         <string>Change merge order (move selected item up)</string>
@@ -67,7 +67,7 @@
        </property>
       </widget>
      </item>
-     <item >
+     <item>
       <widget class="QPushButton" name="btn_Mdown">
        <property name="toolTip">
         <string>Change merge order (move selected item down)</string>

@@ -1,10 +1,6 @@
 #include "merge.hpp"
 #include "ui_merge.h"
 
-#include "api/ghostscript.hpp"
-#include "api/qpdf.hpp"
-#include "interface/utils/fileDialog.hpp"
-
 MergePage::MergePage(QWidget *parent) : QWidget(parent), ui(new Ui::MergePage) {
   ui->setupUi(this);
 }

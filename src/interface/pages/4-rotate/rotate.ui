@@ -2,36 +2,22 @@
 <ui version="4.0">
  <class>RotatePage</class>
  <widget class="QWidget" name="RotatePage">
-  <layout class="QVBoxLayout" name="verticalLayout_12">
+  <layout class="QVBoxLayout" name="verticalLayout_0">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_13">
-     <item>
-      <widget class="QToolButton" name="tbtn_return4">
-       <property name="toolTip">
-        <string>Return</string>
-       </property>
-       <property name="shortcut">
-        <string>Esc</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_14">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+    <widget class="QToolButton" name="tbtn_return">
+     <property name="toolTip">
+      <string>Return</string>
+     </property>
+     <property name="icon">
+      <iconset theme="go-previous"/>
+     </property>
+     <property name="shortcut">
+      <string notr="true">Esc</string>
+     </property>
+    </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_16">
+    <layout class="QHBoxLayout" name="horizontalLayout_0">
      <item>
       <widget class="QPushButton" name="btn_selectFile4">
        <property name="text">
@@ -40,105 +26,55 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="ln_file4"/>
+      <widget class="QLineEdit" name="ln_file"/>
      </item>
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_15">
+    <layout class="QHBoxLayout" name="horizontalLayout_1">
      <item>
-      <spacer name="horizontalSpacer_9">
+      <spacer name="horizontalSpacer_0">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
        </property>
       </spacer>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_11">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_17">
-         <item>
-          <spacer name="horizontalSpacer_19">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_pdfCover">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::WinPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Plain</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_20">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
+      <layout class="QVBoxLayout" name="verticalLayout_1">
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="label_pdfCover"/>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_9">
-         <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item alignment="Qt::AlignLeft">
           <widget class="QPushButton" name="btn_left">
            <property name="text">
             <string>Left</string>
            </property>
+           <property name="toolTip">
+            <string>Rotate the PDF 90 degrees to the left</string>
+           </property>
+           <property name="icon">
+            <iconset theme="object-rotate-left"/>
+           </property>
+           <property name="class" stdset="0">
+            <string>icon24</string>
+           </property>
           </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer_18">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
+         <item alignment="Qt::AlignRight">
           <widget class="QPushButton" name="btn_right">
            <property name="text">
             <string>Right</string>
+           </property>
+           <property name="toolTip">
+            <string>Rotate the PDF 90 degrees to the right</string>
+           </property>
+           <property name="icon">
+            <iconset theme="object-rotate-left"/>
+           </property>
+           <property name="class" stdset="0">
+            <string>icon24</string>
            </property>
           </widget>
          </item>
@@ -147,69 +83,36 @@
       </layout>
      </item>
      <item>
-      <spacer name="horizontalSpacer_17">
+      <spacer name="horizontalSpacer_1">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
        </property>
       </spacer>
      </item>
     </layout>
    </item>
    <item>
-    <spacer name="verticalSpacer_2">
+    <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
     </spacer>
    </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_14">
-     <item>
-      <spacer name="horizontalSpacer_15">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QToolButton" name="tbtn_pdfRotate">
-       <property name="text">
-        <string>Rotate PDF</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_16">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QToolButton" name="tbtn_pdfRotate">
+     <property name="text">
+      <string>Rotate PDF</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>icon32</string>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonTextUnderIcon</enum>
+     </property>
+     <property name="icon">
+      <iconset theme="object-rotate-right"/>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

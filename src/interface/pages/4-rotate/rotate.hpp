@@ -4,7 +4,10 @@
 #include <QMessageBox>
 #include <QWidget>
 #include <QtConcurrent>
-#include "interface/utils/globals.hpp"
+
+#include "api/ghostscript.hpp"
+#include "api/qpdf.hpp"
+#include "interface/utils/fileDialog.hpp"
 
 namespace Ui {
 class RotatePage;
@@ -22,11 +25,11 @@ signals:
   void runAsyncFunction(std::function<void()> asyncFunction);
 
 private slots:
-  void on_tbtn_return4_clicked();
+  void on_tbtn_return_clicked();
 
   void on_btn_selectFile4_clicked();
 
-  void on_ln_file4_textChanged(const QString &arg1);
+  void on_ln_file_textChanged(const QString &arg1);
 
   void on_btn_left_clicked();
 
