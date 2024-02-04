@@ -86,17 +86,24 @@
         <translation>Processando...</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="54"/>
+        <location filename="../interface/mainwindow.cpp" line="56"/>
+        <location filename="../interface/mainwindow.cpp" line="61"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="55"/>
+        <location filename="../interface/mainwindow.cpp" line="57"/>
+        <location filename="../interface/mainwindow.cpp" line="63"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="52"/>
+        <location filename="../interface/mainwindow.cpp" line="62"/>
+        <source>An unknown error has occurred. Read the terminal output for more information</source>
+        <translation>Um erro desconhecido ocorreu. Leia a saída do terminal para mais informações</translation>
+    </message>
+    <message>
+        <location filename="../interface/mainwindow.cpp" line="53"/>
         <source>Success!</source>
         <translation>Sucesso!</translation>
     </message>

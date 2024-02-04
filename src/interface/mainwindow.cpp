@@ -48,10 +48,18 @@ void MainWindow::setPage(int newPage) { ui->stackedWidget->setCurrentIndex(newPa
 void MainWindow::runAsyncFunction(std::function<void()> asyncFunction) {
   ui->statusBar->showMessage(tr("Processing..."));
 
-  QtConcurrent::run(asyncFunction)
-      .then([this] { ui->statusBar->showMessage(tr("Success!"), 5000); })
-      .onFailed(qApp, [this](char *error) {
-        QMessageBox::warning(this, tr("ERROR"), error);
-        ui->statusBar->showMessage(tr("Failed"), 5000);
-      });
+  QFuture<void> future = QtConcurrent::run(asyncFunction);
+
+  future.then([this] { ui->statusBar->showMessage(tr("Success!"), 5000); });
+
+  future.onFailed(qApp, [this](char *error) {
+    QMessageBox::warning(this, tr("ERROR"), error);
+    ui->statusBar->showMessage(tr("Failed"), 5000);
+  });
+  future.onFailed(qApp, [this]() {
+    QMessageBox::warning(
+        this, tr("ERROR"),
+        tr("An unknown error has occurred. Read the terminal output for more information"));
+    ui->statusBar->showMessage(tr("Failed"), 5000);
+  });
 }
