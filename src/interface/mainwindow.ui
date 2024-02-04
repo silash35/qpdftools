@@ -12,7 +12,10 @@
   </property>
   <property name="styleSheet">
    <string notr="true">
-    QToolButton.action {
+    .icon24 {
+     icon-size: 24px;
+    }
+    .icon32 {
      icon-size: 32px;
     }
    </string>
@@ -23,8 +26,7 @@
   <property name="windowIcon">
    <iconset theme="io.github.silash35.qpdftools"/>
   </property>
-  <widget class="QStackedWidget" name="stackedWidget">
-  </widget>
+  <widget class="QStackedWidget" name="stackedWidget"/>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources/>

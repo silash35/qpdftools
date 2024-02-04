@@ -7,33 +7,11 @@
 
 MergePage::MergePage(QWidget *parent) : QWidget(parent), ui(new Ui::MergePage) {
   ui->setupUi(this);
-
-  ui->tbtn_return3->setIcon(QIcon::fromTheme("go-previous"));
-
-  ui->btn_Madd->setIcon(QIcon::fromTheme("list-add"));
-  ui->btn_Madd->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
-  ui->btn_Madd->setToolTip(tr("Click to add a PDF file"));
-
-  ui->btn_Mrm->setIcon(QIcon::fromTheme("list-remove"));
-  ui->btn_Mrm->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
-  ui->btn_Mrm->setToolTip(tr("Click to remove a PDF file"));
-
-  ui->btn_Mup->setIcon(QIcon::fromTheme("go-up"));
-  ui->btn_Mup->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
-  ui->btn_Mup->setToolTip(tr("Click to change the merge order"));
-
-  ui->btn_Mdown->setIcon(QIcon::fromTheme("go-down"));
-  ui->btn_Mdown->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
-  ui->btn_Mdown->setToolTip(tr("Click to change the merge order"));
-
-  ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("edit-group"));
-  ui->tbtn_pdfMerge->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
-  ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
 MergePage::~MergePage() { delete ui; }
 
-void MergePage::on_tbtn_return3_clicked() { emit setPage(0); }
+void MergePage::on_tbtn_return_clicked() { emit setPage(0); }
 
 void MergePage::on_btn_Madd_clicked() {
   QStringList files = fileDialog.getOpenFileNames(this);

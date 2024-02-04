@@ -5,14 +5,14 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QToolButton" name="tbtn_return">
-     <property name="text">
-      <string>...</string>
+     <property name="toolTip">
+      <string>Return</string>
      </property>
      <property name="icon">
       <iconset theme="go-previous"/>
      </property>
      <property name="shortcut">
-      <string>Esc</string>
+      <string notr="true">Esc</string>
      </property>
     </widget>
    </item>
@@ -110,7 +110,7 @@
       <string>Split PDF</string>
      </property>
      <property name="class" stdset="0">
-      <string>action</string>
+      <string>icon32</string>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonTextUnderIcon</enum>

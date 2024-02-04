@@ -7,8 +7,8 @@
     <layout class="QHBoxLayout" name="horizontalLayout_13">
      <item>
       <widget class="QToolButton" name="tbtn_return4">
-       <property name="text">
-        <string>...</string>
+       <property name="toolTip">
+        <string>Return</string>
        </property>
        <property name="shortcut">
         <string>Esc</string>

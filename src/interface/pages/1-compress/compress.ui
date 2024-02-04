@@ -5,8 +5,8 @@
   <layout class="QVBoxLayout" name="verticalLayout_0">
    <item>
     <widget class="QToolButton" name="tbtn_return">
-     <property name="text">
-      <string notr="true">...</string>
+     <property name="toolTip">
+      <string>Return</string>
      </property>
      <property name="icon">
       <iconset theme="go-previous"/>
@@ -73,7 +73,7 @@
       <string>Compress PDF</string>
      </property>
      <property name="class" stdset="0">
-      <string>action</string>
+      <string>icon32</string>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonTextUnderIcon</enum>

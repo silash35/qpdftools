@@ -20,7 +20,7 @@ signals:
   void runAsyncFunction(std::function<void()> asyncFunction);
 
 private slots:
-  void on_tbtn_return3_clicked();
+  void on_tbtn_return_clicked();
 
   void on_btn_Madd_clicked();
 
