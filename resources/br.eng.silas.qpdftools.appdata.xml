@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2022 Silas Henrique <silash35@gmail.com> -->
+<!-- Copyright 2024 Silas Henrique <silash35@gmail.com> -->
 <component type="desktop-application">
   <id>br.eng.silas.qpdftools</id>
   <metadata_license>Unlicense</metadata_license>
@@ -31,7 +31,7 @@
   </provides>
 
   <releases>
-    <release version="3.0.0" date="2022-04-02">
+    <release version="3.0.0" date="2024-02-02">
       <description>
         <p>This Changelog will no longer be updated.</p>
         <p>If you want information about updates, access the project's GitHub.</p>
