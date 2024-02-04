@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]) {
   QApplication a(argc, argv);
 
-  QApplication::setDesktopFileName("io.github.silash35.qpdftools");
+  QApplication::setDesktopFileName("br.eng.silas.qpdftools");
 
   QTranslator translator;
   // look up e.g. :/i18n/qpdftools_pt_BR.qm

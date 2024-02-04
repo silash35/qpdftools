@@ -3,7 +3,7 @@
 Name=Qpdf Tools
 Exec=qpdftools
 Comment=A easy-to-use Qt interface for Ghostscript and QPDF
-Icon=io.github.silash35.qpdftools
+Icon=br.eng.silas.qpdftools
 Type=Application
 Terminal=false
 StartupNotify=true

@@ -24,7 +24,7 @@
    <string notr="true">Qpdf Tools</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="io.github.silash35.qpdftools"/>
+   <iconset theme="br.eng.silas.qpdftools"/>
   </property>
   <widget class="QStackedWidget" name="stackedWidget"/>
   <widget class="QStatusBar" name="statusBar"/>

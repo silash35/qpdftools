@@ -1,5 +1,5 @@
 {
-  "files.associations": { "*.ts": "xml", "*.ui": "xml" },
+  "files.associations": { "*.ts": "xml", "*.ui": "xml", "*.svg": "xml" },
 
   "editor.formatOnSave": true,
   "editor.indentSize": 2,

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2022 Silas Henrique <silash35@gmail.com> -->
 <component type="desktop-application">
-  <id>io.github.silash35.qpdftools</id>
+  <id>br.eng.silas.qpdftools</id>
   <metadata_license>Unlicense</metadata_license>
   <project_license>Unlicense</project_license>
   <name>Qpdf Tools</name>
@@ -13,7 +13,7 @@
     <p>With Qpdf Tools, you can easily compress, split, merge and even rotate your pdf documents.</p>
   </description>
 
-  <launchable type="desktop-id">io.github.silash35.qpdftools.desktop</launchable>
+  <launchable type="desktop-id">br.eng.silas.qpdftools.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">
