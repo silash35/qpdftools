@@ -2,7 +2,7 @@
 <ui version="4.0">
  <class>CompressPage</class>
  <widget class="QWidget" name="CompressPage">
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_0">
    <item>
     <widget class="QToolButton" name="tbtn_return">
      <property name="text">
@@ -35,7 +35,7 @@
      <property name="title">
       <string>Select the compression mode:</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_5">
+     <layout class="QVBoxLayout" name="verticalLayout_1">
       <item>
        <widget class="QRadioButton" name="rbtn_screen">
         <property name="text">

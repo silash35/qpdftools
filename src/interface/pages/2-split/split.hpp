@@ -1,8 +1,10 @@
 #pragma once
 
-#include "interface/utils/globals.hpp"
 #include <QMessageBox>
 #include <QWidget>
+
+#include "api/qpdf.hpp"
+#include "interface/utils/fileDialog.hpp"
 
 namespace Ui {
 class SplitPage;
@@ -20,9 +22,9 @@ signals:
   void runAsyncFunction(std::function<void()> asyncFunction);
 
 private slots:
-  void on_tbtn_return2_clicked();
+  void on_tbtn_return_clicked();
 
-  void on_btn_selectFile2_clicked();
+  void on_btn_selectFile_clicked();
 
   void on_rbtn_extractAll_clicked();
 

@@ -1,31 +1,18 @@
 #include "split.hpp"
 #include "ui_split.h"
 
-#include "api/ghostscript.hpp"
-#include "api/qpdf.hpp"
-#include "interface/utils/fileDialog.hpp"
-
 SplitPage::SplitPage(QWidget *parent) : QWidget(parent), ui(new Ui::SplitPage) {
   ui->setupUi(this);
-
-  ui->tbtn_return2->setIcon(QIcon::fromTheme("go-previous"));
-
-  ui->spinBox_fistPage->setMinimum(1);
-  ui->rbtn_splitRange->setChecked(true);
-
-  ui->tbtn_pdfSplit->setIcon(QIcon::fromTheme("edit-cut"));
-  ui->tbtn_pdfSplit->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
-  ui->tbtn_pdfSplit->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
 SplitPage::~SplitPage() { delete ui; }
 
-void SplitPage::on_tbtn_return2_clicked() { emit setPage(0); }
+void SplitPage::on_tbtn_return_clicked() { emit setPage(0); }
 
-void SplitPage::on_btn_selectFile2_clicked() {
-  ui->ln_file2->clear();
-  ui->ln_file2->setText(fileDialog.getOpenFileName(this));
-  ui->ln_file2->setFocus();
+void SplitPage::on_btn_selectFile_clicked() {
+  ui->ln_file->clear();
+  ui->ln_file->setText(fileDialog.getOpenFileName(this));
+  ui->ln_file->setFocus();
 }
 
 void SplitPage::on_rbtn_extractAll_clicked() {
@@ -47,7 +34,7 @@ void SplitPage::on_spinBox_fistPage_valueChanged(int arg1) {
 }
 
 void SplitPage::on_tbtn_pdfSplit_clicked() {
-  QString input = ui->ln_file2->text();
+  QString input = ui->ln_file->text();
   if (!QFile::exists(input)) {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a valide PDF file"));
     return;
