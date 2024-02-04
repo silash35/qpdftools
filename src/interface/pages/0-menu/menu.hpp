@@ -17,13 +17,13 @@ signals:
   void setPage(int newPage);
 
 private slots:
-  void on_tbtn_compress_clicked();
+  void on_btn_compress_clicked();
 
-  void on_tbtn_split_clicked();
+  void on_btn_split_clicked();
 
-  void on_tbtn_merge_clicked();
+  void on_btn_merge_clicked();
 
-  void on_tbtn_rotate_clicked();
+  void on_btn_rotate_clicked();
 
 private:
   Ui::MenuPage *ui;

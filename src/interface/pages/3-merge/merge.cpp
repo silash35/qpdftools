@@ -26,7 +26,7 @@ MergePage::MergePage(QWidget *parent) : QWidget(parent), ui(new Ui::MergePage) {
   ui->btn_Mdown->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->btn_Mdown->setToolTip(tr("Click to change the merge order"));
 
-  ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("merge"));
+  ui->tbtn_pdfMerge->setIcon(QIcon::fromTheme("edit-group"));
   ui->tbtn_pdfMerge->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
   ui->tbtn_pdfMerge->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
