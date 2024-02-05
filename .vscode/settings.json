@@ -13,9 +13,12 @@
     "archlinux",
     "AUTOMOC",
     "AUTORCC",
+    "autotools",
     "AUTOUIC",
     "BINDIR",
+    "builddir",
     "buildsystem",
+    "dbus",
     "DCMAKE",
     "debhelper",
     "debuild",
@@ -39,6 +42,7 @@
     "rbtn",
     "tbtn",
     "updpkgsums",
+    "wayland",
     "yuezk"
   ]
 }
