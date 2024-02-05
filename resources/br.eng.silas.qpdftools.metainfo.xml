@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>br.eng.silas.qpdftools</id>
+
+  <name>Qpdf Tools</name>
+  <summary>Qpdf Tools is an easy-to-use Qt interface for Ghostscript and QPDF</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Unlicense</project_license>
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+
+  <description>
+    <p>Qpdf Tools is an easy-to-use Qt interface for Ghostscript and QPDF.</p>
+    <p>Qpdf Tools makes possible for normal users to manage their PDFs.</p>
+    <p>With Qpdf Tools, you can easily compress, split, merge and even rotate your pdf documents.</p>
+  </description>
+
+  <launchable type="desktop-id">br.eng.silas.qpdftools.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/silash35/qpdftools/raw/master/resources/print.png?raw=true</image>
+    </screenshot>
+  </screenshots>
+</component>

@@ -27,5 +27,5 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   )
 
   install(PROGRAMS br.eng.silas.qpdftools.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-  install(FILES br.eng.silas.qpdftools.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+  install(FILES br.eng.silas.qpdftools.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
