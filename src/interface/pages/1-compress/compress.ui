@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CompressPage</class>
+ <widget class="QWidget" name="CompressPage">
+  <layout class="QVBoxLayout" name="verticalLayout_0">
+   <item>
+    <widget class="QToolButton" name="tbtn_return">
+     <property name="toolTip">
+      <string>Return</string>
+     </property>
+     <property name="icon">
+      <iconset theme="go-previous"/>
+     </property>
+     <property name="shortcut">
+      <string notr="true">Esc</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_selectFile">
+       <property name="text">
+        <string>Select PDF</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="ln_file"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Select the compression mode:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_1">
+      <item>
+       <widget class="QRadioButton" name="rbtn_screen">
+        <property name="text">
+         <string>Super low resolution (Screen Optimized)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbtn_ebook">
+        <property name="text">
+         <string>Low resolution (For Ebooks)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbtn_printer">
+        <property name="text">
+         <string>Normal resolution (For printing)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbtn_prepress">
+        <property name="text">
+         <string>High resolution</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QToolButton" name="tbtn_pdfCompress">
+     <property name="text">
+      <string>Compress PDF</string>
+     </property>
+     <property name="class" stdset="0">
+      <string notr="true">icon32</string>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonTextUnderIcon</enum>
+     </property>
+     <property name="icon">
+      <iconset theme="zoom-out"/>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RotatePage</class>
+ <widget class="QWidget" name="RotatePage">
+  <layout class="QVBoxLayout" name="verticalLayout_0">
+   <item>
+    <widget class="QToolButton" name="tbtn_return">
+     <property name="toolTip">
+      <string>Return</string>
+     </property>
+     <property name="icon">
+      <iconset theme="go-previous"/>
+     </property>
+     <property name="shortcut">
+      <string notr="true">Esc</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_0">
+     <item>
+      <widget class="QPushButton" name="btn_selectFile4">
+       <property name="text">
+        <string>Select PDF</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="ln_file"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_1">
+     <item>
+      <spacer name="horizontalSpacer_0">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_1">
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="label_pdfCover"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item alignment="Qt::AlignLeft">
+          <widget class="QPushButton" name="btn_left">
+           <property name="text">
+            <string>Left</string>
+           </property>
+           <property name="toolTip">
+            <string>Rotate the PDF 90 degrees to the left</string>
+           </property>
+           <property name="icon">
+            <iconset theme="object-rotate-left"/>
+           </property>
+           <property name="class" stdset="0">
+            <string notr="true">icon24</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignRight">
+          <widget class="QPushButton" name="btn_right">
+           <property name="text">
+            <string>Right</string>
+           </property>
+           <property name="toolTip">
+            <string>Rotate the PDF 90 degrees to the right</string>
+           </property>
+           <property name="icon">
+            <iconset theme="object-rotate-right"/>
+           </property>
+           <property name="class" stdset="0">
+            <string notr="true">icon24</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_1">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </spacer>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QToolButton" name="tbtn_pdfRotate">
+     <property name="text">
+      <string>Rotate PDF</string>
+     </property>
+     <property name="class" stdset="0">
+      <string notr="true">icon32</string>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonTextUnderIcon</enum>
+     </property>
+     <property name="icon">
+      <iconset theme="object-rotate-right"/>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,13 +1,15 @@
-#ifndef GHOSTSCRIPT_H
-#define GHOSTSCRIPT_H
+#pragma once
 
 #include "externalSoftware.hpp"
 
 class Ghostscript : public ExternalSoftware {
 public:
-  Ghostscript() {
-    softwareName = "Ghostscript";
-    softwareCommand = "gs";
-  }
-} ghostscript;
-#endif // GHOSTSCRIPT_H
+  Ghostscript();
+
+  enum CompressionMode { screen, ebook, printer, prepress };
+
+  void compressPDF(const QString &input, const QString &output, CompressionMode mode);
+  void generateThumbnail(const QString &input, const QString &output);
+};
+
+extern Ghostscript ghostscript;

@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fallback-icons-dark/edit-cut.svg</file>
+        <file>fallback-icons-dark/edit-group.svg</file>
+        <file>fallback-icons-dark/go-down.svg</file>
+        <file>fallback-icons-dark/go-previous.svg</file>
+        <file>fallback-icons-dark/go-up.svg</file>
+        <file>fallback-icons-dark/list-add.svg</file>
+        <file>fallback-icons-dark/list-remove.svg</file>
+        <file>fallback-icons-dark/object-rotate-left.svg</file>
+        <file>fallback-icons-dark/object-rotate-right.svg</file>
+        <file>fallback-icons-dark/zoom-out.svg</file>
+
+        <file>fallback-icons-light/edit-cut.svg</file>
+        <file>fallback-icons-light/edit-group.svg</file>
+        <file>fallback-icons-light/go-down.svg</file>
+        <file>fallback-icons-light/go-previous.svg</file>
+        <file>fallback-icons-light/go-up.svg</file>
+        <file>fallback-icons-light/list-add.svg</file>
+        <file>fallback-icons-light/list-remove.svg</file>
+        <file>fallback-icons-light/object-rotate-left.svg</file>
+        <file>fallback-icons-light/object-rotate-right.svg</file>
+        <file>fallback-icons-light/zoom-out.svg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MergePage</class>
+ <widget class="QWidget" name="MergePage">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QToolButton" name="tbtn_return">
+     <property name="toolTip">
+      <string>Return</string>
+     </property>
+     <property name="icon">
+      <iconset theme="go-previous"/>
+     </property>
+     <property name="shortcut">
+      <string notr="true">Esc</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="list_toMerge"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_1">
+     <item>
+      <widget class="QPushButton" name="btn_Madd">
+       <property name="toolTip">
+        <string>Add a PDF file</string>
+       </property>
+       <property name="icon">
+        <iconset theme="list-add"/>
+       </property>
+       <property name="class" stdset="0">
+        <string notr="true">icon24</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_Mrm">
+       <property name="toolTip">
+        <string>Remove a PDF file</string>
+       </property>
+       <property name="icon">
+        <iconset theme="list-remove"/>
+       </property>
+       <property name="class" stdset="0">
+        <string notr="true">icon24</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_Mup">
+       <property name="toolTip">
+        <string>Change merge order (move selected item up)</string>
+       </property>
+       <property name="icon">
+        <iconset theme="go-up"/>
+       </property>
+       <property name="class" stdset="0">
+        <string notr="true">icon24</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_Mdown">
+       <property name="toolTip">
+        <string>Change merge order (move selected item down)</string>
+       </property>
+       <property name="icon">
+        <iconset theme="go-down"/>
+       </property>
+       <property name="class" stdset="0">
+        <string notr="true">icon24</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QToolButton" name="tbtn_pdfMerge">
+     <property name="text">
+      <string>Merge PDFs</string>
+     </property>
+     <property name="class" stdset="0">
+      <string notr="true">icon32</string>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonTextUnderIcon</enum>
+     </property>
+     <property name="icon">
+      <iconset theme="edit-group"/>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
