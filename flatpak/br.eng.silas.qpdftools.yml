@@ -25,7 +25,7 @@ modules:
         sha256: e429e4f5b01615a4f0f93a4128e8a1a4d932dff983b1774174c79c0630717ad9
 
   - name: qpdf
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
@@ -35,7 +35,7 @@ modules:
         sha256: 28911f31a836606236c1d6d6763b25c874b53d4a830c8147e4abb2d10918343e
 
   - name: qpdftools
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
