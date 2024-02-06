@@ -38,6 +38,7 @@
     "Pixmap",
     "pkgdir",
     "prepress",
+    "qresource",
     "qtbase",
     "rbtn",
     "tbtn",

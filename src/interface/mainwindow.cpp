@@ -5,16 +5,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   // Main
   ui->setupUi(this);
 
-  // Check if the system theme has the necessary icons.
-  bool isThemeCompatible =
-      (QIcon::hasThemeIcon("zoom-out") and QIcon::hasThemeIcon("edit-cut") and
-       QIcon::hasThemeIcon("edit-group") and QIcon::hasThemeIcon("object-rotate-right"));
-
-  // If the theme is not compatible, the program will use breeze theme
-  if (!isThemeCompatible) {
-    QIcon::setThemeName("breeze");
-  }
-
   MenuPage *menuPage = new MenuPage(this);
   ui->stackedWidget->addWidget(menuPage);
   connect(menuPage, &MenuPage::setPage, this, &MainWindow::setPage);

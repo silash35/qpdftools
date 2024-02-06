@@ -71,7 +71,7 @@
             <string>Rotate the PDF 90 degrees to the right</string>
            </property>
            <property name="icon">
-            <iconset theme="object-rotate-left"/>
+            <iconset theme="object-rotate-right"/>
            </property>
            <property name="class" stdset="0">
             <string notr="true">icon24</string>

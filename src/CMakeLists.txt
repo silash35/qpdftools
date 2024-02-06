@@ -8,6 +8,8 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets Concurrent LinguistTools)
 set(SRC
   main.cpp
 
+  ../resources/fallback-icons.qrc
+
   api/externalSoftware.cpp
   api/ghostscript.cpp
   api/qpdf.cpp
