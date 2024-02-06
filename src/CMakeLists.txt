@@ -8,7 +8,7 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets Concurrent LinguistTools)
 set(SRC
   main.cpp
 
-  ../resources/fallback-icons.qrc
+  ../resources/fallback-icons/fallback-icons.qrc
 
   api/externalSoftware.cpp
   api/ghostscript.cpp
