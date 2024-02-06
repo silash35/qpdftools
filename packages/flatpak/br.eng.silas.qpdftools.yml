@@ -10,6 +10,8 @@ cleanup:
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
 modules:
   - name: ghostscript
     buildsystem: autotools
@@ -38,5 +40,5 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/silash35/qpdftools/archive/refs/tags/beta-v3.0.0.tar.gz
-        sha256: c930b026a833519d756c03dfee9ea6a0ed1587d7dfc6db284a47f2f6f6532393
+        url: https://github.com/silash35/qpdftools/archive/refs/tags/rc-v3.0.0.tar.gz
+        sha256: bb17e60a27e7e34924f0757f8552158324863653b74939e065292bcc1ae478e6
