@@ -16,7 +16,7 @@ Qpdf Tools
 Qpdf Tools is an easy-to-use Qt interface for [Ghostscript](https://www.ghostscript.com/) and [QPDF](https://github.com/qpdf/qpdf), which makes it possible for normal users to manage their PDFs.
 
 <p align="center">
-  <img src="https://github.com/silash35/qpdftools/blob/master/resources/screenshot.png?raw=true)">
+  <img src="https://github.com/silash35/qpdftools/blob/master/resources/screenshots/menu-screen.png?raw=true)">
 </p>
 
 With Qpdf Tools, you can easily compress, split, merge and even rotate your pdf documents.

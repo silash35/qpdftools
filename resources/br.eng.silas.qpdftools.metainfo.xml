@@ -29,8 +29,16 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://github.com/silash35/qpdftools/raw/master/resources/screenshot.png?raw=true</image>
+      <image>https://github.com/silash35/qpdftools/raw/master/resources/screenshots/menu-screen.png?raw=true</image>
       <caption>Menu screen of Qpdf Tools</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/silash35/qpdftools/raw/master/resources/screenshots/merge-screen.png?raw=true</image>
+      <caption>Merge PDFs screen of Qpdf Tools</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/silash35/qpdftools/raw/master/resources/screenshots/compress-screen.png?raw=true</image>
+      <caption>Compress PDF screen of Qpdf Tools</caption>
     </screenshot>
   </screenshots>
 </component>
