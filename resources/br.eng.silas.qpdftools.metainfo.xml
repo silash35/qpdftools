@@ -27,6 +27,21 @@
   <content_rating type="oars-1.0" />
   <launchable type="desktop-id">br.eng.silas.qpdftools.desktop</launchable>
 
+  <releases>
+    <release version="3.0.0" date="2024-02-06">
+      <url type="details">https://github.com/silash35/qpdftools/releases/tag/v3.0.0</url>
+      <description>
+        <p>Upgrade to Qt6</p>
+        <ul>
+          <li>Fully upgrade to Qt6</li>
+          <li>Improve the appearance of the menu screen.</li>
+          <li>Refactor the code, making maintenance easier.</li>
+          <li>And many other improvements</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
   <screenshots>
     <screenshot type="default">
       <image>https://github.com/silash35/qpdftools/raw/master/resources/screenshots/menu-screen.png?raw=true</image>
