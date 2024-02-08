@@ -270,7 +270,7 @@
         <translation>Para página:</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split/split.ui" line="110"/>
+        <location filename="../interface/pages/2-split/split.ui" line="113"/>
         <source>Split PDF</source>
         <translation>Dividir PDF</translation>
     </message>

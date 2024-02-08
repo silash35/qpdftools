@@ -85,6 +85,9 @@
        </item>
        <item>
         <widget class="QSpinBox" name="spinBox_lastPage">
+         <property name="minimum">
+          <number>1</number>
+         </property>
          <property name="maximum">
           <number>999999999</number>
          </property>
