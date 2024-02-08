@@ -4,11 +4,13 @@
 # flatpak
 .flatpak-builder
 build-dir
+builddir
 repo
 
 # cmake
 build/
 .qt/
+.cache/
 CMakeFiles/
 Makefile
 prefix.sh
