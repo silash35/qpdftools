@@ -26,7 +26,7 @@ void CompressPage::on_tbtn_pdfCompress_clicked() {
   }
 
   QString output = fileDialog.getSaveFileName(this);
-  if (output == "invalid") {
+  if (output.isEmpty()) {
     return;
   }
 

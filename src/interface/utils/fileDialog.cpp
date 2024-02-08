@@ -33,14 +33,12 @@ QString FileDialog::getOpenFileName(QWidget *parent) {
 
 QString FileDialog::getSaveFileName(QWidget *parent) {
   QString file = QFileDialog::getSaveFileName(parent, tr("Save file"), lastDirectory, filter);
-  if (file.isEmpty()) {
-    file = "invalid";
-  } else {
-    setLastDirectoryByFile(file);
-  }
 
-  if (!file.endsWith(extension)) {
-    file.append(extension);
+  if (!file.isEmpty()) {
+    if (!file.endsWith(extension)) {
+      file.append(extension);
+    }
+    setLastDirectoryByFile(file);
   }
 
   return file;

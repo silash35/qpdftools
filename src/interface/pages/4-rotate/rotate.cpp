@@ -77,7 +77,7 @@ void RotatePage::on_tbtn_pdfRotate_clicked() {
   }
 
   QString output = fileDialog.getSaveFileName(this);
-  if (output == "invalid") {
+  if (output.isEmpty()) {
     return;
   }
   QString input = ui->ln_file->text();

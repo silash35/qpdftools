@@ -50,7 +50,7 @@ void SplitPage::on_tbtn_pdfSplit_clicked() {
 
   } else if (ui->rbtn_splitRange->isChecked()) {
     QString output = fileDialog.getSaveFileName(this);
-    if (output == "invalid") {
+    if (output.isEmpty()) {
       return;
     }
 
