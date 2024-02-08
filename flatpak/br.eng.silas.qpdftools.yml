@@ -10,6 +10,7 @@ cleanup:
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
+  - --filesystem=host
   - --share=ipc
   - --device=dri
 modules:
@@ -40,5 +41,5 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/silash35/qpdftools/archive/refs/tags/v3.0.0.tar.gz
+        url: https://github.com/silash35/qpdftools/archive/refs/tags/v3.0.1.tar.gz
         sha256: aa9b1bfc869efe95a3027d743f9bec8d6fca3951edf31bebbc4da4636cce3b20

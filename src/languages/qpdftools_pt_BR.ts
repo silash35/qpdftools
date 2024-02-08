@@ -73,7 +73,7 @@
         <translation>Salvar Arquivo</translation>
     </message>
     <message>
-        <location filename="../interface/utils/fileDialog.cpp" line="51"/>
+        <location filename="../interface/utils/fileDialog.cpp" line="49"/>
         <source>Select the PDF files</source>
         <translation>Selecione os arquivos PDF</translation>
     </message>

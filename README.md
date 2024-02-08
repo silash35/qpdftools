@@ -1,14 +1,9 @@
-<h1 align="center">
-Qpdf Tools
-</h1>
+<h1 align="center">Qpdf Tools</h1>
 
 <p align="center">
-
-  <img src="https://img.shields.io/aur/license/qpdftools">
-  <img src="https://img.shields.io/aur/version/qpdftools">
-  <img src="https://github.com/silash35/qpdftools/workflows/build/badge.svg">
-  <img src="https://img.shields.io/github/stars/silash35/qpdftools?style=social">
-
+  <img src="https://img.shields.io/github/license/silash35/qpdftools">
+  <img src="https://img.shields.io/github/v/release/silash35/qpdftools">
+  <img src="https://img.shields.io/github/stars/silash35/qpdftools">
 </p>
 
 > Go to the Project [Wiki](https://github.com/silash35/qpdftools/wiki) for more information

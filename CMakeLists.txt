@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(qpdftools VERSION 3.0.0)
+project(qpdftools VERSION 3.0.1)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
