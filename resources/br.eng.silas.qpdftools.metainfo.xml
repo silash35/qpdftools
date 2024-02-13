@@ -29,6 +29,16 @@
   <launchable type="desktop-id">br.eng.silas.qpdftools.desktop</launchable>
 
   <releases>
+    <release version="3.1.0" date="2024-02-13">
+      <url type="details">https://github.com/silash35/qpdftools/releases/tag/v3.1.0</url>
+      <description>
+        <p>New App Icon</p>
+        <ul>
+          <li>Update the app icon, following KDE guidelines</li>
+          <li>Make some small refinements on the user experience</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.0.1" date="2024-02-08">
       <url type="details">https://github.com/silash35/qpdftools/releases/tag/v3.0.1</url>
       <description>
