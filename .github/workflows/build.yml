@@ -1,0 +1,21 @@
+name: build
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup flatpak and Flathub
+        run: |
+          sudo apt update
+          sudo apt install flatpak flatpak-builder
+          sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+      - name: Pull Qpdf Tools Code
+        uses: actions/checkout@v4
+      - name: Pull and setup manifest
+        run: |
+          curl https://raw.githubusercontent.com/flathub/br.eng.silas.qpdftools/master/br.eng.silas.qpdftools.yml > tmp.yml
+          head -n -3 tmp.yml > br.eng.silas.qpdftools.yml
+          echo "      - type: dir" >> br.eng.silas.qpdftools.yml
+          echo "        path: ." >> br.eng.silas.qpdftools.yml
+      - name: Build and install qpdftools flatpak
+        run: sudo flatpak-builder --install-deps-from=flathub --install build-dir ./br.eng.silas.qpdftools.yml --force-clean
