@@ -25,11 +25,6 @@ void CompressPage::on_tbtn_pdfCompress_clicked() {
     return;
   }
 
-  QString output = fileDialog.getSaveFileName(this);
-  if (output.isEmpty()) {
-    return;
-  }
-
   Ghostscript::CompressionMode mode;
 
   if (ui->rbtn_screen->isChecked()) {
@@ -42,6 +37,11 @@ void CompressPage::on_tbtn_pdfCompress_clicked() {
     mode = Ghostscript::prepress;
   } else {
     QMessageBox::warning(this, tr("Warning"), tr("You need to select a compression mode"));
+    return;
+  }
+
+  QString output = fileDialog.getSaveFileName(this);
+  if (output.isEmpty()) {
     return;
   }
 

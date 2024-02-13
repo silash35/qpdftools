@@ -45,7 +45,7 @@
     </message>
     <message>
         <location filename="../interface/pages/1-compress/compress.cpp" line="24"/>
-        <location filename="../interface/pages/1-compress/compress.cpp" line="44"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="39"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
@@ -55,7 +55,7 @@
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress/compress.cpp" line="44"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="39"/>
         <source>You need to select a compression mode</source>
         <translation>Você precisa selecionar um modo de compressão</translation>
     </message>
