@@ -1,5 +1,5 @@
 BasedOnStyle: LLVM
-IndentWidth: 2
-
-Language: Cpp
 ColumnLimit: 100
+
+ContinuationIndentWidth: 2
+AlignAfterOpenBracket: DontAlign
