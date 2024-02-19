@@ -28,28 +28,33 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
   ui->stackedWidget->addWidget(rotatePage);
   connect(rotatePage, &RotatePage::setPage, this, &MainWindow::setPage);
   connect(rotatePage, &RotatePage::runAsyncFunction, this, &MainWindow::runAsyncFunction);
+
+  connect(this, &MainWindow::showMessageSignal, this, &MainWindow::showMessageSlot);
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
 // Public Slots
+void MainWindow::showMessageSlot(const QString &message, int timeout) {
+  ui->statusBar->showMessage(message, timeout);
+}
+
 void MainWindow::setPage(int newPage) { ui->stackedWidget->setCurrentIndex(newPage); }
 
 void MainWindow::runAsyncFunction(std::function<void()> asyncFunction) {
   ui->statusBar->showMessage(tr("Processing..."));
 
-  QFuture<void> future = QtConcurrent::run(asyncFunction);
-
-  future.then([this] { ui->statusBar->showMessage(tr("Success!"), 5000); });
-
-  future.onFailed(qApp, [this](char *error) {
-    QMessageBox::warning(this, tr("ERROR"), error);
-    ui->statusBar->showMessage(tr("Failed"), 5000);
-  });
-  future.onFailed(qApp, [this]() {
-    QMessageBox::warning(
-        this, tr("ERROR"),
-        tr("An unknown error has occurred. Read the terminal output for more information"));
-    ui->statusBar->showMessage(tr("Failed"), 5000);
-  });
+  QFuture<void> future =
+    QtConcurrent::run(asyncFunction)
+      .then([this] { emit showMessageSignal(tr("Success!"), 5000); })
+      .onFailed(qApp,
+        [this](char *error) {
+          QMessageBox::warning(this, tr("ERROR"), error);
+          emit showMessageSignal(tr("Failed"), 5000);
+        })
+      .onFailed(qApp, [this]() {
+        QMessageBox::warning(this, tr("ERROR"),
+          tr("An unknown error has occurred. Read the terminal output for more information"));
+        emit showMessageSignal(tr("Failed"), 5000);
+      });
 }
