@@ -13,8 +13,7 @@ RotatePage::~RotatePage() { delete ui; }
 
 void RotatePage::on_tbtn_return_clicked() { emit setPage(0); }
 
-void RotatePage::on_btn_selectFile4_clicked() {
-  ui->ln_file->clear();
+void RotatePage::on_btn_selectFile_clicked() {
   ui->ln_file->setText(fileDialog.getOpenFileName(this));
   ui->ln_file->setFocus();
 }

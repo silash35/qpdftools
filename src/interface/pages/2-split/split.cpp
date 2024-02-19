@@ -10,7 +10,6 @@ SplitPage::~SplitPage() { delete ui; }
 void SplitPage::on_tbtn_return_clicked() { emit setPage(0); }
 
 void SplitPage::on_btn_selectFile_clicked() {
-  ui->ln_file->clear();
   ui->ln_file->setText(fileDialog.getOpenFileName(this));
   ui->ln_file->setFocus();
 }
@@ -57,8 +56,7 @@ void SplitPage::on_tbtn_pdfSplit_clicked() {
     int firstPage = ui->spinBox_fistPage->value();
     int lastPage = ui->spinBox_lastPage->value();
 
-    emit runAsyncFunction([input, output, firstPage, lastPage] {
-      qpdf.splitPDF(input, output, firstPage, lastPage);
-    });
+    emit runAsyncFunction(
+      [input, output, firstPage, lastPage] { qpdf.splitPDF(input, output, firstPage, lastPage); });
   }
 }

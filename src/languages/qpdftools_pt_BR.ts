@@ -44,18 +44,18 @@
         <translation>Comprimir PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress/compress.cpp" line="24"/>
-        <location filename="../interface/pages/1-compress/compress.cpp" line="39"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="23"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="38"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress/compress.cpp" line="24"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="23"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
     <message>
-        <location filename="../interface/pages/1-compress/compress.cpp" line="39"/>
+        <location filename="../interface/pages/1-compress/compress.cpp" line="38"/>
         <source>You need to select a compression mode</source>
         <translation>Você precisa selecionar um modo de compressão</translation>
     </message>
@@ -81,29 +81,29 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="39"/>
+        <location filename="../interface/mainwindow.cpp" line="45"/>
         <source>Processing...</source>
         <translation>Processando...</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="46"/>
-        <location filename="../interface/mainwindow.cpp" line="51"/>
+        <location filename="../interface/mainwindow.cpp" line="52"/>
+        <location filename="../interface/mainwindow.cpp" line="56"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="47"/>
         <location filename="../interface/mainwindow.cpp" line="53"/>
+        <location filename="../interface/mainwindow.cpp" line="58"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="52"/>
+        <location filename="../interface/mainwindow.cpp" line="57"/>
         <source>An unknown error has occurred. Read the terminal output for more information</source>
         <translation>Um erro desconhecido ocorreu. Leia a saída do terminal para mais informações</translation>
     </message>
     <message>
-        <location filename="../interface/mainwindow.cpp" line="43"/>
+        <location filename="../interface/mainwindow.cpp" line="49"/>
         <source>Success!</source>
         <translation>Sucesso!</translation>
     </message>
@@ -217,22 +217,22 @@
         <translation>Rotacionar PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate/rotate.cpp" line="35"/>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="34"/>
         <source>ERROR</source>
         <translation>ERRO</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate/rotate.cpp" line="35"/>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="34"/>
         <source>Failed to generate thumbnail</source>
         <translation>Falha ao gerar miniatura</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate/rotate.cpp" line="75"/>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="74"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/4-rotate/rotate.cpp" line="75"/>
+        <location filename="../interface/pages/4-rotate/rotate.cpp" line="74"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
@@ -275,17 +275,17 @@
         <translation>Dividir PDF</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split/split.cpp" line="39"/>
+        <location filename="../interface/pages/2-split/split.cpp" line="38"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split/split.cpp" line="39"/>
+        <location filename="../interface/pages/2-split/split.cpp" line="38"/>
         <source>You need to select a valide PDF file</source>
         <translation>Você precisa selecionar um arquivo PDF válido</translation>
     </message>
     <message>
-        <location filename="../interface/pages/2-split/split.cpp" line="44"/>
+        <location filename="../interface/pages/2-split/split.cpp" line="43"/>
         <source>Select Output Folder</source>
         <translation>Selecione a pasta de saída</translation>
     </message>

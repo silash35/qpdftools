@@ -27,7 +27,7 @@ signals:
 private slots:
   void on_tbtn_return_clicked();
 
-  void on_btn_selectFile4_clicked();
+  void on_btn_selectFile_clicked();
 
   void on_ln_file_textChanged(const QString &arg1);
 

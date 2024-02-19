@@ -13,7 +13,6 @@ CompressPage::~CompressPage() { delete ui; }
 void CompressPage::on_tbtn_return_clicked() { emit setPage(0); }
 
 void CompressPage::on_btn_selectFile_clicked() {
-  ui->ln_file->clear();
   ui->ln_file->setText(fileDialog.getOpenFileName(this));
   ui->ln_file->setFocus();
 }
