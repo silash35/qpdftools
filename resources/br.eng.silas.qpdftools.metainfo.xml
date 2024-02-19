@@ -29,6 +29,17 @@
   <launchable type="desktop-id">br.eng.silas.qpdftools.desktop</launchable>
 
   <releases>
+    <release version="3.1.1" date="2024-02-19">
+      <url type="details">https://github.com/silash35/qpdftools/releases/tag/v3.1.1</url>
+      <description>
+        <p>Fix icon size</p>
+        <ul>
+          <li>Set the svg icon size to 128px</li>
+          <li>Fix QObject warning</li>
+          <li>Update screenshots</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.1.0" date="2024-02-13">
       <url type="details">https://github.com/silash35/qpdftools/releases/tag/v3.1.0</url>
       <description>
