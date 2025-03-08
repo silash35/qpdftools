@@ -4,16 +4,11 @@ Ghostscript::Ghostscript() : ExternalSoftware("Ghostscript", "gs") {}
 
 void Ghostscript::compressPDF(const QString &input, const QString &output, CompressionMode mode) {
   // Create a temp file if input and output are the same. Prevents file corruption
-  QString gsOutput = output;
-  if (input == output) {
-    gsOutput = QDir::tempPath() + "/temp_output.pdf";
-  }
+  QString gsOutput = (input == output) ? QDir::tempPath() + "/temp_output.pdf" : output;
 
   // gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/mode -dNOPAUSE -dBATCH
   // -sOutputFile=gsOutput.pdf input.pdf
-  QStringList arguments;
-  arguments << "-sDEVICE=pdfwrite"
-            << "-dCompatibilityLevel=1.4";
+  QStringList arguments = {"-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.4"};
 
   if (mode == screen) {
     arguments << "-dPDFSETTINGS=/screen";
@@ -39,11 +34,8 @@ void Ghostscript::compressPDF(const QString &input, const QString &output, Compr
 
 void Ghostscript::generateThumbnail(const QString &input, const QString &output) {
   // gs -q -o output.jpg -sDEVICE=jpeg -dLastPage=1 -dUseCropBox input.pdf
-  QStringList arguments;
-  arguments << "-q"
-            << "-o" << output << "-sDEVICE=jpeg"
-            << "-dLastPage=1"
-            << "-dUseCropBox" << input;
+  QStringList arguments = {
+    "-q", "-o", output, "-sDEVICE=jpeg", "-dLastPage=1", "-dUseCropBox", input};
 
   run(arguments);
 }

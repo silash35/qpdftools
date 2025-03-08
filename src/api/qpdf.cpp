@@ -6,19 +6,15 @@ void Qpdf::splitPDF(const QString &input, const QString &outputFolder) {
   QString output = QFileInfo(input).completeBaseName() + ".pdf";
 
   // qpdf input.pdf output.pdf --split-pages
-  QStringList arguments;
-  arguments << input << output << "--split-pages";
+  QStringList arguments = {input, output, "--split-pages"};
 
   run(arguments, outputFolder);
 }
 
 void Qpdf::splitPDF(const QString &input, const QString &output, int firstPage, int lastPage) {
-  // qpdf input.pdf --pages . start-end -- output.pdf
-
-  QStringList arguments;
-  arguments << input << "--pages"
-            << ".";
-  arguments << QString::number(firstPage) + "-" + QString::number(lastPage);
+  // qpdf input.pdf --pages . firstPage-lastPage -- output.pdf
+  QStringList arguments = {
+    input, "--pages", ".", QString::number(firstPage) + "-" + QString::number(lastPage)};
 
   if (input == output) {
     arguments << "--" << "--replace-input";
@@ -31,19 +27,11 @@ void Qpdf::splitPDF(const QString &input, const QString &output, int firstPage, 
 
 void Qpdf::mergePDF(const QStringList &inputs, const QString &output) {
   // Create a temp file if input and output are the same. Prevents file corruption
-  QString qpdfOutput = output;
-  if (inputs.contains(output)) {
-    qpdfOutput = QDir::tempPath() + "/temp_output.pdf";
-  }
+  QString qpdfOutput = (inputs.contains(output)) ? QDir::tempPath() + "/temp_output.pdf" : output;
 
   // qpdf --empty --pages inputs[0].pdf inputs[1].pdf -- qpdfOutput.pdf
-  QStringList arguments;
-  arguments << "--empty"
-            << "--pages";
-
-  for (int i = 0; i < inputs.size(); ++i)
-    arguments << inputs[i];
-
+  QStringList arguments = {"--empty", "--pages"};
+  arguments.append(inputs);
   arguments << "--" << qpdfOutput;
 
   run(arguments);
@@ -57,8 +45,7 @@ void Qpdf::mergePDF(const QStringList &inputs, const QString &output) {
 
 void Qpdf::rotatePDF(const QString &input, const QString &output, int angle) {
   // qpdf in.pdf out.pdf --rotate=angle
-  QStringList arguments;
-  arguments << input;
+  QStringList arguments = {input};
 
   if (input == output) {
     arguments << "--replace-input";
