@@ -71,7 +71,7 @@
         <string> Compress a PDF file</string>
        </property>
        <property name="icon">
-        <iconset theme="zoom-out"/>
+        <iconset theme="zoom-2-to-1"/>
        </property>
       </widget>
      </item>

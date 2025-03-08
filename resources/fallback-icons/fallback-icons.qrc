@@ -9,7 +9,7 @@
         <file>fallback-icons-dark/list-remove.svg</file>
         <file>fallback-icons-dark/object-rotate-left.svg</file>
         <file>fallback-icons-dark/object-rotate-right.svg</file>
-        <file>fallback-icons-dark/zoom-out.svg</file>
+        <file>fallback-icons-dark/zoom-2-to-1.svg</file>
 
         <file>fallback-icons-light/edit-cut.svg</file>
         <file>fallback-icons-light/edit-group.svg</file>
@@ -20,6 +20,6 @@
         <file>fallback-icons-light/list-remove.svg</file>
         <file>fallback-icons-light/object-rotate-left.svg</file>
         <file>fallback-icons-light/object-rotate-right.svg</file>
-        <file>fallback-icons-light/zoom-out.svg</file>
+        <file>fallback-icons-light/zoom-2-to-1.svg</file>
     </qresource>
 </RCC>
