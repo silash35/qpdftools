@@ -11,10 +11,10 @@ int main(int argc, char *argv[]) {
   QApplication::setDesktopFileName("br.eng.silas.qpdftools");
 
   // Enable fallback icons, in case the theme doesn't provide them
-  Qt::ColorScheme colorScheme = getColorScheme(app.palette().window().color().value(),
-                                               app.palette().windowText().color().value());
+  Qt::ColorScheme colorScheme = getColorScheme(
+    app.palette().window().color().value(), app.palette().windowText().color().value());
   QString fallbackIcons =
-      colorScheme == Qt::ColorScheme::Dark ? ":fallback-icons-dark" : ":fallback-icons-light";
+    colorScheme == Qt::ColorScheme::Dark ? ":fallback-icons-dark" : ":fallback-icons-light";
   QIcon::setFallbackSearchPaths(QIcon::fallbackSearchPaths() << fallbackIcons);
 
   // Enable Translations for other languages

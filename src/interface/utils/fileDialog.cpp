@@ -23,7 +23,7 @@ void FileDialog::setLastDirectoryByFile(const QString &file) {
 
 QString FileDialog::getOpenFileName(QWidget *parent) {
   QString file =
-      QFileDialog::getOpenFileName(parent, tr("Select the PDF file"), lastDirectory, filter);
+    QFileDialog::getOpenFileName(parent, tr("Select the PDF file"), lastDirectory, filter);
 
   if (!file.isEmpty()) {
     setLastDirectoryByFile(file);
@@ -46,7 +46,7 @@ QString FileDialog::getSaveFileName(QWidget *parent) {
 
 QStringList FileDialog::getOpenFileNames(QWidget *parent) {
   QStringList files =
-      QFileDialog::getOpenFileNames(parent, tr("Select the PDF files"), lastDirectory, filter);
+    QFileDialog::getOpenFileNames(parent, tr("Select the PDF files"), lastDirectory, filter);
   QStringList validFiles;
 
   for (int i = 0; i < files.count(); ++i) {
