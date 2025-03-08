@@ -2,6 +2,9 @@
 
 #include "externalSoftware.hpp"
 
+#include <QDir>
+#include <QFile>
+
 class Ghostscript : public ExternalSoftware {
 public:
   Ghostscript();

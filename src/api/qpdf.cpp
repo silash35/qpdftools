@@ -3,49 +3,69 @@
 Qpdf::Qpdf() : ExternalSoftware("qpdf", "qpdf") {}
 
 void Qpdf::splitPDF(const QString &input, const QString &outputFolder) {
-  // qpdf in.pdf out.pdf --split-pages
+  QString output = QFileInfo(input).completeBaseName() + ".pdf";
 
+  // qpdf input.pdf output.pdf --split-pages
   QStringList arguments;
-  arguments << input << "out.pdf"
-            << "--split-pages";
+  arguments << input << output << "--split-pages";
 
   run(arguments, outputFolder);
 }
 
 void Qpdf::splitPDF(const QString &input, const QString &output, int firstPage, int lastPage) {
-  // qpdf in.pdf --pages . start-end -- out.pdf
+  // qpdf input.pdf --pages . start-end -- output.pdf
 
   QStringList arguments;
   arguments << input << "--pages"
             << ".";
   arguments << QString::number(firstPage) + "-" + QString::number(lastPage);
-  arguments << "--" << output;
+
+  if (input == output) {
+    arguments << "--" << "--replace-input";
+  } else {
+    arguments << "--" << output;
+  }
 
   run(arguments);
 }
 
 void Qpdf::mergePDF(const QStringList &inputs, const QString &output) {
-  // qpdf --empty --pages in1.pdf in2.pdf -- out.pdf
-  QStringList arguments;
+  // Create a temp file if input and output are the same. Prevents file corruption
+  QString qpdfOutput = output;
+  if (inputs.contains(output)) {
+    qpdfOutput = QDir::tempPath() + "/temp_output.pdf";
+  }
 
+  // qpdf --empty --pages inputs[0].pdf inputs[1].pdf -- qpdfOutput.pdf
+  QStringList arguments;
   arguments << "--empty"
             << "--pages";
 
   for (int i = 0; i < inputs.size(); ++i)
     arguments << inputs[i];
 
-  arguments << "--" << output;
+  arguments << "--" << qpdfOutput;
 
   run(arguments);
+
+  // Move temp file to the right place if needed
+  if (qpdfOutput != output) {
+    QFile::remove(output);
+    QFile::rename(qpdfOutput, output);
+  }
 }
 
 void Qpdf::rotatePDF(const QString &input, const QString &output, int angle) {
   // qpdf in.pdf out.pdf --rotate=angle
-
   QStringList arguments;
-
   arguments << input;
-  arguments << output;
+
+  if (input == output) {
+    arguments << "--replace-input";
+  } else {
+    arguments << output;
+  }
+
   arguments << "--rotate=" + QString::number(angle);
 
   run(arguments);

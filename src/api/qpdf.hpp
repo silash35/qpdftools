@@ -2,6 +2,9 @@
 
 #include "externalSoftware.hpp"
 
+#include <QDir>
+#include <QFile>
+
 class Qpdf : public ExternalSoftware {
 public:
   Qpdf();
