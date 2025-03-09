@@ -169,7 +169,7 @@
         <translation>Juntar PDFs</translation>
     </message>
     <message>
-        <location filename="../interface/pages/3-merge/merge.cpp" line="56"/>
+        <location filename="../interface/pages/3-merge/merge.cpp" line="57"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
