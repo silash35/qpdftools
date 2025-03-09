@@ -27,7 +27,7 @@
         <string>Add a PDF file</string>
        </property>
        <property name="icon">
-        <iconset theme="list-add"/>
+        <iconset theme="value-increase"/>
        </property>
        <property name="class" stdset="0">
         <string notr="true">icon24</string>
@@ -40,7 +40,7 @@
         <string>Remove a PDF file</string>
        </property>
        <property name="icon">
-        <iconset theme="list-remove"/>
+        <iconset theme="value-decrease"/>
        </property>
        <property name="class" stdset="0">
         <string notr="true">icon24</string>
