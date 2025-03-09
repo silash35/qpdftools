@@ -176,7 +176,7 @@
     <message>
         <location filename="../interface/pages/3-merge/merge.cpp" line="57"/>
         <source>You need to add two or more files to be able to merge them</source>
-        <translation>Você precisa adcionar dois ou mais arquivos para poder unir-los</translation>
+        <translation>Você precisa adicionar dois ou mais arquivos para poder unir-los</translation>
     </message>
 </context>
 <context>
