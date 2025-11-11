@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/github/stars/silash35/qpdftools">
 </p>
 
-> Se installation info in the project [wiki](https://github.com/silash35/qpdftools/wiki).
+> See installation info in the project [wiki](https://github.com/silash35/qpdftools/wiki).
 
 Qpdf Tools is an easy-to-use Qt interface for [Ghostscript](https://www.ghostscript.com/) and [QPDF](https://github.com/qpdf/qpdf), which makes it possible for normal users to manage their PDFs.
 
