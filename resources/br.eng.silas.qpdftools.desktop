@@ -1,12 +1,18 @@
 [Desktop Entry]
 
 Name=Qpdf Tools
-Exec=qpdftools
+Name[pt_BR]=Qpdf Tools
+
+GenericName=PDF Tools
+GenericName[pt_BR]=Ferramentas para PDF
+
 Comment=An easy-to-use Qt interface for Ghostscript and QPDF
+Comment[pt_BR]=Uma interface Qt fácil de usar para Ghostscript e QPDF
+
+Exec=qpdftools
 Keywords=pdf;editor;manager;combiner;optimizer;
 Icon=br.eng.silas.qpdftools
 Type=Application
 Terminal=false
 StartupNotify=true
 Categories=Office;Qt;Utility;
-Name[pt_BR]=Qpdf Tools
