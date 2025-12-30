@@ -10,7 +10,7 @@ jobs:
           sudo apt install flatpak flatpak-builder
           sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
       - name: Pull Qpdf Tools Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Pull and setup manifest
         run: |
           curl https://raw.githubusercontent.com/flathub/br.eng.silas.qpdftools/master/br.eng.silas.qpdftools.yml > tmp.yml
