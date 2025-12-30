@@ -3,6 +3,7 @@
 Name=Qpdf Tools
 Exec=qpdftools
 Comment=An easy-to-use Qt interface for Ghostscript and QPDF
+Keywords=pdf;editor;manager;combiner;optimizer;
 Icon=br.eng.silas.qpdftools
 Type=Application
 Terminal=false
