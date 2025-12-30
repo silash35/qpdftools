@@ -60,6 +60,18 @@
   </screenshots>
 
   <releases>
+    <release version="3.1.3" date="2025-12-30">
+      <url type="details">https://github.com/silash35/qpdftools/releases/tag/v3.1.3</url>
+      <description>
+        <p>Maintenance and packaging improvements</p>
+        <ul>
+          <li>Update Flatpak runtime and dependencies</li>
+          <li>Improve AppStream metadata to better follow Flathub guidelines</li>
+          <li>Enhance .desktop file</li>
+          <li>Fix typos and grammar</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.1.2" date="2025-03-08">
       <url type="details">https://github.com/silash35/qpdftools/releases/tag/v3.1.2</url>
       <description>
